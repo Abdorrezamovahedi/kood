@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="شرکت تولید و عرضه کود طبیعی - محصولات ارگانیک و طبیعی برای کشاورزی پایدار، باغ و گلخانه"
+    />
+    <meta
+      name="keywords"
+      content="کود طبیعی, کود آلی, کود ارگانیک, بهبوددهنده خاک, کشاورزی پایدار"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="کود طبیعی | محصولات ارگانیک کشاورزی" />
+    <meta
+      property="og:description"
+      content="برای خاک بهتر، انتخاب هوشمندانه‌تر. محصولات کود طبیعی با کیفیت بالا"
+    />
+    <meta property="og:type" content="website" />
+    <title>کود طبیعی | محصولات ارگانیک و طبیعی کشاورزی</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+
+  </head>
+  <body>
+    <!-- Public Header -->
+    <header class="header" id="mainHeader">
+      <div class="header-inner">
+        <a href="#home" class="logo" onclick="navigate('home')">
+          <div class="logo-icon">🌱</div>
+          <span id="siteName" data-edit-key="companyName">کود طبیعی</span>
+        </a>
+        <nav class="nav" id="mainNav">
+          <a href="#home" data-page="home">صفحه اصلی</a>
+          <a href="#products" data-page="products">محصولات</a>
+          <a href="#about" data-page="about">درباره ما</a>
+          <a href="#benefits" data-page="benefits">مزایای محصولات</a>
+          <a href="#consult" data-page="consult">مشاوره</a>
+          <a href="#support" data-page="support">پشتیبانی</a>
+          <a href="#contact" data-page="contact">تماس با ما</a>
+        </nav>
+        <div class="header-actions">
+          <button
+            class="btn-icon"
+            id="themeToggle"
+            title="تغییر حالت روشن/تاریک"
+          >
+            🌙
+          </button>
+          <button class="btn btn-outline btn-sm" onclick="openLoginModal()">
+            ورود
+          </button>
+          <button
+            class="btn btn-primary btn-sm"
+            onclick="navigate('admin')"
+            id="adminBtn"
+            style="display: none"
+          >
+            پنل مدیریت
+          </button>
+          <button class="btn-icon mobile-toggle" id="mobileToggle">☰</button>
+        </div>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a
+          href="#home"
+          onclick="
+            navigate('home');
+            closeMobile();
+          "
+          >صفحه اصلی</a
+        >
+        <a
+          href="#products"
+          onclick="
+            navigate('products');
+            closeMobile();
+          "
+          >محصولات</a
+        >
+        <a
+          href="#about"
+          onclick="
+            navigate('about');
+            closeMobile();
+          "
+          >درباره ما</a
+        >
+        <a
+          href="#benefits"
+          onclick="
+            navigate('benefits');
+            closeMobile();
+          "
+          >مزایای محصولات</a
+        >
+        <a
+          href="#consult"
+          onclick="
+            navigate('consult');
+            closeMobile();
+          "
+          >مشاوره</a
+        >
+        <a
+          href="#support"
+          onclick="
+            navigate('support');
+            closeMobile();
+          "
+          >پشتیبانی</a
+        >
+        <a
+          href="#contact"
+          onclick="
+            navigate('contact');
+            closeMobile();
+          "
+          >تماس با ما</a
+        >
+        <a
+          href="#admin"
+          onclick="
+            navigate('admin');
+            closeMobile();
+          "
+          >پنل مدیریت</a
+        >
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="app"></main>
+
+    <!-- Footer -->
+    <footer class="footer" id="mainFooter">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <h4 id="footerCompany" data-edit-key="companyName">کود طبیعی</h4>
+            <p id="footerDesc" data-edit-key="footerDesc">
+              تولید و عرضه کودهای طبیعی و ارگانیک با کیفیت بالا برای کشاورزی
+              پایدار، باغ‌ها و گلخانه‌ها.
+            </p>
+            <div class="socials mt-20">
+              <a href="#" title="اینستاگرام">📷</a>
+              <a href="#" title="تلگرام">✈️</a>
+              <a href="#" title="واتساپ">💬</a>
+            </div>
+          </div>
+          <div>
+            <h4>لینک‌های سریع</h4>
+            <p>
+              <a href="#products" onclick="navigate('products')">محصولات</a>
+            </p>
+            <p><a href="#about" onclick="navigate('about')">درباره ما</a></p>
+            <p>
+              <a href="#consult" onclick="navigate('consult')"
+                >درخواست مشاوره</a
+              >
+            </p>
+            <p><a href="#support" onclick="navigate('support')">پشتیبانی</a></p>
+          </div>
+          <div>
+            <h4>تماس با ما</h4>
+            <p id="footerPhone" data-edit-key="phone">📞 ۰۲۱-۱۲۳۴۵۶۷۸</p>
+            <p id="footerEmail" data-edit-key="email">✉️ info@naturalfert.ir</p>
+            <p id="footerAddress" data-edit-key="address">📍 تهران، خیابان کشاورزی</p>
+          </div>
+          <div>
+            <h4>ساعات کاری</h4>
+            <p id="footerHours" data-edit-key="hours">
+              شنبه تا چهارشنبه: ۸ صبح تا ۵ عصر<br />پنجشنبه: ۸ صبح تا ۱ ظهر
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© <span id="year"></span> <span id="footerCopy">کود طبیعی</span>.
+            تمامی حقوق محفوظ است.</span
+          >
+          <span>طراحی شده با ❤️ برای کشاورزی پایدار</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Quick Admin Editing -->
+    <div class="quick-admin-bar" id="quickAdminBar" aria-label="ابزار مدیریت سریع">
+      <span class="qa-label">مدیریت سریع</span>
+      <button type="button" onclick="toggleInlineEdit()">✏️ ویرایش مستقیم</button>
+      <select id="quickSeasonSelect" onchange="quickChangeSeason(this.value)" title="تم فصلی">
+        <option value="auto">🗓️ خودکار</option>
+        <option value="spring">🌸 بهار</option>
+        <option value="summer">☀️ تابستان</option>
+        <option value="autumn">🍂 پاییز</option>
+        <option value="winter">❄️ زمستان</option>
+      </select>
+      <button type="button" class="qa-save" onclick="saveInlineEdits()">💾 ذخیره</button>
+      <button type="button" onclick="cancelInlineEdits()">↩️ لغو</button>
+      <button type="button" onclick="navigate('admin')">⚙️ پنل</button>
+      <button type="button" class="qa-danger" onclick="logout()">🚪 خروج</button>
+    </div>
+    <div class="admin-edit-hint" id="adminEditHint">
+      حالت ویرایش مستقیم: روی متن‌های مشخص‌شده (نام شرکت، هیرو، فوتر، درباره ما، آمار، کارت و صفحه جزئیات محصولات) کلیک کن، ویرایش کن و «ذخیره» را بزن.
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="loginModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3>ورود / ثبت‌نام</h3>
+          <button class="modal-close" onclick="closeModal('loginModal')">
+            ×
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>ایمیل</label>
+            <input
+              type="email"
+              id="loginEmail"
+              placeholder="example@email.com"
+            />
+          </div>
+          <div class="form-group">
+            <label>شماره موبایل</label>
+            <input type="tel" id="loginMobile" placeholder="09123456789" />
+          </div>
+          <div class="form-group">
+            <label>رمز عبور</label>
+            <input
+              type="password"
+              id="loginPassword"
+              placeholder="حداقل ۶ کاراکتر"
+            />
+          </div>
+          <p
+            style="
+              font-size: 0.85rem;
+              color: var(--text-muted);
+              margin-top: 8px;
+            "
+          >
+            برای ورود ادمین: admin@natural.ir / 09120000000 / admin123
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline" onclick="closeModal('loginModal')">
+            انصراف
+          </button>
+          <button class="btn btn-primary" onclick="handleLogin()">
+            ورود / ثبت‌نام
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="js/app.js"></script>
+
+
+  </body>
+</html>
