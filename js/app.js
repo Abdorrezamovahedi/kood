@@ -39,6 +39,8 @@
             suitableFor: "باغ، زراعت، گلخانه",
             status: "active",
             image: "",
+            images: [],
+            video: "",
             weight: "۲۵ کیلوگرم",
             form: "گرانول",
             compounds: "مواد آلی، نیتروژن، فسفر، پتاسیم، ریزمغذی‌ها",
@@ -90,6 +92,8 @@
             suitableFor: "گلخانه، باغ، آپارتمانی",
             status: "active",
             image: "",
+            images: [],
+            video: "",
             weight: "۱ لیتر",
             form: "مایع",
             compounds: "عصاره جلبک دریایی، هورمون‌های طبیعی رشد، آمینواسیدها",
@@ -127,6 +131,8 @@
             suitableFor: "زراعت، باغ",
             status: "active",
             image: "",
+            images: [],
+            video: "",
             weight: "۲۰ کیلوگرم",
             form: "پودری",
             compounds: "هومیک اسید، فولویک اسید، مواد آلی",
@@ -162,6 +168,8 @@
             suitableFor: "باغ",
             status: "active",
             image: "",
+            images: [],
+            video: "",
             weight: "۱۰ کیلوگرم",
             form: "گرانول",
             compounds: "N-P-K متعادل + ریزمغذی‌ها + مواد آلی",
@@ -186,12 +194,13 @@
         users: [
           {
             id: 1,
-            name: "مدیر سیستم",
+            name: "مالک سیستم",
             email: "admin@natural.ir",
             mobile: "09120000000",
             password: "admin123",
-            role: "admin",
+            role: "owner",
             status: "active",
+            permissions: [], // owner ignores this — has all
             createdAt: "2024-01-01",
           },
         ],
@@ -206,13 +215,50 @@
           const raw = localStorage.getItem(STORAGE_KEY);
           if (raw) {
             const data = JSON.parse(raw);
-            // merge with defaults for new fields
-            return {
+            const merged = {
               ...defaultData,
               ...data,
               settings: { ...defaultData.settings, ...data.settings },
               stats: { ...defaultData.stats, ...data.stats },
             };
+            // migrate products media fields
+            if (Array.isArray(merged.products)) {
+              merged.products = merged.products.map((p) => ({
+                ...p,
+                images: Array.isArray(p.images)
+                  ? p.images
+                  : p.image
+                    ? [p.image]
+                    : [],
+                video: p.video || "",
+              }));
+            }
+            // migrate users: first admin -> owner if no owner; permissions array
+            if (Array.isArray(merged.users)) {
+              const hasOwner = merged.users.some((u) => u.role === "owner");
+              merged.users = merged.users.map((u, i) => {
+                let role = u.role;
+                if (!hasOwner && role === "admin" && i === 0) role = "owner";
+                return {
+                  ...u,
+                  role,
+                  permissions: Array.isArray(u.permissions)
+                    ? u.permissions
+                    : role === "admin"
+                      ? ["dashboard","products","consults","tickets","users","settings","activity","inline_edit","media"]
+                      : [],
+                };
+              });
+            }
+            // migrate currentUser permissions
+            if (merged.currentUser) {
+              const full = merged.users.find((u) => u.id === merged.currentUser.id);
+              if (full) {
+                merged.currentUser.role = full.role;
+                merged.currentUser.permissions = full.permissions || [];
+              }
+            }
+            return merged;
           }
         } catch (e) {
           console.error(e);
@@ -331,24 +377,107 @@
       let inlineEditActive = false;
       let inlineEditSnapshot = null; // full DB snapshot for cancel
 
+      // All admin panel permission keys (owner manages these for staff)
+      const ALL_PERMISSIONS = [
+        { key: "dashboard", label: "داشبورد" },
+        { key: "products", label: "مدیریت محصولات" },
+        { key: "consults", label: "درخواست‌های مشاوره" },
+        { key: "tickets", label: "تیکت‌های پشتیبانی" },
+        { key: "users", label: "مدیریت کاربران و دسترسی‌ها" },
+        { key: "settings", label: "تنظیمات سایت" },
+        { key: "activity", label: "گزارش فعالیت‌ها" },
+        { key: "inline_edit", label: "ویرایش مستقیم روی سایت" },
+        { key: "media", label: "آپلود عکس و ویدیو محصول" },
+      ];
+
+      function isStaff() {
+        return !!(
+          DB.currentUser &&
+          (DB.currentUser.role === "owner" || DB.currentUser.role === "admin")
+        );
+      }
+
+      function isOwner() {
+        return !!(DB.currentUser && DB.currentUser.role === "owner");
+      }
+
       function isAdmin() {
-        return !!(DB.currentUser && DB.currentUser.role === "admin");
+        // backward-compatible: any staff with admin/owner
+        return isStaff();
+      }
+
+      function hasPermission(key) {
+        if (!DB.currentUser) return false;
+        if (DB.currentUser.role === "owner") return true;
+        if (DB.currentUser.role !== "admin") return false;
+        const perms = DB.currentUser.permissions || [];
+        return perms.includes(key);
       }
 
       function showQuickAdminBar() {
         const bar = document.getElementById("quickAdminBar");
-        if (!bar || !isAdmin()) return;
-        bar.classList.add("visible");
+        const fab = document.getElementById("quickAdminFab");
+        if (!isStaff()) {
+          hideQuickAdminBar();
+          return;
+        }
+        const collapsed = localStorage.getItem("qaBarCollapsed") === "1";
+        if (collapsed) {
+          if (bar) {
+            bar.classList.remove("visible");
+            bar.classList.add("collapsed");
+          }
+          if (fab) fab.classList.add("visible");
+        } else {
+          if (bar) {
+            bar.classList.add("visible");
+            bar.classList.remove("collapsed");
+          }
+          if (fab) fab.classList.remove("visible");
+        }
         syncQuickSeasonSelect();
       }
 
       function hideQuickAdminBar() {
         const bar = document.getElementById("quickAdminBar");
+        const fab = document.getElementById("quickAdminFab");
         const hint = document.getElementById("adminEditHint");
-        if (bar) bar.classList.remove("visible");
+        if (bar) {
+          bar.classList.remove("visible");
+          bar.classList.add("collapsed");
+        }
+        if (fab) fab.classList.remove("visible");
         if (hint) hint.classList.remove("visible");
         document.body.classList.remove("inline-editing-active");
       }
+
+      function minimizeQuickAdminBar() {
+        localStorage.setItem("qaBarCollapsed", "1");
+        const bar = document.getElementById("quickAdminBar");
+        const fab = document.getElementById("quickAdminFab");
+        if (bar) {
+          bar.classList.remove("visible");
+          bar.classList.add("collapsed");
+        }
+        if (fab) fab.classList.add("visible");
+        const hint = document.getElementById("adminEditHint");
+        if (hint) hint.classList.remove("visible");
+      }
+
+      function expandQuickAdminBar() {
+        localStorage.setItem("qaBarCollapsed", "0");
+        const bar = document.getElementById("quickAdminBar");
+        const fab = document.getElementById("quickAdminFab");
+        if (bar) {
+          bar.classList.add("visible");
+          bar.classList.remove("collapsed");
+        }
+        if (fab) fab.classList.remove("visible");
+      }
+
+      window.minimizeQuickAdminBar = minimizeQuickAdminBar;
+      window.expandQuickAdminBar = expandQuickAdminBar;
+
 
       function syncQuickSeasonSelect() {
         const select = document.getElementById("quickSeasonSelect");
@@ -411,8 +540,8 @@
       }
 
       function toggleInlineEdit() {
-        if (!isAdmin()) {
-          showToast("دسترسی مدیر لازم است", "error");
+        if (!isStaff() || !hasPermission("inline_edit")) {
+          showToast("دسترسی ویرایش مستقیم ندارید", "error");
           return;
         }
 
@@ -647,7 +776,7 @@
         document.getElementById("year").textContent = new Date().getFullYear();
         updateSiteTexts();
         render();
-        if (DB.currentUser && DB.currentUser.role === "admin") {
+        if (DB.currentUser && (DB.currentUser.role === "admin" || DB.currentUser.role === "owner")) {
           document.getElementById("adminBtn").style.display = "inline-flex";
           showQuickAdminBar();
           syncQuickSeasonSelect();
@@ -695,14 +824,16 @@
         if (page === "admin" || page.startsWith("admin")) {
           header.style.display = "none";
           footer.style.display = "none";
+          updateSupportFabVisibility();
           renderAdmin(page, param);
           return;
         }
 
         header.style.display = "";
         footer.style.display = "";
+        updateSupportFabVisibility();
 
-        if (isAdmin()) {
+        if (isStaff()) {
           showQuickAdminBar();
         } else {
           hideQuickAdminBar();
@@ -737,9 +868,10 @@
             renderHome();
         }
 
-        if (isAdmin() && inlineEditActive) {
+        if (isStaff() && inlineEditActive) {
           bindInlineEditableElements();
         }
+        initRevealAnimations();
       }
 
       // ==================== PUBLIC PAGES ====================
@@ -817,7 +949,11 @@
         div.className = "product-card";
         div.innerHTML = `
             <div class="product-card-img">
-                <div class="placeholder-visual" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;">🌿</div>
+                ${
+                  (p.images && p.images[0]) || p.image
+                    ? `<img src="${(p.images && p.images[0]) || p.image}" alt="${escapeHtml(p.name)}" style="width:100%;height:100%;object-fit:cover;" />`
+                    : `<div class="placeholder-visual" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;">🌿</div>`
+                }
                 <span class="product-card-badge" data-edit-key="product:${p.id}:category">${escapeHtml(p.category)}</span>
             </div>
             <div class="product-card-body">
@@ -930,8 +1066,30 @@
         <section class="product-detail">
             <div class="container">
                 <div class="product-detail-header">
-                    <div class="product-detail-img">
-                        <div class="placeholder-visual" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:6rem;">🌿</div>
+                    <div class="product-media-col">
+                        ${(() => {
+                          const imgs = (p.images && p.images.length)
+                            ? p.images
+                            : (p.image ? [p.image] : []);
+                          if (!imgs.length) {
+                            return `<div class="product-detail-img"><div class="placeholder-visual" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:6rem;">🌿</div></div>`;
+                          }
+                          return `
+                          <div class="h-gallery" id="productHGallery">
+                            <button type="button" class="h-gallery-nav h-gallery-prev" onclick="event.preventDefault();event.stopPropagation();scrollProductGallery(-1)" aria-label="قبلی">‹</button>
+                            <div class="h-gallery-track" id="productGalleryTrack">
+                              ${imgs.map((src, i) => `
+                                <div class="h-gallery-slide">
+                                  <img src="${src}" alt="${escapeHtml(p.name)} - ${i + 1}" loading="lazy" />
+                                </div>`).join("")}
+                            </div>
+                            <button type="button" class="h-gallery-nav h-gallery-next" onclick="event.preventDefault();event.stopPropagation();scrollProductGallery(1)" aria-label="بعدی">›</button>
+                          </div>
+                          ${imgs.length > 1 ? `
+                          <div class="h-gallery-dots" id="productGalleryDots">
+                            ${imgs.map((_, i) => `<button type="button" class="h-gallery-dot ${i===0?"active":""}" data-i="${i}" onclick="goProductGallery(${i})"></button>`).join("")}
+                          </div>` : ""}`;
+                        })()}
                     </div>
                     <div class="product-detail-info">
                         <div class="cat" data-edit-key="product:${p.id}:category">${escapeHtml(p.category)}</div>
@@ -955,6 +1113,11 @@
                         </div>
                     </div>
                 </div>
+                ${
+                  p.video
+                    ? `<div class="product-video-wrap"><video src="${p.video}" controls playsinline></video></div>`
+                    : ""
+                }
                 <div class="detail-section">
                     <h2>توضیحات کامل</h2>
                     <div class="long-text" data-edit-key="product:${p.id}:fullDesc">${escapeHtml(p.fullDesc || "توضیحاتی ثبت نشده است.")}</div>
@@ -999,6 +1162,8 @@
           const rg = document.getElementById("relatedGrid");
           related.forEach((r) => rg.appendChild(createProductCard(r)));
         }
+        bindProductGalleryScroll();
+        initRevealAnimations();
         // SEO update
         document.title = `${p.name} | کود طبیعی`;
       }
@@ -1224,6 +1389,147 @@
         </section>`;
       }
 
+
+
+      // ==================== SCROLL REVEAL ANIMATIONS ====================
+      function initRevealAnimations() {
+        try {
+          const nodes = document.querySelectorAll(
+            ".product-card, .stat-card, .benefit-card, .section-header, .form-card, .detail-section, .about-feature, .hero-content, .hero-visual",
+          );
+          nodes.forEach((el, i) => {
+            if (el.classList.contains("reveal")) return;
+            el.classList.add("reveal");
+            el.classList.add("reveal-delay-" + ((i % 5) + 1));
+          });
+          if (!("IntersectionObserver" in window)) {
+            nodes.forEach((el) => el.classList.add("revealed"));
+            return;
+          }
+          const io = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("revealed");
+                  io.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.12, rootMargin: "0px 0px -24px 0px" },
+          );
+          document.querySelectorAll(".reveal:not(.revealed)").forEach((el) => io.observe(el));
+        } catch (e) {
+          console.warn("reveal", e);
+        }
+      }
+
+      // ==================== SUPPORT FAB ====================
+
+      // ==================== PRODUCT HORIZONTAL GALLERY ====================
+      function getGalleryIndex() {
+        const track = document.getElementById("productGalleryTrack");
+        if (!track) return 0;
+        const slides = track.querySelectorAll(".h-gallery-slide");
+        if (!slides.length) return 0;
+        const w = slides[0].getBoundingClientRect().width || track.clientWidth;
+        if (!w) return 0;
+        return Math.round(track.scrollLeft / w);
+      }
+
+      function setGalleryDots(index) {
+        document.querySelectorAll("#productGalleryDots .h-gallery-dot").forEach((d, i) => {
+          d.classList.toggle("active", i === index);
+        });
+      }
+
+      window.scrollProductGallery = function (dir) {
+        const track = document.getElementById("productGalleryTrack");
+        if (!track) return;
+        const slides = track.querySelectorAll(".h-gallery-slide");
+        if (!slides.length) return;
+        const w = slides[0].getBoundingClientRect().width || track.clientWidth;
+        const max = slides.length - 1;
+        let idx = getGalleryIndex();
+        idx = Math.max(0, Math.min(max, idx + dir));
+        track.scrollTo({ left: idx * w, behavior: "smooth" });
+        setGalleryDots(idx);
+      };
+
+      window.goProductGallery = function (index) {
+        const track = document.getElementById("productGalleryTrack");
+        if (!track) return;
+        const slides = track.querySelectorAll(".h-gallery-slide");
+        if (!slides[index]) return;
+        const w = slides[0].getBoundingClientRect().width || track.clientWidth;
+        track.scrollTo({ left: index * w, behavior: "smooth" });
+        setGalleryDots(index);
+      };
+
+      function bindProductGalleryScroll() {
+        const track = document.getElementById("productGalleryTrack");
+        if (!track) return;
+        let ticking = false;
+        track.addEventListener(
+          "scroll",
+          () => {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(() => {
+              setGalleryDots(getGalleryIndex());
+              ticking = false;
+            });
+          },
+          { passive: true },
+        );
+      }
+
+      function openSupportModal() {
+        document.getElementById("supportModal").classList.add("open");
+      }
+      window.openSupportModal = openSupportModal;
+
+      window.submitSupportFab = function () {
+        const subject = document.getElementById("sfSubject").value.trim();
+        const name = document.getElementById("sfName").value.trim();
+        const contact = document.getElementById("sfContact").value.trim();
+        const message = document.getElementById("sfMessage").value.trim();
+        if (!subject || !name || !contact || !message) {
+          showToast("لطفاً تمام فیلدهای الزامی را پر کنید", "error");
+          return;
+        }
+        DB.tickets.unshift({
+          id: Date.now(),
+          subject,
+          name,
+          contact,
+          priority: document.getElementById("sfPriority").value,
+          message,
+          status: "باز",
+          replies: [],
+          createdAt: new Date().toLocaleString("fa-IR"),
+        });
+        saveDB(DB);
+        logActivity("ثبت تیکت از دکمه شناور", subject);
+        closeModal("supportModal");
+        showToast("پیام شما ثبت شد");
+        document.getElementById("sfSubject").value = "";
+        document.getElementById("sfName").value = "";
+        document.getElementById("sfContact").value = "";
+        document.getElementById("sfMessage").value = "";
+      };
+
+      function updateSupportFabVisibility() {
+        const fab = document.getElementById("supportFab");
+        if (!fab) return;
+        const hash = (window.location.hash.slice(1) || "home").split("/")[0];
+        // hide on full admin layout pages
+        if (hash === "admin") {
+          fab.style.display = "none";
+        } else {
+          fab.style.display = "flex";
+        }
+      }
+
       // ==================== AUTH ====================
       function openLoginModal() {
         document.getElementById("loginModal").classList.add("open");
@@ -1271,13 +1577,16 @@
           name: user.name,
           email: user.email,
           role: user.role,
+          permissions: user.permissions || [],
         };
         saveDB(DB);
         closeModal("loginModal");
         showToast("ورود موفقیت‌آمیز بود");
-        document.getElementById("adminBtn").style.display =
-          user.role === "admin" ? "inline-flex" : "none";
-        if (user.role === "admin") {
+        const staff = user.role === "admin" || user.role === "owner";
+        document.getElementById("adminBtn").style.display = staff
+          ? "inline-flex"
+          : "none";
+        if (staff) {
           showQuickAdminBar();
           syncQuickSeasonSelect();
           if (!window.location.hash || window.location.hash === "#admin") {
@@ -1285,14 +1594,18 @@
           } else {
             render();
           }
-          showToast("مدیر وارد شد؛ ویرایش مستقیم فعال است");
+          showToast(
+            user.role === "owner"
+              ? "مالک وارد شد"
+              : "مدیر وارد شد",
+          );
         }
         logActivity("ورود کاربر", user.email);
       };
 
       // ==================== ADMIN ====================
       function renderAdmin(page, param) {
-        if (!DB.currentUser || DB.currentUser.role !== "admin") {
+        if (!isStaff()) {
           document.getElementById("app").innerHTML = `
             <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;text-align:center;padding:20px;">
                 <h2>دسترسی محدود</h2>
@@ -1302,12 +1615,42 @@
             </div>`;
           return;
         }
-        // Bug fix: this used to be `page === 'admin' ? 'dashboard' : ...`, which is always
-        // true (page is always the literal string 'admin' here), so every admin menu item
-        // (products, consults, tickets, users, settings, activity) rendered the dashboard
-        // no matter what was clicked. The section must come from `param` (e.g. 'products'
-        // in the hash 'admin/products').
         const section = param || "dashboard";
+        // permission gate for section
+        const sectionPerm = {
+          dashboard: "dashboard",
+          products: "products",
+          consults: "consults",
+          tickets: "tickets",
+          users: "users",
+          settings: "settings",
+          activity: "activity",
+        };
+        const need = sectionPerm[section] || "dashboard";
+        if (!hasPermission(need)) {
+          // fall back to first allowed section
+          const first = ALL_PERMISSIONS.find((p) =>
+            ["dashboard","products","consults","tickets","users","settings","activity"].includes(p.key) && hasPermission(p.key)
+          );
+          if (first && first.key !== section) {
+            navigate("admin", first.key === "dashboard" ? null : first.key);
+            return;
+          }
+          document.getElementById("app").innerHTML = `
+            <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;padding:20px;text-align:center;">
+              <h2>بدون دسترسی</h2>
+              <p>هیچ بخشی از پنل برای شما فعال نشده است. با مالک هماهنگ کنید.</p>
+              <button class="btn btn-outline" onclick="navigate('home')">بازگشت</button>
+            </div>`;
+          return;
+        }
+
+        const link = (key, href, label, onclick) => {
+          if (!hasPermission(key)) return "";
+          const active = section === key || (key === "dashboard" && section === "dashboard");
+          return `<a href="${href}" class="${active ? "active" : ""}" onclick="${onclick}">${label}</a>`;
+        };
+
         document.getElementById("app").innerHTML = `
         <div class="admin-layout">
             <div class="admin-overlay" id="adminOverlay" onclick="closeAdminSidebar()"></div>
@@ -1317,13 +1660,13 @@
                     <button class="btn-icon admin-sidebar-close" onclick="closeAdminSidebar()">×</button>
                 </div>
                 <nav class="admin-nav">
-                    <a href="#admin" class="${section === "dashboard" ? "active" : ""}" onclick="navigate('admin')">📊 داشبورد</a>
-                    <a href="#admin/products" class="${section === "products" ? "active" : ""}" onclick="navigate('admin','products')">📦 محصولات</a>
-                    <a href="#admin/consults" class="${section === "consults" ? "active" : ""}" onclick="navigate('admin','consults')">💬 مشاوره‌ها</a>
-                    <a href="#admin/tickets" class="${section === "tickets" ? "active" : ""}" onclick="navigate('admin','tickets')">🎫 پشتیبانی</a>
-                    <a href="#admin/users" class="${section === "users" ? "active" : ""}" onclick="navigate('admin','users')">👥 کاربران</a>
-                    <a href="#admin/settings" class="${section === "settings" ? "active" : ""}" onclick="navigate('admin','settings')">⚙️ تنظیمات</a>
-                    <a href="#admin/activity" class="${section === "activity" ? "active" : ""}" onclick="navigate('admin','activity')">📋 فعالیت‌ها</a>
+                    ${link("dashboard", "#admin", "📊 داشبورد", "navigate('admin')")}
+                    ${link("products", "#admin/products", "📦 محصولات", "navigate('admin','products')")}
+                    ${link("consults", "#admin/consults", "💬 مشاوره‌ها", "navigate('admin','consults')")}
+                    ${link("tickets", "#admin/tickets", "🎫 پشتیبانی", "navigate('admin','tickets')")}
+                    ${link("users", "#admin/users", "👥 کاربران", "navigate('admin','users')")}
+                    ${link("settings", "#admin/settings", "⚙️ تنظیمات", "navigate('admin','settings')")}
+                    ${link("activity", "#admin/activity", "📋 فعالیت‌ها", "navigate('admin','activity')")}
                     <a href="#home" onclick="navigate('home')">🏠 بازگشت به سایت</a>
                     <a href="#" onclick="logout()" style="color:#C62828;">🚪 خروج</a>
                 </nav>
@@ -1512,9 +1855,108 @@
             <div class="form-group"><label>شرایط نگهداری</label><input id="pStorage" value="${p ? escapeHtml(p.storage || "") : ""}"></div>
             <div class="form-group"><label>وضعیت</label>
                 <select id="pStatus"><option value="active" ${!p || p.status === "active" ? "selected" : ""}>فعال</option><option value="inactive" ${p && p.status === "inactive" ? "selected" : ""}>غیرفعال</option></select>
+            </div>
+            <div class="form-group" style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);">
+              <label>رسانه محصول (چند عکس + یک ویدیو)</label>
+              <p style="font-size:0.8rem;color:var(--text-muted);margin:6px 0 10px;">عکس و ویدیو در مرورگر ذخیره می‌شود؛ فایل خیلی بزرگ ممکن است فضای localStorage را پر کند (ترجیحاً زیر ۲ مگابایت).</p>
+              <input type="file" id="pImagesInput" accept="image/*" multiple style="margin-bottom:10px;" />
+              <div class="media-gallery" id="pImagesPreview"></div>
+              <label style="margin-top:14px;display:block;">ویدیو (یک فایل)</label>
+              <input type="file" id="pVideoInput" accept="video/*" style="margin-top:6px;" />
+              <div id="pVideoPreview" style="margin-top:10px;"></div>
+              <button type="button" class="btn btn-sm btn-outline" style="margin-top:8px;" onclick="clearProductVideo()">حذف ویدیو</button>
             </div>`;
+        window._editingImages = p && p.images ? [...p.images] : (p && p.image ? [p.image] : []);
+        window._editingVideo = p && p.video ? p.video : "";
         document.getElementById("productModal").classList.add("open");
+        setTimeout(() => {
+          bindProductMediaInputs();
+          renderProductMediaPreview();
+        }, 0);
       };
+
+      function renderProductMediaPreview() {
+        const box = document.getElementById("pImagesPreview");
+        const vbox = document.getElementById("pVideoPreview");
+        if (!box) return;
+        box.innerHTML = (window._editingImages || [])
+          .map(
+            (src, i) => `
+          <div class="media-thumb">
+            <img src="${src}" alt="" />
+            <button type="button" class="media-remove" onclick="removeProductImage(${i})">×</button>
+          </div>`,
+          )
+          .join("") || '<span style="color:var(--text-muted);font-size:0.85rem;">عکسی نیست</span>';
+        if (vbox) {
+          vbox.innerHTML = window._editingVideo
+            ? `<video src="${window._editingVideo}" controls style="max-width:100%;max-height:180px;border-radius:10px;"></video>`
+            : '<span style="color:var(--text-muted);font-size:0.85rem;">ویدیویی نیست</span>';
+        }
+      }
+
+      function bindProductMediaInputs() {
+        const imgInput = document.getElementById("pImagesInput");
+        const vidInput = document.getElementById("pVideoInput");
+        if (imgInput) {
+          imgInput.onchange = async () => {
+            if (!hasPermission("media") && !isOwner()) {
+              showToast("دسترسی رسانه ندارید", "error");
+              imgInput.value = "";
+              return;
+            }
+            const files = [...imgInput.files];
+            for (const f of files) {
+              if (f.size > 2.5 * 1024 * 1024) {
+                showToast("حجم عکس بیش از ۲.۵ مگابایت: " + f.name, "error");
+                continue;
+              }
+              const dataUrl = await readFileAsDataURL(f);
+              window._editingImages.push(dataUrl);
+            }
+            imgInput.value = "";
+            renderProductMediaPreview();
+          };
+        }
+        if (vidInput) {
+          vidInput.onchange = async () => {
+            if (!hasPermission("media") && !isOwner()) {
+              showToast("دسترسی رسانه ندارید", "error");
+              vidInput.value = "";
+              return;
+            }
+            const f = vidInput.files[0];
+            if (!f) return;
+            if (f.size > 8 * 1024 * 1024) {
+              showToast("ویدیو بزرگ‌تر از ۸ مگابایت است", "error");
+              vidInput.value = "";
+              return;
+            }
+            window._editingVideo = await readFileAsDataURL(f);
+            vidInput.value = "";
+            renderProductMediaPreview();
+          };
+        }
+      }
+
+      function readFileAsDataURL(file) {
+        return new Promise((resolve, reject) => {
+          const r = new FileReader();
+          r.onload = () => resolve(r.result);
+          r.onerror = reject;
+          r.readAsDataURL(file);
+        });
+      }
+
+      window.removeProductImage = function (i) {
+        window._editingImages.splice(i, 1);
+        renderProductMediaPreview();
+      };
+      window.clearProductVideo = function () {
+        window._editingVideo = "";
+        renderProductMediaPreview();
+      };
+
 
       window.saveProduct = function () {
         const name = document.getElementById("pName").value.trim();
@@ -1549,6 +1991,9 @@
           warnings: document.getElementById("pWarn").value.trim(),
           storage: document.getElementById("pStorage").value.trim(),
           status: document.getElementById("pStatus").value,
+          images: window._editingImages || [],
+          video: window._editingVideo || "",
+          image: (window._editingImages && window._editingImages[0]) || "",
         };
         if (window.editingProductId) {
           // Bug fix: this used to always reset `faq` and `related` to empty arrays,
@@ -1561,7 +2006,9 @@
           logActivity("ویرایش محصول", name);
         } else {
           data.id = Date.now();
-          data.image = "";
+          data.image = data.image || "";
+          data.images = data.images || [];
+          data.video = data.video || "";
           data.country = "ایران";
           data.brand = DB.settings.companyName;
           data.faq = [];
@@ -1707,11 +2154,16 @@
       };
 
       function renderAdminUsers(el) {
+        const canManage = isOwner() || hasPermission("users");
         el.innerHTML = `
-            <div class="admin-header"><h1>مدیریت کاربران</h1></div>
+            <div class="admin-header"><h1>مدیریت کاربران و دسترسی‌ها</h1></div>
+            <p style="color:var(--text-muted);margin-bottom:16px;font-size:0.9rem;">
+              مالک می‌تواند برای هر مدیر مشخص کند کدام بخش‌های پنل فعال باشد.
+              دسترسی‌ها: داشبورد، محصولات، مشاوره، پشتیبانی، کاربران، تنظیمات، فعالیت‌ها، ویرایش مستقیم، رسانه محصول.
+            </p>
             <div class="admin-table-wrap">
                 <table class="admin-table">
-                    <thead><tr><th>نام</th><th>ایمیل</th><th>موبایل</th><th>نقش</th><th>وضعیت</th><th>تاریخ عضویت</th><th>عملیات</th></tr></thead>
+                    <thead><tr><th>نام</th><th>ایمیل</th><th>موبایل</th><th>نقش</th><th>وضعیت</th><th>دسترسی‌ها</th><th>عملیات</th></tr></thead>
                     <tbody>
                         ${DB.users
                           .map(
@@ -1720,11 +2172,32 @@
                                 <td>${escapeHtml(u.name)}</td>
                                 <td>${escapeHtml(u.email)}</td>
                                 <td>${escapeHtml(u.mobile)}</td>
-                                <td>${u.role === "admin" ? "مدیر" : "کاربر"}</td>
+                                <td>${u.role === "owner" ? "مالک" : u.role === "admin" ? "مدیر" : "کاربر"}</td>
                                 <td><span class="badge ${u.status === "active" ? "badge-green" : "badge-red"}">${u.status === "active" ? "فعال" : "مسدود"}</span></td>
-                                <td>${u.createdAt}</td>
+                                <td style="font-size:0.8rem;max-width:220px;">
+                                  ${
+                                    u.role === "owner"
+                                      ? "همه دسترسی‌ها"
+                                      : u.role === "admin"
+                                        ? (u.permissions && u.permissions.length
+                                            ? u.permissions.map((k) => (ALL_PERMISSIONS.find((p) => p.key === k) || { label: k }).label).join("، ")
+                                            : "هیچ")
+                                        : "-"
+                                  }
+                                </td>
                                 <td>
-                                    ${u.role !== "admin" ? `<button class="btn btn-sm btn-secondary" onclick="toggleUser(${u.id})">${u.status === "active" ? "مسدود" : "رفع مسدودی"}</button>` : "-"}
+                                    ${
+                                      canManage && u.role !== "owner"
+                                        ? `
+                                      ${u.role === "admin" || u.role === "user" ? `<button class="btn btn-sm btn-outline" onclick="openPermModal(${u.id})">دسترسی‌ها</button>` : ""}
+                                      ${u.role !== "owner" ? `<button class="btn btn-sm btn-secondary" onclick="toggleUser(${u.id})">${u.status === "active" ? "مسدود" : "رفع مسدودی"}</button>` : ""}
+                                      ${u.role === "user" ? `<button class="btn btn-sm btn-primary" onclick="promoteToAdmin(${u.id})">ارتقا به مدیر</button>` : ""}
+                                      ${u.role === "admin" && isOwner() ? `<button class="btn btn-sm" style="background:#616161;color:#fff;" onclick="demoteAdmin(${u.id})">تبدیل به کاربر</button>` : ""}
+                                    `
+                                        : u.role === "owner"
+                                          ? "—"
+                                          : "—"
+                                    }
                                 </td>
                             </tr>
                         `,
@@ -1732,18 +2205,97 @@
                           .join("")}
                     </tbody>
                 </table>
+            </div>
+            <div class="modal-overlay" id="permModal">
+              <div class="modal">
+                <div class="modal-header">
+                  <h3>تنظیم دسترسی‌ها</h3>
+                  <button class="modal-close" onclick="closeModal('permModal')">×</button>
+                </div>
+                <div class="modal-body" id="permModalBody"></div>
+                <div class="modal-footer">
+                  <button class="btn btn-outline" onclick="closeModal('permModal')">انصراف</button>
+                  <button class="btn btn-primary" onclick="savePermissions()">ذخیره دسترسی‌ها</button>
+                </div>
+              </div>
             </div>`;
       }
 
-      window.toggleUser = function (id) {
-        const u = DB.users.find((x) => x.id === id);
-        if (u && u.role !== "admin") {
-          u.status = u.status === "active" ? "blocked" : "active";
-          saveDB(DB);
-          logActivity("تغییر وضعیت کاربر", u.email);
-          renderAdminSection("users");
-          showToast("وضعیت کاربر تغییر کرد");
+      window.openPermModal = function (id) {
+        if (!isOwner() && !hasPermission("users")) {
+          showToast("دسترسی ندارید", "error");
+          return;
         }
+        const u = DB.users.find((x) => x.id === id);
+        if (!u || u.role === "owner") return;
+        window.editingPermUserId = id;
+        const current = new Set(u.permissions || []);
+        document.getElementById("permModalBody").innerHTML = `
+          <p style="margin-bottom:12px;">کاربر: <strong>${escapeHtml(u.name)}</strong> (${escapeHtml(u.email)})</p>
+          <div class="perm-grid">
+            ${ALL_PERMISSIONS.map(
+              (p) => `
+              <label class="perm-item">
+                <input type="checkbox" data-perm="${p.key}" ${current.has(p.key) ? "checked" : ""} />
+                <span>${p.label}</span>
+              </label>`,
+            ).join("")}
+          </div>
+          <p style="margin-top:12px;font-size:0.85rem;color:var(--text-muted);">اگر نقش کاربر «کاربر» باشد، با ذخیره به «مدیر» ارتقا می‌یابد.</p>`;
+        document.getElementById("permModal").classList.add("open");
+      };
+
+      window.savePermissions = function () {
+        const id = window.editingPermUserId;
+        const u = DB.users.find((x) => x.id === id);
+        if (!u) return;
+        const perms = [
+          ...document.querySelectorAll("#permModalBody input[data-perm]:checked"),
+        ].map((el) => el.dataset.perm);
+        u.permissions = perms;
+        if (u.role === "user" && perms.length) u.role = "admin";
+        if (u.role === "admin" && perms.length === 0) {
+          // keep as admin with no section access
+        }
+        // sync currentUser if editing self
+        if (DB.currentUser && DB.currentUser.id === u.id) {
+          DB.currentUser.permissions = perms;
+          DB.currentUser.role = u.role;
+        }
+        saveDB(DB);
+        closeModal("permModal");
+        logActivity("تغییر دسترسی کاربر", u.email);
+        showToast("دسترسی‌ها ذخیره شد");
+        renderAdminSection("users");
+      };
+
+      window.promoteToAdmin = function (id) {
+        if (!isOwner()) {
+          showToast("فقط مالک می‌تواند ارتقا دهد", "error");
+          return;
+        }
+        const u = DB.users.find((x) => x.id === id);
+        if (!u) return;
+        u.role = "admin";
+        u.permissions = u.permissions && u.permissions.length
+          ? u.permissions
+          : ["dashboard", "products", "tickets"];
+        saveDB(DB);
+        logActivity("ارتقا به مدیر", u.email);
+        showToast("کاربر به مدیر ارتقا یافت");
+        renderAdminSection("users");
+      };
+
+      window.demoteAdmin = function (id) {
+        if (!isOwner()) return;
+        const u = DB.users.find((x) => x.id === id);
+        if (!u || u.role === "owner") return;
+        u.role = "user";
+        u.permissions = [];
+        saveDB(DB);
+        logActivity("تنزل نقش مدیر", u.email);
+        showToast("به کاربر عادی تبدیل شد");
+        renderAdminSection("users");
       };
 
       function renderAdminSettings(el) {

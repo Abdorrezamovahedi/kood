@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ارتباط با سازنده سایت — عبدالرضا موحدی" />
+  <title>ارتباط با سازنده سایت</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0c1118;
+      --card: #151d2a;
+      --primary: #3dd68c;
+      --primary-dark: #2a9d66;
+      --blue: #5b9fd4;
+      --text: #eef3f8;
+      --muted: #8b9bb0;
+      --border: #2a3548;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Vazirmatn", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 18px;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 45% at 15% 15%, rgba(61, 214, 140, 0.14), transparent 55%),
+        radial-gradient(ellipse 55% 40% at 90% 85%, rgba(91, 159, 212, 0.12), transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 480px;
+      width: 100%;
+      animation: rise 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(24px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 36px 28px 32px;
+      box-shadow: 0 28px 64px rgba(0, 0, 0, 0.4);
+      text-align: center;
+    }
+    .avatar {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--primary), var(--blue));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin: 0 auto 18px;
+      animation: float 4.5s ease-in-out infinite;
+      box-shadow: 0 14px 36px rgba(61, 214, 140, 0.28);
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+    h1 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .role {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+    .desc {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 26px;
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.25s, box-shadow 0.25s, background 0.25s, border-color 0.25s;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .links a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+      border-color: var(--primary-dark);
+      background: rgba(61, 214, 140, 0.1);
+    }
+    .links a.primary {
+      background: var(--primary);
+      color: #0a1a12;
+      border-color: transparent;
+    }
+    .links a.primary:hover {
+      background: var(--primary-dark);
+      color: #fff;
+    }
+    .links a.portfolio {
+      background: rgba(91, 159, 212, 0.15);
+      border-color: rgba(91, 159, 212, 0.35);
+    }
+    .links a.portfolio:hover {
+      background: rgba(91, 159, 212, 0.28);
+      border-color: var(--blue);
+    }
+    .phone-num {
+      letter-spacing: 0.5px;
+      font-variant-numeric: tabular-nums;
+    }
+    .back {
+      margin-top: 22px;
+      text-align: center;
+    }
+    .back a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .back a:hover { color: var(--primary); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .avatar, .wrap { animation: none; }
+      .links a:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="avatar">💻</div>
+      <h1>عبدالرضا موحدی</h1>
+      <div class="role">سازنده و توسعه‌دهنده سایت</div>
+      <p class="desc">
+        برای سفارش سایت، پشتیبانی فنی یا مشاهده نمونه کارها از راه‌های زیر در ارتباط باشید.
+      </p>
+      <div class="links">
+        <a class="primary" href="tel:09945382138">
+          📞 تماس: <span class="phone-num">۰۹۹۴۵۳۸۲۱۳۸</span>
+        </a>
+        <a class="portfolio" href="https://abdorrezamovahedi.github.io/nemone/" target="_blank" rel="noopener noreferrer">
+          🗂️ مشاهده نمونه کارها
+      </div>
+    </div>
+    <div class="back">
+      <a href="index.html">← بازگشت به سایت اصلی</a>
+    </div>
+  </div>
+</body>
+</html>

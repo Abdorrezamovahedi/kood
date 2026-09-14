@@ -180,6 +180,16 @@
             </p>
           </div>
         </div>
+        <div class="footer-creator">
+          <a href="z.html" class="creator-link">
+            <span class="creator-icon">🛠️</span>
+            <span>
+              <strong>ارتباط با سازنده سایت</strong>
+              <small>طراحی، پشتیبانی فنی و توسعه</small>
+            </span>
+            <span class="creator-arrow">←</span>
+          </a>
+        </div>
         <div class="footer-bottom">
           <span
             >© <span id="year"></span> <span id="footerCopy">کود طبیعی</span>.
@@ -205,9 +215,56 @@
       <button type="button" onclick="cancelInlineEdits()">↩️ لغو</button>
       <button type="button" onclick="navigate('admin')">⚙️ پنل</button>
       <button type="button" class="qa-danger" onclick="logout()">🚪 خروج</button>
+      <button type="button" class="qa-minimize" onclick="minimizeQuickAdminBar()" title="جمع کردن نوار">➖ جمع</button>
     </div>
+    <button type="button" class="quick-admin-fab" id="quickAdminFab" onclick="expandQuickAdminBar()" title="باز کردن مدیریت سریع" aria-label="باز کردن مدیریت سریع">⚙️</button>
     <div class="admin-edit-hint" id="adminEditHint">
-      حالت ویرایش مستقیم: روی متن‌های مشخص‌شده (نام شرکت، هیرو، فوتر، درباره ما، آمار، کارت و صفحه جزئیات محصولات) کلیک کن، ویرایش کن و «ذخیره» را بزن.
+      حالت ویرایش مستقیم: روی متن‌های مشخص‌شده کلیک کن، ویرایش کن و «ذخیره» را بزن.
+    </div>
+
+    <!-- Floating support button (public) -->
+    <button type="button" class="support-fab" id="supportFab" onclick="openSupportModal()" title="پیام به پشتیبانی" aria-label="پشتیبانی">💬</button>
+
+    <!-- Support quick modal -->
+    <div class="modal-overlay" id="supportModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3>پیام به پشتیبانی</h3>
+          <button class="modal-close" onclick="closeModal('supportModal')">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>موضوع *</label>
+            <input type="text" id="sfSubject" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>نام *</label>
+              <input type="text" id="sfName" />
+            </div>
+            <div class="form-group">
+              <label>شماره تماس یا ایمیل *</label>
+              <input type="text" id="sfContact" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>اولویت</label>
+            <select id="sfPriority">
+              <option value="عادی">عادی</option>
+              <option value="مهم">مهم</option>
+              <option value="فوری">فوری</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>متن پیام *</label>
+            <textarea id="sfMessage"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline" onclick="closeModal('supportModal')">انصراف</button>
+          <button class="btn btn-primary" onclick="submitSupportFab()">ارسال</button>
+        </div>
+      </div>
     </div>
 
     <!-- Login Modal -->
