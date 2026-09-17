@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="شرکت تولید و عرضه کود طبیعی - محصولات ارگانیک و طبیعی برای کشاورزی پایدار، باغ و گلخانه"
+      content="شرکت تولید و عرضه کود ارگانیک - محصولات ارگانیک و طبیعی برای کشاورزی پایدار، باغ و گلخانه"
     />
     <meta
       name="keywords"
-      content="کود طبیعی, کود آلی, کود ارگانیک, بهبوددهنده خاک, کشاورزی پایدار"
+      content="کود ارگانیک, کود آلی, کود ارگانیک, بهبوددهنده خاک, کشاورزی پایدار"
     />
     <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="کود طبیعی | محصولات ارگانیک کشاورزی" />
+    <meta property="og:title" content="کود ارگانیک | محصولات ارگانیک کشاورزی" />
     <meta
       property="og:description"
-      content="برای خاک بهتر، انتخاب هوشمندانه‌تر. محصولات کود طبیعی با کیفیت بالا"
+      content="برای خاک بهتر، انتخاب هوشمندانه‌تر. محصولات کود ارگانیک با کیفیت بالا"
     />
     <meta property="og:type" content="website" />
-    <title>کود طبیعی | محصولات ارگانیک و طبیعی کشاورزی</title>
+    <title>کود ارگانیک | محصولات ارگانیک و طبیعی کشاورزی</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -34,7 +34,7 @@
       <div class="header-inner">
         <a href="#home" class="logo" onclick="navigate('home')">
           <div class="logo-icon">🌱</div>
-          <span id="siteName" data-edit-key="companyName">کود طبیعی</span>
+          <span id="siteName" data-edit-key="companyName">کود ارگانیک</span>
         </a>
         <nav class="nav" id="mainNav">
           <a href="#home" data-page="home">صفحه اصلی</a>
@@ -46,24 +46,10 @@
           <a href="#contact" data-page="contact">تماس با ما</a>
         </nav>
         <div class="header-actions">
-          <button
-            class="btn-icon"
-            id="themeToggle"
-            title="تغییر حالت روشن/تاریک"
-          >
-            🌙
-          </button>
-          <button class="btn btn-outline btn-sm" onclick="openLoginModal()">
-            ورود
-          </button>
-          <button
-            class="btn btn-primary btn-sm"
-            onclick="navigate('admin')"
-            id="adminBtn"
-            style="display: none"
-          >
-            پنل مدیریت
-          </button>
+          <button class="btn-icon" id="themeToggle" title="تغییر حالت روشن/تاریک">🌙</button>
+          <div id="authArea">
+            <button class="btn btn-outline btn-sm" id="loginBtn" onclick="openLoginModal()">ورود</button>
+          </div>
           <button class="btn-icon mobile-toggle" id="mobileToggle">☰</button>
         </div>
       </div>
@@ -143,7 +129,7 @@
       <div class="container">
         <div class="footer-grid">
           <div>
-            <h4 id="footerCompany" data-edit-key="companyName">کود طبیعی</h4>
+            <h4 id="footerCompany" data-edit-key="companyName">کود ارگانیک</h4>
             <p id="footerDesc" data-edit-key="footerDesc">
               تولید و عرضه کودهای طبیعی و ارگانیک با کیفیت بالا برای کشاورزی
               پایدار، باغ‌ها و گلخانه‌ها.
@@ -170,7 +156,7 @@
           <div>
             <h4>تماس با ما</h4>
             <p id="footerPhone" data-edit-key="phone">📞 ۰۲۱-۱۲۳۴۵۶۷۸</p>
-            <p id="footerEmail" data-edit-key="email">✉️ info@naturalfert.ir</p>
+            <p id="footerEmail" data-edit-key="email">✉️ info@organicfert.ir</p>
             <p id="footerAddress" data-edit-key="address">📍 تهران، خیابان کشاورزی</p>
           </div>
           <div>
@@ -192,7 +178,7 @@
         </div>
         <div class="footer-bottom">
           <span
-            >© <span id="year"></span> <span id="footerCopy">کود طبیعی</span>.
+            >© <span id="year"></span> <span id="footerCopy">کود ارگانیک</span>.
             تمامی حقوق محفوظ است.</span
           >
           <span>طراحی شده با ❤️ برای کشاورزی پایدار</span>
@@ -215,7 +201,7 @@
       <button type="button" onclick="cancelInlineEdits()">↩️ لغو</button>
       <button type="button" onclick="navigate('admin')">⚙️ پنل</button>
       <button type="button" class="qa-danger" onclick="logout()">🚪 خروج</button>
-      <button type="button" class="qa-minimize" onclick="minimizeQuickAdminBar()" title="جمع کردن نوار">➖ جمع</button>
+      <button type="button" class="qa-minimize" onclick="minimizeQuickAdminBar()" title="کوچک شدن نوار">➖ کوچک شدن</button>
     </div>
     <button type="button" class="quick-admin-fab" id="quickAdminFab" onclick="expandQuickAdminBar()" title="باز کردن مدیریت سریع" aria-label="باز کردن مدیریت سریع">⚙️</button>
     <div class="admin-edit-hint" id="adminEditHint">
@@ -223,7 +209,42 @@
     </div>
 
     <!-- Floating support button (public) -->
-    <button type="button" class="support-fab" id="supportFab" onclick="openSupportModal()" title="پیام به پشتیبانی" aria-label="پشتیبانی">💬</button>
+    <div class="fab-stack" id="fabStack">
+      <div class="quick-links-fabs" id="quickLinksFabs"></div>
+      <button type="button" class="support-fab support-fab-add" id="supportAddFab" onclick="openQuickLinkModal()" title="افزودن لینک سریع" aria-label="افزودن لینک" style="display:none">＋</button>
+      <button type="button" class="support-fab" id="supportFab" onclick="openSupportModal()" title="پیام به پشتیبانی" aria-label="پشتیبانی">💬</button>
+    </div>
+
+    <!-- Quick link add/edit modal (owner) -->
+    <div class="modal-overlay" id="quickLinkModal">
+      <div class="modal" style="max-width:480px;">
+        <div class="modal-header">
+          <h3 id="quickLinkModalTitle">افزودن لینک سریع</h3>
+          <button class="modal-close" onclick="closeModal('quickLinkModal')">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>نام (مثلاً واتساپ، تلگرام، روبیکا) *</label>
+            <input type="text" id="qlName" placeholder="واتساپ" />
+          </div>
+          <div class="form-group">
+            <label>لینک کانال / صفحه / شماره *</label>
+            <input type="url" id="qlUrl" placeholder="https://wa.me/98..." />
+          </div>
+          <div class="form-group">
+            <label>لوگو (آپلود تصویر — الزامی) *</label>
+            <input type="file" id="qlLogo" accept="image/*" />
+            <div id="qlLogoPreview" style="margin-top:10px;"></div>
+          </div>
+          <p style="font-size:0.82rem;color:var(--text-muted);">لوگو باید آپلود شود تا در سایت کنار دکمه پشتیبانی نمایش داده شود.</p>
+          <div id="qlListManage" style="margin-top:16px;"></div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline" onclick="closeModal('quickLinkModal')">انصراف</button>
+          <button class="btn btn-primary" onclick="saveQuickLink()">ذخیره لینک</button>
+        </div>
+      </div>
+    </div>
 
     <!-- Support quick modal -->
     <div class="modal-overlay" id="supportModal">
@@ -267,53 +288,86 @@
       </div>
     </div>
 
+    <!-- User profile modal -->
+    <div class="modal-overlay" id="userProfileModal">
+      <div class="modal" style="max-width:440px;">
+        <div class="modal-header">
+          <h3>پنل کاربری</h3>
+          <button class="modal-close" onclick="closeModal('userProfileModal')">×</button>
+        </div>
+        <div class="modal-body" id="userProfileBody"></div>
+        <div class="modal-footer">
+          <button class="btn btn-outline" onclick="closeModal('userProfileModal')">بستن</button>
+          <button class="btn btn-primary" onclick="saveUserProfile()">ذخیره پروفایل</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Login Modal -->
     <div class="modal-overlay" id="loginModal">
-      <div class="modal">
+      <div class="modal" style="max-width:420px;">
         <div class="modal-header">
           <h3>ورود / ثبت‌نام</h3>
-          <button class="modal-close" onclick="closeModal('loginModal')">
-            ×
-          </button>
+          <button class="modal-close" onclick="closeModal('loginModal')">×</button>
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <label>ایمیل</label>
-            <input
-              type="email"
-              id="loginEmail"
-              placeholder="example@email.com"
-            />
+            <label>شماره موبایل *</label>
+            <div style="display:flex;gap:8px;align-items:stretch;">
+              <input type="tel" id="loginMobile" placeholder="09123456789" style="flex:1;" />
+              <button type="button" class="btn btn-outline btn-sm" id="btnSendOtp" onclick="sendLoginOtp()" style="white-space:nowrap;">ارسال کد</button>
+            </div>
+            <small id="otpHint" style="color:var(--text-muted);font-size:0.8rem;display:block;margin-top:6px;"></small>
           </div>
           <div class="form-group">
-            <label>شماره موبایل</label>
-            <input type="tel" id="loginMobile" placeholder="09123456789" />
+            <label>کد تأیید پیامک *</label>
+            <input type="text" id="loginOtp" inputmode="numeric" maxlength="6" placeholder="کد ۵ رقمی" />
           </div>
           <div class="form-group">
-            <label>رمز عبور</label>
-            <input
-              type="password"
-              id="loginPassword"
-              placeholder="حداقل ۶ کاراکتر"
-            />
+            <label>ایمیل *</label>
+            <input type="email" id="loginEmail" placeholder="example@email.com" />
           </div>
-          <p
-            style="
-              font-size: 0.85rem;
-              color: var(--text-muted);
-              margin-top: 8px;
-            "
-          >
-            برای ورود ادمین: admin@natural.ir / 09120000000 / admin123
+          <div class="form-group">
+            <label>رمز عبور *</label>
+            <input type="password" id="loginPassword" placeholder="حداقل ۶ کاراکتر" />
+          </div>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;line-height:1.6;">
+            ابتدا کد را برای موبایل بگیرید، سپس وارد شوید.
+            ادمین دمو: <b>09120000000</b> / رمز <b>admin123</b> / ایمیل <b>admin@natural.ir</b>
+            <br/>در این نسخه آزمایشی کد روی صفحه نشان داده می‌شود؛ با اتصال پیامک واقعی، فقط به گوشی می‌رود.
           </p>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-outline" onclick="closeModal('loginModal')">
-            انصراف
-          </button>
-          <button class="btn btn-primary" onclick="handleLogin()">
-            ورود / ثبت‌نام
-          </button>
+          <button class="btn btn-outline" onclick="closeModal('loginModal')">انصراف</button>
+          <button class="btn btn-primary" onclick="handleLogin()">ورود / ثبت‌نام</button>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- Success message modal -->
+    <div class="modal-overlay" id="successModal">
+      <div class="modal success-modal">
+        <div class="modal-body text-center" style="padding:40px 28px;">
+          <div class="success-check" id="successCheck">✓</div>
+          <h3 id="successTitle" style="margin:16px 0 8px;">پیام شما ارسال شد</h3>
+          <p id="successMsg" style="color:var(--text-muted);margin-bottom:24px;">کارشناسان ما به‌زودی با شما تماس می‌گیرند.</p>
+          <button class="btn btn-primary" onclick="closeSuccessAndHome()">بازگشت به صفحه اصلی</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pages content editor modal -->
+    <div class="modal-overlay" id="pagesEditorModal">
+      <div class="modal" style="max-width:780px;max-height:92vh;">
+        <div class="modal-header">
+          <h3>ویرایش کامل صفحات سایت</h3>
+          <button class="modal-close" onclick="closeModal('pagesEditorModal')">×</button>
+        </div>
+        <div class="modal-body" id="pagesEditorBody"></div>
+        <div class="modal-footer">
+          <button class="btn btn-outline" onclick="closeModal('pagesEditorModal')">انصراف</button>
+          <button class="btn btn-primary" onclick="savePagesEditor()">ذخیره همه</button>
         </div>
       </div>
     </div>
