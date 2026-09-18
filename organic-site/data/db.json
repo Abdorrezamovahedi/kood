@@ -1,0 +1,155 @@
+{
+    "settings": {
+        "companyName": "کود ارگانیک",
+        "phone": "۰۲۱-۱۲۳۴۵۶۷۸",
+        "email": "info@organicfert.ir",
+        "address": "تهران، خیابان کشاورزی، پلاک ۱۲",
+        "hours": "شنبه تا چهارشنبه: ۸ صبح تا ۵ عصر\nپنجشنبه: ۸ صبح تا ۱ ظهر",
+        "heroTitle": "برای خاک بهتر، انتخاب هوشمندانه‌تر",
+        "heroDesc": "تأمین کود ارگانیک و طبیعی با کیفیت برای کشاورزی پایدار",
+        "heroBtn1": "مشاهده محصولات",
+        "heroBtn2": "درخواست مشاوره",
+        "heroCardTitle": "محصول ویژه",
+        "heroCardDesc": "",
+        "heroFeaturedProductId": 1,
+        "heroFeaturedImage": "",
+        "aboutText": "شرکت کود ارگانیک با بیش از ۱۵ سال سابقه در تولید و عرضه کودهای ارگانیک و طبیعی، متعهد به ارائه محصولات با کیفیت و سازگار با محیط زیست است. ما از بهترین مواد اولیه طبیعی استفاده می‌کنیم تا سلامت خاک و گیاهان شما تضمین شود.",
+        "aboutImage": "",
+        "aboutFeature1": "بیش از ۱۵ سال تجربه در صنعت کود ارگانیک",
+        "aboutFeature2": "محصولات ۱۰۰٪ طبیعی و ارگانیک",
+        "aboutFeature3": "پشتیبانی تخصصی کشاورزی",
+        "aboutFeature4": "تضمین کیفیت و اصالت محصول",
+        "footerDesc": "تولید و عرضه کودهای ارگانیک و طبیعی با کیفیت بالا برای کشاورزی پایدار، باغ‌ها و گلخانه‌ها.",
+        "homeProductsTitle": "محصولات منتخب",
+        "homeProductsDesc": "برخی از بهترین محصولات کود ارگانیک ما",
+        "homeWhyTitle": "چرا کود ارگانیک؟",
+        "homeWhyDesc": "مزایای استفاده از محصولات ارگانیک و طبیعی ما",
+        "productsPageTitle": "محصولات ما",
+        "productsPageDesc": "مجموعه کامل کودهای ارگانیک و طبیعی",
+        "benefitsPageTitle": "مزایای محصولات ما",
+        "benefitsPageDesc": "چرا کشاورزان و باغداران محصولات ما را انتخاب می‌کنند",
+        "benefit1Title": "طبیعی و ارگانیک",
+        "benefit1Desc": "بدون مواد شیمیایی مصنوعی و کاملاً سازگار با استانداردهای ارگانیک",
+        "benefit2Title": "بهبود ساختار خاک",
+        "benefit2Desc": "افزایش ظرفیت نگهداری آب و تهویه مناسب خاک",
+        "benefit3Title": "مقاومت گیاه",
+        "benefit3Desc": "افزایش مقاومت به بیماری‌ها، آفات و تنش‌های محیطی",
+        "benefit4Title": "افزایش عملکرد",
+        "benefit4Desc": "محصول بیشتر، با کیفیت‌تر و ماندگاری بالاتر",
+        "benefit5Title": "پایداری محیط زیست",
+        "benefit5Desc": "کاهش آلودگی خاک و آب و حفظ اکوسیستم",
+        "benefit6Title": "فرمول علمی",
+        "benefit6Desc": "توسعه یافته بر اساس تحقیقات علمی و نیازهای واقعی کشاورزان",
+        "homeBenefit1Title": "سازگار با محیط زیست",
+        "homeBenefit1Desc": "بدون مواد شیمیایی مضر و کاملاً طبیعی",
+        "homeBenefit2Title": "بهبود سلامت خاک",
+        "homeBenefit2Desc": "افزایش ماده آلی و فعالیت میکروبی خاک",
+        "homeBenefit3Title": "افزایش عملکرد",
+        "homeBenefit3Desc": "محصول بیشتر و با کیفیت‌تر",
+        "homeBenefit4Title": "مقاومت بیشتر",
+        "homeBenefit4Desc": "افزایش مقاومت گیاه به تنش‌ها",
+        "consultTitle": "درخواست مشاوره رایگان",
+        "consultDesc": "کارشناسان ما آماده راهنمایی شما در انتخاب محصول مناسب هستند",
+        "supportTitle": "پشتیبانی",
+        "supportDesc": "سوال یا مشکلی دارید؟ پیام خود را ثبت کنید",
+        "contactTitle": "تماس با ما",
+        "contactDesc": "راه‌های ارتباطی با ما",
+        "socials": {
+            "instagram": "#",
+            "telegram": "#",
+            "whatsapp": "#"
+        },
+        "seasonalMode": "auto",
+        "manualSeason": "spring"
+    },
+    "stats": {
+        "products": 1,
+        "customers": 0,
+        "consultations": 0,
+        "years": 15,
+        "solutions": 48,
+        "naturalPercent": 100
+    },
+    "categories": [
+        "کود ارگانیک",
+        "بهبوددهنده خاک",
+        "کود مخصوص باغ",
+        "کود عالی"
+    ],
+    "products": [
+        {
+            "name": "کود گیاهی مایع",
+            "category": "کود عالی",
+            "shortDesc": "کود مایع رای خاک",
+            "fullDesc": "",
+            "type": "مایع",
+            "packaging": "کیسه ۲۵ کیلوگرمی",
+            "suitableFor": "باغ، زراعت، گلخانه",
+            "weight": "۲۵ کیلوگرم",
+            "form": "گرانول",
+            "compounds": "مواد عالی، نیتروژن، فسفر، پتاسیم، ریزمغذی‌ها",
+            "consumptionType": "خاکی",
+            "usageSteps": [
+                "بسته را باز کرده ",
+                "هروز یک لیوان به گیاه میدهید"
+            ],
+            "usageNotes": "بیش از حد برای گیاه کود نریزید این باعث بیماری میشود و قارچ",
+            "benefits": [
+                "خاک بدونه قارچ خواهید داشت"
+            ],
+            "applications": "",
+            "warnings": "لق",
+            "storage": "",
+            "status": "active",
+            "images": [],
+            "video": "",
+            "image": "",
+            "id": 1789650890431,
+            "country": "ایران",
+            "brand": "کود ارگانیک",
+            "faq": [],
+            "related": []
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "name": "مدیر اصلی",
+            "email": "admin@natural.ir",
+            "mobile": "09120000000",
+            "role": "owner",
+            "status": "active",
+            "avatar": "profile1",
+            "permissions": [],
+            "createdAt": "2026-09-17T08:49:42+02:00",
+            "password": "admin123"
+        }
+    ],
+    "consultations": [],
+    "tickets": [],
+    "activityLog": [
+        {
+            "id": 1789650890431,
+            "action": "ایجاد محصول",
+            "detail": "کود گیاهی مایع",
+            "time": "۱۴۰۵\/۶\/۲۶, ۱۶:۴۴:۵۰",
+            "user": "مدیر اصلی"
+        },
+        {
+            "id": 1789650629598,
+            "action": "افزودن دسته‌بندی",
+            "detail": "کود عالی",
+            "time": "۱۴۰۵\/۶\/۲۶, ۱۶:۴۰:۲۹",
+            "user": "مدیر اصلی"
+        },
+        {
+            "id": 1789650615877,
+            "action": "حذف دسته‌بندی",
+            "detail": "کود آلی",
+            "time": "۱۴۰۵\/۶\/۲۶, ۱۶:۴۰:۱۵",
+            "user": "مدیر اصلی"
+        }
+    ],
+    "quickLinks": [],
+    "currentUser": null
+}

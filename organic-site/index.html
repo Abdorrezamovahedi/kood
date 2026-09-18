@@ -4026,1164 +4026,11 @@ html:not([data-theme="dark"]) .btn-primary:hover {
   }
 }
 
-/* ========== الگوی فروشگاه ایرانی (دیجی‌کالا / RTL بازار) ========== */
-.iran-topbar {
-  background: #2a241c;
-  color: #e8e0d5;
-  font-size: 0.8rem;
-  padding: 6px 0;
-}
-.iran-topbar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.iran-topbar a { color: #c8bfb0; }
-.iran-topbar a:hover { color: #fff; }
-
-/* دسته‌بندی دایره‌ای شبیه مارکت‌های ایرانی */
-.cat-tiles {
-  display: flex !important;
-  flex-wrap: nowrap !important;
-  gap: 14px !important;
-  overflow-x: auto;
-  padding: 8px 4px 16px;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;
-}
-.cat-tile {
-  flex: 0 0 auto !important;
-  width: 100px !important;
-  padding: 10px 8px !important;
-  border-radius: 16px !important;
-  scroll-snap-align: start;
-  background: var(--bg-card) !important;
-  border: 1px solid var(--border) !important;
-}
-.cat-tile-ico {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--primary) 12%, var(--bg));
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 8px;
-  font-size: 1.35rem !important;
-}
-.cat-tile strong {
-  font-size: 0.78rem !important;
-  display: block;
-  line-height: 1.35;
-}
-.cat-tile small { display: none; }
-
-/* نوار خدمات */
-.service-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin: 8px 0 28px;
-}
-.service-item {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 14px 10px;
-  text-align: center;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text);
-}
-.service-item span {
-  display: block;
-  font-size: 1.4rem;
-  margin-bottom: 6px;
-}
-
-/* بردکرامب */
-.breadcrumb {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-bottom: 16px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  align-items: center;
-}
-.breadcrumb a {
-  color: var(--primary);
-  cursor: pointer;
-}
-.breadcrumb .sep { opacity: 0.5; }
-
-/* هدر فشرده‌تر شبیه فروشگاه */
-.header .nav {
-  gap: 4px;
-}
-.header .nav a {
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-}
-.header .nav a.active {
-  background: color-mix(in srgb, var(--primary) 12%, transparent);
-  color: var(--primary);
-}
-
-@media (max-width: 768px) {
-  .service-strip {
-    grid-template-columns: 1fr 1fr;
-  }
-  .cat-tile {
-    width: 88px !important;
-  }
-  .iran-topbar {
-    font-size: 0.72rem;
-  }
-}
-
-/* ========== تمیز + دارک‌مود درست ========== */
-
-/* لایت: ظاهر مینیمال */
-html:not([data-theme="dark"]) {
-  --bg: #f5f5f5;
-  --bg-card: #ffffff;
-  --text: #212121;
-  --text-muted: #5f5f5f;
-  --border: #e5e5e5;
-}
-html:not([data-theme="dark"]) body {
-  background: var(--bg) !important;
-  color: var(--text) !important;
-}
-html:not([data-theme="dark"]) .header {
-  background: #fff !important;
-  border-bottom: 1px solid var(--border) !important;
-  box-shadow: none !important;
-}
-html:not([data-theme="dark"]) .hero {
-  background: #fff !important;
-  border-bottom: 1px solid #eee !important;
-}
-html:not([data-theme="dark"]) .section-cats {
-  background: #fff;
-  border-bottom: 1px solid #eee;
-}
-html:not([data-theme="dark"]) .cat-tile {
-  background: #f0f0f0 !important;
-  color: #333 !important;
-  border: none !important;
-}
-html:not([data-theme="dark"]) .cat-tile strong {
-  color: #333 !important;
-}
-html:not([data-theme="dark"]) .product-card {
-  background: #fff !important;
-  border: 1px solid #eee !important;
-  color: #212121 !important;
-}
-html:not([data-theme="dark"]) .product-card-body h3,
-html:not([data-theme="dark"]) .product-card h3 {
-  color: #111 !important;
-}
-html:not([data-theme="dark"]) .product-card-body p,
-html:not([data-theme="dark"]) .product-card p {
-  color: #555 !important;
-}
-
-/* دارک: متغیرها + پوشش کامل */
-html[data-theme="dark"] {
-  --bg: #0d0d0d;
-  --bg-card: #1a1a1a;
-  --text: #f0f0f0;
-  --text-muted: #a0a0a0;
-  --border: #2e2e2e;
-  --primary: #69f0ae;
-  --primary-dark: #00c853;
-  --primary-soft: #0d2818;
-}
-html[data-theme="dark"] body {
-  background: var(--bg) !important;
-  color: var(--text) !important;
-}
-html[data-theme="dark"] .header {
-  background: #141414 !important;
-  border-bottom: 1px solid var(--border) !important;
-  box-shadow: none !important;
-}
-html[data-theme="dark"] .header .logo,
-html[data-theme="dark"] .header .nav a {
-  color: #eee !important;
-}
-html[data-theme="dark"] .header .nav a:hover,
-html[data-theme="dark"] .header .nav a.active {
-  background: #222 !important;
-  color: #69f0ae !important;
-}
-html[data-theme="dark"] .mobile-menu {
-  background: #141414 !important;
-}
-html[data-theme="dark"] .mobile-menu a {
-  color: #eee !important;
-}
-html[data-theme="dark"] .hero {
-  background: #121212 !important;
-  border-bottom: 1px solid var(--border) !important;
-}
-html[data-theme="dark"] .hero-content h1 {
-  color: #f5f5f5 !important;
-}
-html[data-theme="dark"] .hero-content p {
-  color: #b0b0b0 !important;
-}
-html[data-theme="dark"] .hero-card {
-  background: #1a1a1a !important;
-  border-color: var(--border) !important;
-  color: var(--text) !important;
-}
-html[data-theme="dark"] .section-cats {
-  background: #121212 !important;
-  border-bottom: 1px solid var(--border) !important;
-}
-html[data-theme="dark"] .aparat-section-title,
-html[data-theme="dark"] .section-header h2 {
-  color: #f0f0f0 !important;
-}
-html[data-theme="dark"] .section-header p {
-  color: #a0a0a0 !important;
-  display: block !important;
-}
-html[data-theme="dark"] .cat-tile {
-  background: #242424 !important;
-  color: #eee !important;
-}
-html[data-theme="dark"] .cat-tile strong {
-  color: #eee !important;
-}
-html[data-theme="dark"] .cat-tile:hover {
-  background: #2e2e2e !important;
-}
-html[data-theme="dark"] .product-card {
-  background: #1a1a1a !important;
-  border-color: var(--border) !important;
-  color: #f0f0f0 !important;
-}
-html[data-theme="dark"] .product-card-body h3,
-html[data-theme="dark"] .product-card h3 {
-  color: #f5f5f5 !important;
-}
-html[data-theme="dark"] .product-card-body p,
-html[data-theme="dark"] .product-card p {
-  color: #b5b5b5 !important;
-}
-html[data-theme="dark"] .product-card-cat {
-  color: #81c784 !important;
-}
-html[data-theme="dark"] .product-card-img {
-  background: #222 !important;
-}
-html[data-theme="dark"] .btn-outline {
-  border-color: #69f0ae !important;
-  color: #69f0ae !important;
-  background: transparent !important;
-}
-html[data-theme="dark"] .btn-primary {
-  background: #00c853 !important;
-  color: #041208 !important;
-}
-html[data-theme="dark"] .modal {
-  background: #1a1a1a !important;
-  color: #f0f0f0 !important;
-  border: 1px solid var(--border);
-}
-html[data-theme="dark"] input,
-html[data-theme="dark"] select,
-html[data-theme="dark"] textarea {
-  background: #121212 !important;
-  border-color: var(--border) !important;
-  color: #f0f0f0 !important;
-}
-html[data-theme="dark"] .admin-layout,
-html[data-theme="dark"] .admin-sidebar,
-html[data-theme="dark"] .admin-content,
-html[data-theme="dark"] .dash-card,
-html[data-theme="dark"] .admin-ticket-card,
-html[data-theme="dark"] .admin-folder-card,
-html[data-theme="dark"] .form-card,
-html[data-theme="dark"] .benefit-card {
-  background: #1a1a1a !important;
-  color: #f0f0f0 !important;
-  border-color: var(--border) !important;
-}
-html[data-theme="dark"] .breadcrumb {
-  color: #a0a0a0 !important;
-}
-html[data-theme="dark"] .breadcrumb a {
-  color: #69f0ae !important;
-}
-html[data-theme="dark"] .footer {
-  background: #0a0a0a !important;
-  color: #cfcfcf !important;
-}
-html[data-theme="dark"] .quick-admin-bar {
-  background: #1a1a1a !important;
-  border-color: var(--border) !important;
-  color: #eee !important;
-}
-
-/* نمایش متن‌ها — دیگر پنهان نکن */
-.section-header p {
-  display: block !important;
-  color: var(--text-muted);
-  margin-top: 6px;
-  font-size: 0.9rem;
-}
-.aparat-section-title,
-.section-header h2 {
-  font-size: 1.15rem !important;
-  font-weight: 700 !important;
-  color: var(--text) !important;
-  text-align: right !important;
-}
-.section-header h2::after {
-  display: none !important;
-}
-.hidden {
-  display: none !important;
-}
-/* reveal همیشه دیده شود */
-.reveal {
-  opacity: 1 !important;
-  transform: none !important;
-}
-.iran-topbar,
-.trust-bar,
-.service-strip {
-  display: none !important;
-}
-
-.section { padding: 28px 0 !important; }
-.cat-tiles {
-  display: flex !important;
-  gap: 10px;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.cat-tiles::-webkit-scrollbar { display: none; }
-.cat-tile {
-  flex: 0 0 auto;
-  min-width: 72px;
-  padding: 8px 14px !important;
-  border-radius: 20px !important;
-  cursor: pointer;
-}
-.cat-tile-ico { display: none !important; }
-.product-card {
-  border-radius: 12px !important;
-  box-shadow: none !important;
-}
-html:not([data-theme="dark"]) .product-card:hover {
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08) !important;
-}
-
-/* ========== حس طبیعت — گرم، خاکی، زنده ========== */
-html:not([data-theme="dark"]) {
-  --bg: #eef2e9;
-  --bg-card: #f7faf4;
-  --text: #1e2a1a;
-  --text-muted: #4a5c45;
-  --border: #d5dec0;
-  --primary: #2d5a27;
-  --primary-dark: #1b3d18;
-  --primary-light: #4a7c43;
-  --brown: #6b4f3a;
-  --leaf: #5a8f4a;
-}
-html:not([data-theme="dark"]) body {
-  background:
-    radial-gradient(ellipse at 20% 0%, rgba(90, 140, 70, 0.12), transparent 50%),
-    radial-gradient(ellipse at 90% 30%, rgba(140, 110, 70, 0.08), transparent 45%),
-    linear-gradient(180deg, #e8efe3 0%, #eef2e9 40%, #e6ebe0 100%) !important;
-  color: var(--text) !important;
-}
-html:not([data-theme="dark"]) .header {
-  background: rgba(247, 250, 244, 0.92) !important;
-  border-bottom: 1px solid rgba(45, 90, 39, 0.12) !important;
-  backdrop-filter: blur(10px);
-}
-html:not([data-theme="dark"]) .hero {
-  background:
-    linear-gradient(135deg, rgba(232, 240, 225, 0.95) 0%, rgba(245, 240, 230, 0.9) 50%, rgba(235, 245, 230, 0.95) 100%) !important;
-  border-bottom: 1px solid rgba(45, 90, 39, 0.1) !important;
-  position: relative;
-}
-html:not([data-theme="dark"]) .hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.35;
-  background-image:
-    radial-gradient(circle at 15% 80%, rgba(76, 140, 60, 0.15) 0 2px, transparent 3px),
-    radial-gradient(circle at 70% 20%, rgba(120, 90, 50, 0.12) 0 1.5px, transparent 3px),
-    radial-gradient(circle at 40% 40%, rgba(90, 130, 70, 0.1) 0 1px, transparent 2px);
-  background-size: 120px 120px, 80px 80px, 60px 60px;
-}
-html:not([data-theme="dark"]) .hero-content h1 {
-  color: #1a3318 !important;
-  letter-spacing: -0.02em;
-}
-html:not([data-theme="dark"]) .hero-content p {
-  color: #3d5240 !important;
-}
-html:not([data-theme="dark"]) .section-cats {
-  background: rgba(247, 250, 244, 0.8) !important;
-  border-bottom: 1px solid rgba(45, 90, 39, 0.08) !important;
-}
-html:not([data-theme="dark"]) .cat-tile {
-  background: rgba(45, 90, 39, 0.08) !important;
-  color: #1e3a1a !important;
-  border: 1px solid rgba(45, 90, 39, 0.12) !important;
-}
-html:not([data-theme="dark"]) .cat-tile:hover {
-  background: rgba(45, 90, 39, 0.16) !important;
-  border-color: rgba(45, 90, 39, 0.25) !important;
-}
-html:not([data-theme="dark"]) .product-card {
-  background: #f7faf4 !important;
-  border: 1px solid rgba(45, 90, 39, 0.12) !important;
-  box-shadow: 0 2px 12px rgba(40, 70, 35, 0.06) !important;
-}
-html:not([data-theme="dark"]) .product-card:hover {
-  border-color: rgba(45, 90, 39, 0.28) !important;
-  box-shadow: 0 8px 24px rgba(40, 70, 35, 0.12) !important;
-}
-html:not([data-theme="dark"]) .product-card-body h3 {
-  color: #1a2e16 !important;
-}
-html:not([data-theme="dark"]) .product-card-body p {
-  color: #4a5c45 !important;
-}
-html:not([data-theme="dark"]) .product-card-cat {
-  color: #2d5a27 !important;
-}
-html:not([data-theme="dark"]) .btn-primary {
-  background: linear-gradient(145deg, #2d5a27, #3d7a35) !important;
-  color: #f5faf3 !important;
-  border: none !important;
-  box-shadow: 0 2px 8px rgba(45, 90, 39, 0.25) !important;
-}
-html:not([data-theme="dark"]) .btn-primary:hover {
-  filter: brightness(1.06);
-  box-shadow: 0 4px 14px rgba(45, 90, 39, 0.35) !important;
-}
-html:not([data-theme="dark"]) .btn-outline {
-  border-color: #2d5a27 !important;
-  color: #2d5a27 !important;
-  background: rgba(255,255,255,0.5) !important;
-}
-html:not([data-theme="dark"]) .footer {
-  background: linear-gradient(180deg, #1e2e1a 0%, #152014 100%) !important;
-  color: #d4e0d0 !important;
-}
-
-/* دارک طبیعت: جنگل شب */
-html[data-theme="dark"] {
-  --bg: #0c120e;
-  --bg-card: #152019;
-  --text: #e4eee0;
-  --text-muted: #9bb090;
-  --border: #243328;
-  --primary: #7cbf6e;
-}
-html[data-theme="dark"] body {
-  background:
-    radial-gradient(ellipse at 10% 0%, rgba(60, 100, 50, 0.15), transparent 45%),
-    #0c120e !important;
-  color: var(--text) !important;
-}
-html[data-theme="dark"] .header {
-  background: rgba(18, 28, 20, 0.95) !important;
-  border-bottom-color: #243328 !important;
-}
-html[data-theme="dark"] .hero {
-  background: linear-gradient(160deg, #121c14 0%, #0e1610 100%) !important;
-}
-html[data-theme="dark"] .product-card {
-  background: #152019 !important;
-  border-color: #2a3d2e !important;
-}
-html[data-theme="dark"] .cat-tile {
-  background: #1a281c !important;
-  color: #d0e0c8 !important;
-}
-html[data-theme="dark"] .btn-primary {
-  background: linear-gradient(145deg, #3d7a35, #5a9f4a) !important;
-  color: #0a1008 !important;
-}
-
-/* بافت نرم طبیعت روی کارت‌ها */
-.product-card-img {
-  background:
-    linear-gradient(160deg, rgba(90, 130, 70, 0.08), rgba(120, 100, 60, 0.06)) !important;
-}
-.section-header h2,
-.aparat-section-title {
-  color: var(--text) !important;
-}
-
-/* ========== تم و انیمیشن فصلی — دل‌باز و زیبا ========== */
-#seasonFxLayer {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 99980;
-  overflow: hidden;
-}
-
-/* ذرات نرم شناور */
-.fx-mote {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  will-change: transform, opacity;
-  animation: mote-drift linear forwards;
-}
-@keyframes mote-drift {
-  0% { transform: translate3d(0, 0, 0) scale(0.6); opacity: 0; }
-  12% { opacity: 0.7; }
-  100% { transform: translate3d(var(--dx, 30px), var(--dy, 100vh), 0) scale(1); opacity: 0; }
-}
-
-/* هاله نرم تمام‌صفحه */
-.fx-bloom {
-  position: absolute;
-  inset: -10%;
-  pointer-events: none;
-  animation: bloom-pulse 7s ease-in-out forwards;
-}
-@keyframes bloom-pulse {
-  0% { opacity: 0; transform: scale(0.92); }
-  25% { opacity: 0.55; }
-  55% { opacity: 0.4; }
-  100% { opacity: 0; transform: scale(1.08); }
-}
-
-/* بهار — سبز تازه و روشن */
-html[data-season="spring"] .hero {
-  background: linear-gradient(145deg, #eef8ec 0%, #f5faf3 40%, #e8f2e4 100%) !important;
-}
-html[data-theme="dark"][data-season="spring"] .hero {
-  background: linear-gradient(145deg, #101a12 0%, #0c140e 100%) !important;
-}
-html[data-season="spring"] {
-  --primary: #3d8b4a !important;
-}
-.fx-bloom.spring {
-  background: radial-gradient(ellipse at 50% 20%, rgba(129, 199, 132, 0.45), rgba(200, 230, 180, 0.15) 45%, transparent 70%);
-}
-.fx-mote.spring {
-  background: radial-gradient(circle, rgba(165, 214, 167, 0.95), rgba(76, 175, 80, 0.2));
-  box-shadow: 0 0 12px rgba(129, 199, 132, 0.5);
-}
-
-/* تابستان — طلایی گرم و باز */
-html[data-season="summer"] .hero {
-  background: linear-gradient(145deg, #fff9eb 0%, #fff3d6 45%, #fce8c0 100%) !important;
-}
-html[data-theme="dark"][data-season="summer"] .hero {
-  background: linear-gradient(145deg, #1a140c 0%, #120e08 100%) !important;
-}
-html[data-season="summer"] {
-  --primary: #d4a017 !important;
-}
-html[data-season="summer"] .btn-primary {
-  background: linear-gradient(145deg, #e6b422, #c4920a) !important;
-  color: #1a1205 !important;
-}
-.fx-bloom.summer {
-  background: radial-gradient(ellipse at 60% 15%, rgba(255, 236, 160, 0.55), rgba(255, 193, 7, 0.2) 40%, transparent 68%);
-}
-.fx-mote.summer {
-  background: radial-gradient(circle, rgba(255, 245, 200, 0.95), rgba(255, 193, 7, 0.25));
-  box-shadow: 0 0 16px rgba(255, 213, 79, 0.55);
-}
-
-/* پاییز — مسی و گرم */
-html[data-season="autumn"] .hero {
-  background: linear-gradient(145deg, #faf0e6 0%, #f3e4d4 45%, #ebdbc8 100%) !important;
-}
-html[data-theme="dark"][data-season="autumn"] .hero {
-  background: linear-gradient(145deg, #1a120e 0%, #120c0a 100%) !important;
-}
-html[data-season="autumn"] {
-  --primary: #b86b2a !important;
-}
-html[data-season="autumn"] .btn-primary {
-  background: linear-gradient(145deg, #c47a3a, #9a5520) !important;
-  color: #fff8f0 !important;
-}
-.fx-bloom.autumn {
-  background: radial-gradient(ellipse at 40% 10%, rgba(255, 180, 100, 0.35), rgba(180, 90, 40, 0.15) 45%, transparent 70%);
-}
-.fx-mote.autumn {
-  background: radial-gradient(circle, rgba(255, 183, 77, 0.9), rgba(191, 84, 30, 0.3));
-  box-shadow: 0 0 10px rgba(255, 152, 0, 0.35);
-  border-radius: 40% 60% 50% 50%;
-}
-
-/* زمستان — نقره‌ای آرام و عمیق */
-html[data-season="winter"] .hero {
-  background: linear-gradient(145deg, #eef3f7 0%, #e4ebf0 50%, #dce5ec 100%) !important;
-}
-html[data-theme="dark"][data-season="winter"] .hero {
-  background: linear-gradient(145deg, #0e1216 0%, #0a0e12 100%) !important;
-}
-html[data-season="winter"] {
-  --primary: #5a7d6a !important;
-}
-.fx-bloom.winter {
-  background: radial-gradient(ellipse at 50% 0%, rgba(220, 235, 250, 0.5), rgba(180, 200, 220, 0.12) 50%, transparent 72%);
-}
-.fx-mote.winter {
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.95), rgba(200, 220, 240, 0.3));
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-}
-
-/* انتقال نرم فصل روی کل صفحه */
-html[data-season] .product-card {
-  transition: border-color 0.5s ease, box-shadow 0.5s ease;
-}
-html[data-season="spring"] .product-card:hover { box-shadow: 0 8px 28px rgba(76, 175, 80, 0.18) !important; }
-html[data-season="summer"] .product-card:hover { box-shadow: 0 8px 28px rgba(212, 160, 23, 0.2) !important; }
-html[data-season="autumn"] .product-card:hover { box-shadow: 0 8px 28px rgba(184, 107, 42, 0.2) !important; }
-html[data-season="winter"] .product-card:hover { box-shadow: 0 8px 28px rgba(100, 140, 160, 0.18) !important; }
-
-
-.fx-emoji {
-  position: absolute;
-  pointer-events: none;
-  will-change: transform, opacity;
-  animation: mote-drift linear forwards;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.12));
-  z-index: 1;
-}
-
-/* پنل مدیریت سریع — چیدمان منظم */
-.quick-admin-bar {
-  display: none;
-  flex-direction: column !important;
-  align-items: stretch !important;
-  gap: 8px !important;
-  padding: 12px 14px !important;
-  max-width: min(360px, calc(100vw - 24px)) !important;
-  border-radius: 14px !important;
-  right: 12px !important;
-  left: auto !important;
-  bottom: 12px !important;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.18) !important;
-}
-.quick-admin-bar.visible {
-  display: flex !important;
-}
-.quick-admin-bar .qa-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  align-items: center;
-}
-.quick-admin-bar .qa-row-title {
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(128,128,128,0.2);
-  padding-bottom: 6px;
-  margin-bottom: 2px;
-}
-.quick-admin-bar .qa-label {
-  font-weight: 700;
-  font-size: 0.9rem;
-  width: auto !important;
-}
-.quick-admin-bar button,
-.quick-admin-bar select {
-  flex: 1 1 auto;
-  min-width: 0;
-  margin: 0 !important;
-  padding: 8px 10px !important;
-  font-size: 0.82rem !important;
-  border-radius: 8px !important;
-  text-align: center;
-}
-.quick-admin-bar select {
-  flex: 1 1 100%;
-}
-.quick-admin-bar .qa-minimize {
-  flex: 0 0 auto !important;
-  padding: 4px 10px !important;
-  font-size: 0.75rem !important;
-}
-@media (max-width: 480px) {
-  .quick-admin-bar {
-    max-width: calc(100vw - 16px) !important;
-    right: 8px !important;
-    bottom: 8px !important;
-  }
-}
-
-
-.header-search-wrap {
-  position: relative;
-  flex: 1 1 180px;
-  max-width: 320px;
-  margin: 0 10px;
-}
-.header-search {
-  width: 100%;
-  padding: 8px 12px;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  background: var(--bg-card);
-  color: var(--text);
-  font-family: inherit;
-  font-size: 0.88rem;
-}
-.header-search-results {
-  display: none;
-  position: absolute;
-  top: calc(100% + 6px);
-  right: 0;
-  left: 0;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  max-height: 320px;
-  overflow-y: auto;
-  z-index: 200;
-}
-.header-search-results.open { display: block; }
-.hsr-item {
-  display: block;
-  width: 100%;
-  text-align: right;
-  padding: 10px 12px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-family: inherit;
-  color: var(--text);
-  border-bottom: 1px solid var(--border);
-}
-.hsr-item:hover { background: color-mix(in srgb, var(--primary) 10%, transparent); }
-.hsr-item strong { display: block; font-size: 0.9rem; }
-.hsr-item small { color: var(--text-muted); font-size: 0.75rem; }
-.cart-btn { position: relative; font-size: 1.1rem; }
-.cart-badge {
-  position: absolute;
-  top: -4px;
-  left: -4px;
-  min-width: 18px;
-  height: 18px;
-  border-radius: 9px;
-  background: #c62828;
-  color: #fff;
-  font-size: 0.7rem;
-  font-weight: 700;
-  align-items: center;
-  justify-content: center;
-  padding: 0 4px;
-}
-.product-trust-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 16px 0;
-}
-.product-trust-row span {
-  background: color-mix(in srgb, var(--primary) 12%, var(--bg-card));
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 6px 12px;
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-.cart-page-item {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  padding: 12px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  margin-bottom: 10px;
-  background: var(--bg-card);
-}
-.cart-page-item img {
-  width: 64px;
-  height: 64px;
-  object-fit: cover;
-  border-radius: 8px;
-  background: var(--border);
-}
-@media (max-width: 768px) {
-  .header-search-wrap {
-    order: 5;
-    flex: 1 1 100%;
-    max-width: none;
-    margin: 8px 0 0;
-  }
-  .header-inner { flex-wrap: wrap; }
-}
-
-/* رفع نمایش دکمه‌های کارت و سبد */
-.product-card-actions {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 6px !important;
-  margin-top: 10px !important;
-  position: relative;
-  z-index: 2;
-}
-.product-card-actions .btn {
-  flex: 1 1 auto;
-  min-width: 0;
-  font-size: 0.78rem !important;
-  padding: 6px 8px !important;
-  white-space: nowrap;
-}
-.product-card-body {
-  overflow: visible !important;
-}
-.product-card {
-  overflow: hidden;
-}
-.product-card .product-card-body p {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.header-inner {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.cart-badge {
-  display: none;
-}
-.cart-badge[style*="flex"] {
-  display: flex !important;
-}
-.long-text, .detail-section, .product-meta-line {
-  overflow-wrap: anywhere;
-  word-break: break-word;
-}
-.admin-ticket-card .atc-preview {
-  overflow-wrap: anywhere;
-}
-
-.bottom-user-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9000;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 4px;
-  padding: 8px 10px calc(8px + env(safe-area-inset-bottom, 0px));
-  background: var(--bg-card);
-  border-top: 1px solid var(--border);
-  box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
-}
-.bub-item {
-  position: relative;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  border: none;
-  background: transparent;
-  color: var(--text);
-  font-family: inherit;
-  cursor: pointer;
-  padding: 6px 4px;
-  border-radius: 12px;
-}
-.bub-item:active, .bub-item:hover {
-  background: color-mix(in srgb, var(--primary) 12%, transparent);
-}
-.bub-ico { font-size: 1.35rem; line-height: 1; }
-.bub-label { font-size: 0.7rem; font-weight: 600; }
-.bub-badge {
-  position: absolute;
-  top: 2px;
-  left: 50%;
-  margin-left: 10px;
-  min-width: 16px;
-  height: 16px;
-  border-radius: 8px;
-  background: #c62828;
-  color: #fff;
-  font-size: 0.65rem;
-  font-weight: 700;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 0 4px;
-}
-body { padding-bottom: 72px !important; }
-.fab-stack { bottom: 78px !important; }
-.quick-admin-bar { bottom: 78px !important; }
-.quick-admin-fab { bottom: 78px !important; }
-@media (min-width: 900px) {
-  .bottom-user-bar {
-    max-width: 420px;
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-    border-radius: 16px 16px 0 0;
-    border: 1px solid var(--border);
-    border-bottom: none;
-  }
-}
-
-/* سبد درخواست واضح در پایین */
-.bottom-user-bar {
-  background: #1b5e20 !important;
-  border-top: none !important;
-  box-shadow: 0 -6px 24px rgba(0,0,0,0.2) !important;
-}
-.bottom-user-bar .bub-item {
-  color: #f1f8e9 !important;
-}
-.bottom-user-bar .bub-label {
-  font-size: 0.72rem !important;
-  font-weight: 700 !important;
-}
-.bottom-user-bar .bub-ico {
-  font-size: 1.5rem !important;
-}
-.bub-cart {
-  background: rgba(255,255,255,0.12) !important;
-}
-
-/* نوار پایین استاندارد: خانه، محصولات، سبد، اعلان، کاربر، مدیریت */
-.bottom-user-bar {
-  gap: 2px;
-  padding: 6px 6px calc(6px + env(safe-area-inset-bottom, 0px));
-}
-.bottom-user-bar .bub-item {
-  min-width: 0;
-  gap: 3px;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-.bottom-user-bar .bub-item .bub-label {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-}
-.bottom-user-bar .bub-item.active {
-  background: rgba(255, 255, 255, 0.22) !important;
-  color: #fff !important;
-}
-.bottom-user-bar .bub-item.active .bub-ico {
-  transform: translateY(-1px);
-}
-.bottom-user-bar .bub-item:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: -2px;
-}
-.bub-admin {
-  background: rgba(255, 255, 255, 0.18) !important;
-}
-@media (max-width: 420px) {
-  .bottom-user-bar .bub-label { font-size: 0.62rem !important; }
-  .bottom-user-bar .bub-ico { font-size: 1.25rem !important; }
-}
-@media (min-width: 900px) {
-  .bottom-user-bar { max-width: 620px; }
-}
-
-/* ==================== نظرات محصول ==================== */
-.comments-section {
-  margin-top: 40px;
-}
-.comments-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-  justify-content: space-between;
-  margin-bottom: 18px;
-}
-.comments-rating {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  color: var(--text-muted);
-}
-.comment-form {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 18px;
-  margin-bottom: 22px;
-}
-.comment-form textarea {
-  min-height: 90px;
-}
-.star-picker {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-  gap: 4px;
-}
-.star-picker button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.5rem;
-  line-height: 1;
-  color: var(--border);
-  padding: 0 2px;
-}
-.star-picker button.on {
-  color: #f0a500;
-}
-.comment-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.comment-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 16px 18px;
-}
-.comment-card.pending {
-  border-style: dashed;
-  opacity: 0.9;
-}
-.comment-top {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
-}
-.comment-author {
-  font-weight: 700;
-}
-.comment-date {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-.comment-stars {
-  color: #f0a500;
-  letter-spacing: 2px;
-}
-.comment-text {
-  line-height: 1.9;
-  overflow-wrap: anywhere;
-}
-.comment-replies {
-  margin-top: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border-right: 3px solid var(--primary-soft);
-  padding-right: 14px;
-}
-.comment-reply {
-  background: var(--primary-soft);
-  border-radius: 10px;
-  padding: 10px 14px;
-}
-.comment-reply .who {
-  font-weight: 700;
-  font-size: 0.85rem;
-  color: var(--primary);
-  display: block;
-  margin-bottom: 4px;
-}
-.comment-admin-tools {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
-}
-.comment-empty {
-  background: var(--bg-card);
-  border: 1px dashed var(--border);
-  border-radius: 14px;
-  padding: 26px;
-  text-align: center;
-  color: var(--text-muted);
-}
-
-/* میان‌برهای سریع داشبورد */
-.admin-quick-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 0 0 20px;
-}
-
-/* نشان عددی کنار آیتم‌های منوی پنل مدیریت */
-.admin-nav-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 20px;
-  height: 20px;
-  padding: 0 6px;
-  border-radius: 10px;
-  background: #c62828;
-  color: #fff;
-  font-size: 0.7rem;
-  font-weight: 700;
-  vertical-align: middle;
-}
-
-/* دسترس‌پذیری: پرش به محتوا و حالت فوکوس واضح */
-.skip-link {
-  position: fixed;
-  top: -100px;
-  right: 16px;
-  z-index: 4000;
-  background: var(--primary);
-  color: #fff;
-  padding: 10px 18px;
-  border-radius: 8px;
-  font-weight: 700;
-  transition: top 0.2s ease;
-}
-.skip-link:focus {
-  top: 12px;
-}
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible,
-[tabindex]:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
 
 </style>
 
   </head>
   <body>
-    <a href="#app" class="skip-link" onclick="document.getElementById('app').focus()">پرش به محتوای اصلی</a>
     <!-- Public Header -->
     <header class="header" id="mainHeader">
       <div class="header-inner">
@@ -5191,7 +4038,7 @@ textarea:focus-visible,
           <div class="logo-icon">❖</div>
           <span id="siteName" data-edit-key="companyName">کود ارگانیک</span>
         </a>
-        <nav class="nav" id="mainNav" aria-label="منوی اصلی">
+        <nav class="nav" id="mainNav">
           <a href="#home" data-page="home">صفحه اصلی</a>
           <a href="#products" data-page="products">محصولات</a>
           <a href="#about" data-page="about">درباره ما</a>
@@ -5200,16 +4047,12 @@ textarea:focus-visible,
           <a href="#support" data-page="support">پشتیبانی</a>
           <a href="#contact" data-page="contact">تماس با ما</a>
         </nav>
-        <div class="header-search-wrap">
-          <input type="search" id="headerSearch" class="header-search" placeholder="جستجوی محصول..." autocomplete="off" oninput="onHeaderSearchInput()" onkeydown="if(event.key==='Enter'){event.preventDefault();submitHeaderSearch();}" />
-          <div class="header-search-results" id="headerSearchResults"></div>
-        </div>
         <div class="header-actions">
           <button class="btn-icon" id="themeToggle" title="تغییر حالت روشن/تاریک">☾</button>
           <div id="authArea">
             <button class="btn btn-outline btn-sm" id="loginBtn" onclick="openLoginModal()">ورود</button>
           </div>
-          <button class="btn-icon mobile-toggle" id="mobileToggle" aria-label="منو" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+          <button class="btn-icon mobile-toggle" id="mobileToggle">☰</button>
         </div>
       </div>
       <div class="mobile-menu" id="mobileMenu">
@@ -5271,8 +4114,6 @@ textarea:focus-visible,
         >
         <a
           href="#admin"
-          id="mobileAdminLink"
-          style="display: none"
           onclick="
             navigate('admin');
             closeMobile();
@@ -5283,7 +4124,7 @@ textarea:focus-visible,
     </header>
 
     <!-- Main Content -->
-    <main id="app" tabindex="-1"></main>
+    <main id="app"></main>
 
     <!-- Footer -->
     <footer class="footer" id="mainFooter">
@@ -5349,29 +4190,22 @@ textarea:focus-visible,
 
     <!-- Quick Admin Editing -->
     <div class="quick-admin-bar" id="quickAdminBar" aria-label="ابزار مدیریت سریع">
-      <div class="qa-row qa-row-title">
-        <span class="qa-label">مدیریت سریع</span>
-        <button type="button" class="qa-minimize" onclick="minimizeQuickAdminBar()" title="کوچک شدن">بستن</button>
-      </div>
-      <div class="qa-row">
-        <button type="button" onclick="toggleInlineEdit()">ویرایش مستقیم</button>
-        <select id="quickSeasonSelect" onchange="quickChangeSeason(this.value)" title="تم فصلی (خودکار=تقویم ایران)">
-          <option value="auto">خودکار (تقویم ایران)</option>
-          <option value="spring">بهار</option>
-          <option value="summer">تابستان</option>
-          <option value="autumn">پاییز</option>
-          <option value="winter">زمستان</option>
-          <option value="off">خاموش</option>
-        </select>
-      </div>
-      <div class="qa-row">
-        <button type="button" class="qa-save" onclick="saveInlineEdits()">ذخیره</button>
-        <button type="button" onclick="cancelInlineEdits()">لغو</button>
-        <button type="button" onclick="navigate('admin')">پنل کامل</button>
-        <button type="button" class="qa-danger" onclick="logout()">خروج</button>
-      </div>
+      <span class="qa-label">مدیریت سریع</span>
+      <button type="button" onclick="toggleInlineEdit()">✎ ویرایش مستقیم</button>
+      <select id="quickSeasonSelect" onchange="quickChangeSeason(this.value)" title="تم فصلی">
+        <option value="auto">🗓️ خودکار</option>
+        <option value="spring">🌸 بهار</option>
+        <option value="summer">☼ تابستان</option>
+        <option value="autumn">🍂 پاییز</option>
+        <option value="winter">❄️ زمستان</option>
+      </select>
+      <button type="button" class="qa-save" onclick="saveInlineEdits()">☑ ذخیره</button>
+      <button type="button" onclick="cancelInlineEdits()">↶ لغو</button>
+      <button type="button" onclick="navigate('admin')">⚙ پنل</button>
+      <button type="button" class="qa-danger" onclick="logout()">⇦ خروج</button>
+      <button type="button" class="qa-minimize" onclick="minimizeQuickAdminBar()" title="کوچک شدن نوار">– کوچک شدن</button>
     </div>
-    <button type="button" class="quick-admin-fab" id="quickAdminFab" onclick="expandQuickAdminBar()" title="باز کردن مدیریت سریع" aria-label="باز کردن مدیریت سریع">⚙</button>
+    <button type="button" class="quick-admin-fab" id="quickAdminFab" onclick="expandQuickAdminBar()" title="باز کردن مدیریت سریع" aria-label="باز کردن مدیریت سریع"><img src="assets/images/setting_fast.png" alt="پنل مدیریت سریع"></button>
     <div class="admin-edit-hint" id="adminEditHint">
       حالت ویرایش مستقیم: روی متن‌های مشخص‌شده کلیک کن، ویرایش کن و «ذخیره» را بزن.
     </div>
@@ -5380,7 +4214,7 @@ textarea:focus-visible,
     <div class="fab-stack" id="fabStack">
       <div class="quick-links-fabs" id="quickLinksFabs"></div>
       <button type="button" class="support-fab support-fab-add" id="supportAddFab" onclick="openQuickLinkModal()" title="افزودن لینک سریع" aria-label="افزودن لینک" style="display:none">+</button>
-      <button type="button" class="support-fab" id="supportFab" onclick="openSupportModal()" title="پیام به پشتیبانی" aria-label="پشتیبانی">✉</button>
+      <button type="button" class="support-fab" id="supportFab" onclick="openSupportModal()" title="پیام به پشتیبانی" aria-label="پشتیبانی"><img src="assets/images/support.png" alt="پشتیبانی"></button>
     </div>
 
     <!-- Quick link add/edit modal (owner) -->
@@ -5541,91 +4375,9 @@ textarea:focus-visible,
     </div>
 
     <!-- Toast -->
-    
-    <!-- نوار پایین: خانه + محصولات + سبد + اعلان + پنل کاربر + پنل مدیریت -->
-    <nav class="bottom-user-bar" id="bottomUserBar" aria-label="منوی اصلی پایین">
-      <button type="button" class="bub-item" id="bubHome" data-page="home" onclick="navigate('home')" title="صفحه اصلی">
-        <span class="bub-ico" aria-hidden="true">⌂</span>
-        <span class="bub-label">خانه</span>
-      </button>
-      <button type="button" class="bub-item" id="bubProducts" data-page="products" onclick="navigate('products')" title="محصولات">
-        <span class="bub-ico" aria-hidden="true">▣</span>
-        <span class="bub-label">محصولات</span>
-      </button>
-      <button type="button" class="bub-item bub-cart" id="bubCart" data-page="cart" onclick="navigate('cart')" title="سبد درخواست">
-        <span class="bub-ico" aria-hidden="true">🛒</span>
-        <span class="bub-label">سبد</span>
-        <span class="cart-badge bub-badge" id="cartBadge" style="display:none">0</span>
-      </button>
-      <button type="button" class="bub-item" id="bubNotif" onclick="openNotifications()" title="اعلان‌ها">
-        <span class="bub-ico" aria-hidden="true">🔔</span>
-        <span class="bub-label">اعلان‌ها</span>
-        <span class="cart-badge bub-badge" id="notifBadge" style="display:none">0</span>
-      </button>
-      <button type="button" class="bub-item" id="bottomUserBtn" onclick="onBottomUserClick()" title="پنل کاربری">
-        <span class="bub-ico" aria-hidden="true">👤</span>
-        <span class="bub-label">پنل کاربری</span>
-      </button>
-      <button type="button" class="bub-item bub-admin" id="bubAdmin" data-page="admin" onclick="navigate('admin')" title="پنل مدیریت" style="display:none">
-        <span class="bub-ico" aria-hidden="true">⚙</span>
-        <span class="bub-label">مدیریت</span>
-        <span class="cart-badge bub-badge" id="adminTaskBadge" style="display:none">0</span>
-      </button>
-    </nav>
-
-    <div class="modal-overlay" id="notificationsModal">
-      <div class="modal" style="max-width:480px;">
-        <div class="modal-header"><h3>اعلان‌ها</h3><button class="modal-close" onclick="closeModal('notificationsModal')">×</button></div>
-        <div class="modal-body" id="notificationsBody"></div>
-      </div>
-    </div>
-
-    <div class="modal-overlay" id="blockedUserModal">
-      <div class="modal" style="max-width:420px;text-align:center;">
-        <div class="modal-body" style="padding:28px;">
-          <div style="font-size:3rem;margin-bottom:12px;">⛔</div>
-          <h3 style="margin-bottom:10px;">دسترسی محدود شده</h3>
-          <p id="blockedUserMsg" style="color:var(--text-muted);margin-bottom:20px;">حساب شما مسدود یا حذف شده است.</p>
-          <button class="btn btn-primary" onclick="acknowledgeBlocked()">متوجه شدم</button>
-        </div>
-      </div>
-    </div>
-
     <div class="toast-container" id="toastContainer"></div>
 
-
-
-    <!-- فرانت ماژولار: هر بخش یک فایل -->
-
-
-
-  <script>
-
-/* ===== core/api.js ===== */
-
-      // ==================== PHP API BRAIN ====================
-      const API_BASE = "api";
-      window.__USE_PHP_API = true;
-
-      async function apiFetch(path, options = {}) {
-        const opts = Object.assign(
-          { credentials: "same-origin", headers: { "Content-Type": "application/json" } },
-          options,
-        );
-        const res = await fetch(API_BASE + "/" + path, opts);
-        let data = null;
-        try {
-          data = await res.json();
-        } catch (e) {
-          data = { ok: false, error: "پاسخ نامعتبر سرور" };
-        }
-        return data;
-      }
-
-
-
-/* ===== core/data.js ===== */
-/* ARCH_ENSURE_PRODUCTS */
+    <script>
 // ==================== DATA & STORAGE ====================
       const STORAGE_KEY = "naturalFertilizerDB";
 
@@ -5887,23 +4639,18 @@ textarea:focus-visible,
           },
         ],
         quickLinks: [],
-        carts: {},
-        notifications: [],
-        userVisits: {},
         consultations: [],
         tickets: [],
-        comments: [],
         activityLog: [],
         currentUser: null,
       };
 
       function loadDB() {
-        // همگام اولیه از local تا API برسد
         try {
           const raw = localStorage.getItem(STORAGE_KEY);
           if (raw) {
             const data = JSON.parse(raw);
-            return {
+            const merged = {
               ...defaultData,
               ...data,
               settings: { ...defaultData.settings, ...data.settings },
@@ -5911,70 +4658,64 @@ textarea:focus-visible,
               categories: Array.isArray(data.categories) && data.categories.length
                 ? data.categories
                 : (defaultData.categories || []),
-              comments: Array.isArray(data.comments) ? data.comments : [],
             };
-          }
-        } catch (e) {}
-        return JSON.parse(JSON.stringify(defaultData));
-      }
-
-      async function loadDBFromServer() {
-        try {
-          const res = await apiFetch("init.php");
-          if (res && res.ok && res.data) {
-            const data = res.data;
-            const merged = {
-              ...defaultData,
-              ...data,
-              settings: { ...defaultData.settings, ...(data.settings || {}) },
-              stats: { ...defaultData.stats, ...(data.stats || {}) },
-              categories: Array.isArray(data.categories) ? data.categories : defaultData.categories,
-              comments: Array.isArray(data.comments) ? data.comments : [],
-              currentUser: data.currentUser || null,
-            };
-            try {
-              localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
-            } catch (e) {}
+            // migrate products media fields
+            if (Array.isArray(merged.products)) {
+              merged.products = merged.products.map((p) => ({
+                ...p,
+                images: Array.isArray(p.images)
+                  ? p.images
+                  : p.image
+                    ? [p.image]
+                    : [],
+                video: p.video || "",
+              }));
+            }
+            // migrate users: first admin -> owner if no owner; permissions array
+            if (Array.isArray(merged.users)) {
+              const hasOwner = merged.users.some((u) => u.role === "owner");
+              merged.users = merged.users.map((u, i) => {
+                let role = u.role;
+                if (!hasOwner && role === "admin" && i === 0) role = "owner";
+                return {
+                  ...u,
+                  role,
+                  permissions: Array.isArray(u.permissions)
+                    ? u.permissions
+                    : role === "admin"
+                      ? ["dashboard","products","support","users","settings","activity","quick_admin","inline_edit","pages_edit","media","hero_feature","about_image"]
+                      : [],
+                };
+              });
+            }
+            // migrate currentUser permissions
+            if (merged.currentUser) {
+              const full = merged.users.find((u) => u.id === merged.currentUser.id);
+              if (full) {
+                merged.currentUser.role = full.role;
+                merged.currentUser.permissions = full.permissions || [];
+              }
+            }
             return merged;
           }
         } catch (e) {
-          console.warn("PHP API offline, local mode", e);
+          console.error(e);
         }
-        return loadDB();
+        return JSON.parse(JSON.stringify(defaultData));
       }
 
       function saveDB(db) {
-        try {
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
-        } catch (e) {
-          console.warn("localStorage full", e);
-        }
-        if (window.__USE_PHP_API && db && (db.currentUser && (db.currentUser.role === "owner" || db.currentUser.role === "admin"))) {
-          apiFetch("sync.php", { method: "POST", body: JSON.stringify(db) }).then((res) => {
-            if (res && !res.ok) console.warn("sync failed", res.error);
-          }).catch(() => {});
-        }
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
       }
 
       let DB = loadDB();
 
-
-
-/* ===== core/utils.js ===== */
       // ==================== UTILITIES ====================
       function escapeHtml(text) {
         if (!text) return "";
         const div = document.createElement("div");
         div.textContent = text;
         return div.innerHTML;
-      }
-
-      /** آماده‌سازی یک مقدار متنی برای قرار گرفتن داخل رشته تک‌کوتیشن در onclick */
-      function jsArg(value) {
-        return escapeHtml(String(value ?? "").replace(/\\/g, "\\\\").replace(/'/g, "\\'")).replace(
-          /"/g,
-          "&quot;",
-        );
       }
 
       function showToast(msg, type = "success") {
@@ -5998,320 +4739,16 @@ textarea:focus-visible,
         saveDB(DB);
       }
 
-      /** تبدیل میلادی → ماه شمسی (۱..۱۲) */
-      function getJalaliMonthDay(date) {
-        const gy = date.getFullYear();
-        const gm = date.getMonth() + 1;
-        const gd = date.getDate();
-        const g_d_m = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
-        const gy2 = gm > 2 ? gy + 1 : gy;
-        let days =
-          355666 +
-          365 * gy +
-          Math.floor((gy2 + 3) / 4) -
-          Math.floor((gy2 + 99) / 100) +
-          Math.floor((gy2 + 399) / 400) +
-          gd +
-          g_d_m[gm - 1];
-        let jy = -1595 + 33 * Math.floor(days / 12053);
-        days %= 12053;
-        jy += 4 * Math.floor(days / 1461);
-        days %= 1461;
-        if (days > 365) {
-          jy += Math.floor((days - 1) / 365);
-          days = (days - 1) % 365;
-        }
-        const jm = days < 186 ? 1 + Math.floor(days / 31) : 7 + Math.floor((days - 186) / 30);
-        const jd = 1 + (days < 186 ? days % 31 : (days - 186) % 30);
-        return { jy: jy, jm: jm, jd: jd };
-      }
-
-      /** تم خودکار بر اساس فصل تقویم ایران */
       function getSeason() {
-        if (DB.settings && DB.settings.seasonalMode === "manual")
-          return DB.settings.manualSeason || "spring";
-        if (DB.settings && DB.settings.seasonalMode === "off") return "spring";
-        const { jm } = getJalaliMonthDay(new Date());
-        // فروردین–خرداد بهار | تیر–شهریور تابستان | مهر–آذر پاییز | دی–اسفند زمستان
-        if (jm >= 1 && jm <= 3) return "spring";
-        if (jm >= 4 && jm <= 6) return "summer";
-        if (jm >= 7 && jm <= 9) return "autumn";
+        if (DB.settings.seasonalMode === "manual")
+          return DB.settings.manualSeason;
+        const m = new Date().getMonth() + 1;
+        if (m >= 3 && m <= 5) return "spring";
+        if (m >= 6 && m <= 8) return "summer";
+        if (m >= 9 && m <= 11) return "autumn";
         return "winter";
       }
 
-
-
-      function getCartKey() {
-        if (DB.currentUser && DB.currentUser.id)
-          return "u_" + DB.currentUser.id;
-        let g = localStorage.getItem("guest_cart_id");
-        if (!g) {
-          g = "g_" + Date.now() + "_" + Math.floor(Math.random() * 9999);
-          localStorage.setItem("guest_cart_id", g);
-        }
-        return g;
-      }
-
-      function getCart() {
-        if (!DB.carts) DB.carts = {};
-        const k = getCartKey();
-        if (!DB.carts[k]) {
-          DB.carts[k] = {
-            key: k,
-            userId: DB.currentUser ? DB.currentUser.id : null,
-            userLabel: DB.currentUser ? DB.currentUser.name || DB.currentUser.email : "مهمان",
-            items: [],
-            updatedAt: new Date().toLocaleString("fa-IR"),
-          };
-        }
-        return DB.carts[k];
-      }
-
-      function cartItemCount() {
-        const c = getCart();
-        return (c.items || []).reduce((s, it) => s + (it.qty || 1), 0);
-      }
-
-      function updateCartBadge() {
-        const el = document.getElementById("cartBadge");
-        if (!el) return;
-        const n = cartItemCount();
-        el.textContent = n > 0 ? String(n) : "";
-        el.style.display = n > 0 ? "flex" : "none";
-      }
-
-      window.addToCart = function (productId) {
-        const p = (DB.products || []).find((x) => x.id == productId);
-        if (!p) {
-          showToast("محصول یافت نشد", "error");
-          return;
-        }
-        const cart = getCart();
-        const existing = cart.items.find((it) => it.productId == productId);
-        if (existing) existing.qty = (existing.qty || 1) + 1;
-        else
-          cart.items.push({
-            productId: p.id,
-            name: p.name,
-            category: p.category || "",
-            image: (p.images && p.images[0]) || p.image || "",
-            qty: 1,
-            addedAt: new Date().toLocaleString("fa-IR"),
-          });
-        cart.userId = DB.currentUser ? DB.currentUser.id : null;
-        cart.userLabel = DB.currentUser ? DB.currentUser.name || DB.currentUser.email : "مهمان";
-        cart.updatedAt = new Date().toLocaleString("fa-IR");
-        DB.carts[getCartKey()] = cart;
-        saveDB(DB);
-        updateCartBadge();
-        showToast("به سبد درخواست اضافه شد");
-        logActivity("افزودن به سبد", p.name);
-      };
-
-      window.removeFromCart = function (productId) {
-        const cart = getCart();
-        cart.items = cart.items.filter((it) => it.productId != productId);
-        cart.updatedAt = new Date().toLocaleString("fa-IR");
-        saveDB(DB);
-        updateCartBadge();
-        if (typeof renderCart === "function") renderCart();
-        else render();
-      };
-
-      window.changeCartQty = function (productId, delta) {
-        const cart = getCart();
-        const it = cart.items.find((x) => x.productId == productId);
-        if (!it) return;
-        it.qty = Math.max(1, (it.qty || 1) + delta);
-        cart.updatedAt = new Date().toLocaleString("fa-IR");
-        saveDB(DB);
-        updateCartBadge();
-        if (typeof renderCart === "function") renderCart();
-      };
-
-
-      function mergeGuestCartToUser() {
-        if (!DB.currentUser || !DB.carts) return;
-        const guestId = localStorage.getItem("guest_cart_id");
-        if (!guestId || !DB.carts[guestId]) return;
-        const userKey = "u_" + DB.currentUser.id;
-        const guest = DB.carts[guestId];
-        if (!guest.items || !guest.items.length) return;
-        if (!DB.carts[userKey]) {
-          DB.carts[userKey] = {
-            key: userKey,
-            userId: DB.currentUser.id,
-            userLabel: DB.currentUser.name || DB.currentUser.email,
-            items: [],
-            updatedAt: new Date().toLocaleString("fa-IR"),
-          };
-        }
-        const target = DB.carts[userKey];
-        guest.items.forEach((git) => {
-          const ex = target.items.find((x) => x.productId == git.productId);
-          if (ex) ex.qty = (ex.qty || 1) + (git.qty || 1);
-          else target.items.push(git);
-        });
-        target.userLabel = DB.currentUser.name || DB.currentUser.email;
-        target.updatedAt = new Date().toLocaleString("fa-IR");
-        delete DB.carts[guestId];
-        localStorage.removeItem("guest_cart_id");
-        saveDB(DB);
-        try { updateCartBadge(); } catch (e) {}
-      }
-
-
-      function updateNotifBadge() {
-        const el = document.getElementById("notifBadge");
-        if (!el) return;
-        const uid = DB.currentUser ? String(DB.currentUser.id) : "guest";
-        const list = visibleNotifications();
-        const unread = list.filter((n) => {
-          const read = n.readBy || [];
-          return !read.includes(uid);
-        }).length;
-        el.textContent = unread > 0 ? String(unread) : "";
-        el.style.display = unread > 0 ? "flex" : "none";
-      }
-
-      /** نوار پایین: حالت فعال، دکمه مدیریت و شمارنده کارهای مدیریتی */
-      function updateBottomBar() {
-        const hash = (window.location.hash.slice(1) || "home").split("/")[0];
-        const staff = isStaff();
-        document.querySelectorAll(".bottom-user-bar .bub-item").forEach((btn) => {
-          const page = btn.dataset.page;
-          const active = !!page && (page === hash || (page === "products" && hash === "product"));
-          btn.classList.toggle("active", active);
-          if (active) btn.setAttribute("aria-current", "page");
-          else btn.removeAttribute("aria-current");
-        });
-        const adminBtn = document.getElementById("bubAdmin");
-        if (adminBtn) adminBtn.style.display = staff ? "flex" : "none";
-        const mobileAdminLink = document.getElementById("mobileAdminLink");
-        if (mobileAdminLink) mobileAdminLink.style.display = staff ? "" : "none";
-        const badge = document.getElementById("adminTaskBadge");
-        if (badge) {
-          const pending = staff ? adminPendingCount() : 0;
-          badge.textContent = pending > 0 ? String(pending) : "";
-          badge.style.display = pending > 0 ? "flex" : "none";
-        }
-      }
-
-      /** تعداد کارهای در انتظار رسیدگی مدیر (مشاوره جدید + تیکت باز + کامنت در انتظار) */
-      function adminPendingCount() {
-        const newConsults = (DB.consultations || []).filter((c) => c.status === "جدید").length;
-        const openTickets = (DB.tickets || []).filter(
-          (t) => t.status === "باز" || t.status === "در حال بررسی",
-        ).length;
-        const pendingComments = (DB.comments || []).filter((c) => c.status === "pending").length;
-        return newConsults + openTickets + pendingComments;
-      }
-
-      function trackVisit(page) {
-        if (!DB.userVisits) DB.userVisits = {};
-        const key = DB.currentUser ? "u_" + DB.currentUser.id : getCartKey();
-        if (!DB.userVisits[key]) DB.userVisits[key] = [];
-        DB.userVisits[key].unshift({
-          page: page || "home",
-          at: new Date().toLocaleString("fa-IR"),
-        });
-        if (DB.userVisits[key].length > 40) DB.userVisits[key].length = 40;
-        // no save every navigation to avoid lag - save periodically
-        try {
-          if (!window._visitSaveTimer) {
-            window._visitSaveTimer = setTimeout(() => {
-              window._visitSaveTimer = null;
-              saveDB(DB);
-            }, 2000);
-          }
-        } catch (e) {}
-      }
-
-      function checkBlockedUser() {
-        if (!DB.currentUser) return false;
-        const full = (DB.users || []).find((x) => x.id === DB.currentUser.id);
-        if (!full || full.status === "blocked" || full.status === "deleted") {
-          const msg = document.getElementById("blockedUserMsg");
-          if (msg) {
-            msg.textContent =
-              !full || full.status === "deleted"
-                ? "حساب شما توسط مدیریت حذف شده است و دیگر به سایت دسترسی ندارید."
-                : "حساب شما مسدود شده است. در صورت نیاز با پشتیبانی تماس بگیرید.";
-          }
-          DB.currentUser = null;
-          saveDB(DB);
-          try { hideQuickAdminBar(); } catch (e) {}
-          try { updateAuthUI(); } catch (e) {}
-          openModalById("blockedUserModal");
-          return true;
-        }
-        return false;
-      }
-
-      window.acknowledgeBlocked = function () {
-        closeModal("blockedUserModal");
-        navigate("home");
-      };
-
-      window.onBottomUserClick = function () {
-        if (!DB.currentUser) {
-          openLoginModal();
-          return;
-        }
-        openUserProfile();
-      };
-
-      /** اعلان‌های قابل مشاهده برای کاربر فعلی (عمومی + اعلان‌های شخصی خودش) */
-      function visibleNotifications() {
-        const uid = DB.currentUser ? DB.currentUser.id : null;
-        return (DB.notifications || []).filter(
-          (n) => !n.userId || (uid !== null && String(n.userId) === String(uid)),
-        );
-      }
-
-      /** ثبت اعلان؛ با userId اعلان فقط برای همان کاربر نمایش داده می‌شود */
-      function pushNotification({ title, body, userId = null }) {
-        if (!DB.notifications) DB.notifications = [];
-        DB.notifications.unshift({
-          id: Date.now() + Math.floor(Math.random() * 1000),
-          title,
-          body,
-          userId,
-          createdAt: new Date().toLocaleString("fa-IR"),
-          readBy: [],
-          author: DB.currentUser ? DB.currentUser.name : "سیستم",
-        });
-      }
-
-      window.openNotifications = function () {
-        const body = document.getElementById("notificationsBody");
-        if (!body) return;
-        const list = visibleNotifications().slice().sort((a, b) => (b.id || 0) - (a.id || 0));
-        const uid = DB.currentUser ? String(DB.currentUser.id) : "guest";
-        body.innerHTML = list.length
-          ? list
-              .map((n) => {
-                const read = (n.readBy || []).includes(uid);
-                return `<article class="admin-ticket-card" style="opacity:${read ? 0.75 : 1}">
-                  <h3 class="atc-title">${escapeHtml(n.title || "اعلان")}</h3>
-                  <p class="atc-preview">${escapeHtml(n.body || "")}</p>
-                  <small style="color:var(--text-muted)">${escapeHtml(n.createdAt || "")}</small>
-                </article>`;
-              })
-              .join("")
-          : '<div class="admin-empty">اعلانی نیست</div>';
-        // mark read
-        list.forEach((n) => {
-          if (!n.readBy) n.readBy = [];
-          if (!n.readBy.includes(uid)) n.readBy.push(uid);
-        });
-        saveDB(DB);
-        updateNotifBadge();
-        openModalById("notificationsModal");
-      };
-
-
-/* ===== modules/theme.js ===== */
       // ==================== THEME ====================
       function initTheme() {
         const saved = localStorage.getItem("theme") || "light";
@@ -6340,11 +4777,9 @@ textarea:focus-visible,
       }
 
       function productsInCategory(cat, onlyActive) {
-        const target = String(cat || "").trim();
         return (DB.products || []).filter((p) => {
-          const pc = String(p.category || "").trim();
-          if (pc !== target) return false;
-          if (onlyActive && p.status && p.status !== "active") return false;
+          if (p.category !== cat) return false;
+          if (onlyActive && p.status !== "active") return false;
           return true;
         });
       }
@@ -6367,9 +4802,8 @@ textarea:focus-visible,
               "<h3>" + escapeHtml(p.name || "") + "</h3>" +
               "<p>" + escapeHtml(p.shortDesc || "") + "</p>" +
               '<div class="product-card-actions">' +
-              '<button type="button" class="btn btn-primary btn-sm" onclick="event.stopPropagation();addToCart(' + p.id + ')">🛒</button> ' +
-              '<button type="button" class="btn btn-outline btn-sm" onclick="event.stopPropagation();navigate(\'product\', ' + p.id + ')">مشاهده</button> ' +
-              '<button type="button" class="btn btn-outline btn-sm" onclick="event.stopPropagation();startConsultForProduct(' + p.id + ')">مشاوره</button>' +
+              '<button class="btn btn-primary btn-sm" onclick="navigate(\'product\', ' + p.id + ')">مشاهده</button> ' +
+              '<button class="btn btn-outline btn-sm" onclick="navigate(\'consult\')">مشاوره</button>' +
               "</div></div></div>"
             );
           })
@@ -6434,9 +4868,6 @@ textarea:focus-visible,
         );
       });
 
-
-
-/* ===== modules/quick-admin.js ===== */
       // ==================== QUICK ADMIN / INLINE EDITOR ====================
       // Site-level settings keys that can be edited inline anywhere they appear
       const INLINE_SETTINGS_FIELDS = [
@@ -6504,27 +4935,7 @@ textarea:focus-visible,
         { key: "media", label: "آپلود عکس و ویدیو محصول" },
         { key: "hero_feature", label: "انتخاب محصول ویژه صفحه اصلی" },
         { key: "about_image", label: "تصویر بخش درباره ما" },
-        { key: "comments", label: "مدیریت و پاسخ نظرات محصولات" },
-        { key: "carts", label: "مشاهده سبدهای درخواست" },
-        { key: "notifications", label: "مدیریت اعلان‌ها" },
       ];
-
-      /** بخش‌های قابل نمایش در پنل مدیریت و دسترسی مورد نیاز هر کدام */
-      const ADMIN_SECTION_PERM = {
-        dashboard: "dashboard",
-        products: "products",
-        support: "support",
-        consults: "support",
-        tickets: "support",
-        comments: "comments",
-        users: "users",
-        carts: "carts",
-        pages: "pages_edit",
-        settings: "settings",
-        notifications: "notifications",
-        admins: "users",
-        activity: "activity",
-      };
 
       function isStaff() {
         return !!(
@@ -6633,107 +5044,22 @@ textarea:focus-visible,
       }
 
       function quickChangeSeason(value) {
-        if (!DB.settings) DB.settings = {};
-        if (value === "auto" || value === "off") {
-          DB.settings.seasonalMode = value;
+        if (!isAdmin()) return;
+        if (value === "auto") {
+          DB.settings.seasonalMode = "auto";
         } else {
           DB.settings.seasonalMode = "manual";
           DB.settings.manualSeason = value;
         }
         saveDB(DB);
         applySeasonTheme();
-        if (value !== "off" && typeof playSeasonFx === "function") {
-          playSeasonFx(getSeason(), true);
-        }
-        showToast(value === "off" ? "تم فصلی خاموش شد" : "تم فصلی اعمال شد");
+        logActivity("تغییر تم فصلی", value === "auto" ? "خودکار" : value);
+        showToast("تم فصلی اعمال شد");
       }
 
-      
-      
-      
-      
-      
-      window._lastSeasonFx = null;
-      window._seasonFxPlaying = false;
-      window.playSeasonFx = function (season, force) {
-        const s = season || (typeof getSeason === "function" ? getSeason() : "spring");
-        if (!force && window._seasonFxPlaying) return;
-        window._seasonFxPlaying = true;
-        window._lastSeasonFx = s;
-
-        document.querySelectorAll(".fx-mote, .fx-bloom, .fx-emoji").forEach((n) => n.remove());
-        let layer = document.getElementById("seasonFxLayer");
-        if (layer) layer.remove();
-        layer = document.createElement("div");
-        layer.id = "seasonFxLayer";
-        layer.setAttribute("aria-hidden", "true");
-        document.body.appendChild(layer);
-
-        const bloom = document.createElement("div");
-        bloom.className = "fx-bloom " + s;
-        layer.appendChild(bloom);
-
-        // ایموجی به‌جای توپ رنگی
-        const emojiSets = {
-          spring: ["🍃", "🌿", "☘️", "🌱", "🍃"],
-          summer: ["🌼", "🌻", "🌼", "🌻", "🌼"],
-          autumn: ["🍂", "🍁", "🍂", "🍁", "🍃"],
-          winter: null, // توپ سفید
-        };
-
-        const count = s === "winter" ? 14 : 12;
-        for (let i = 0; i < count; i++) {
-          const m = document.createElement("span");
-          if (s === "winter") {
-            m.className = "fx-mote winter";
-            const size = 5 + Math.random() * 9;
-            m.style.width = size + "px";
-            m.style.height = size + "px";
-          } else {
-            m.className = "fx-emoji " + s;
-            const set = emojiSets[s] || emojiSets.spring;
-            m.textContent = set[i % set.length];
-            m.style.fontSize = 14 + Math.random() * 14 + "px";
-            m.style.lineHeight = "1";
-            m.style.background = "none";
-            m.style.boxShadow = "none";
-          }
-          m.style.position = "absolute";
-          m.style.left = Math.random() * 100 + "%";
-          m.style.top = -5 + Math.random() * 25 + "%";
-          m.style.pointerEvents = "none";
-          m.style.animation = "mote-drift linear forwards";
-          const dx = Math.round(Math.random() * 100 - 50);
-          const dy = Math.round(75 + Math.random() * 45);
-          m.style.setProperty("--dx", dx + "px");
-          m.style.setProperty("--dy", dy + "vh");
-          m.style.animationDuration = 5.5 + Math.random() * 2.5 + "s";
-          m.style.animationDelay = Math.random() * 1.8 + "s";
-          if (s === "summer") {
-            m.style.top = 5 + Math.random() * 45 + "%";
-            m.style.setProperty("--dy", -(15 + Math.random() * 35) + "vh");
-          }
-          layer.appendChild(m);
-        }
-
-        setTimeout(() => {
-          if (layer && layer.parentNode) layer.remove();
-          window._seasonFxPlaying = false;
-        }, 9000);
-      };
-
       function applySeasonTheme() {
-        const season = typeof getSeason === "function" ? getSeason() : "spring";
-        document.documentElement.setAttribute("data-season", season);
-        try {
-          if (typeof syncQuickSeasonSelect === "function") syncQuickSeasonSelect();
-        } catch (e) {}
-        try {
-          const mode = (DB && DB.settings && DB.settings.seasonalMode) || "auto";
-          if (mode !== "off" && typeof playSeasonFx === "function") {
-            playSeasonFx(season, false);
-          }
-        } catch (e) {}
+        document.documentElement.setAttribute("data-season", getSeason());
+        syncQuickSeasonSelect();
       }
 
       function parseEditKey(key) {
@@ -6952,9 +5278,6 @@ textarea:focus-visible,
       window.cancelInlineEdits = cancelInlineEdits;
       window.showQuickAdminBar = showQuickAdminBar;
 
-
-
-/* ===== modules/router.js ===== */
       // ==================== NAVIGATION ====================
       // Fix: previously this both changed location.hash AND called render() directly,
       // while a separate 'hashchange' listener also called render() — causing a double
@@ -6977,8 +5300,6 @@ textarea:focus-visible,
 
       function closeMobile() {
         document.getElementById("mobileMenu").classList.remove("open");
-        const toggle = document.getElementById("mobileToggle");
-        if (toggle) toggle.setAttribute("aria-expanded", "false");
       }
 
       window.toggleAdminSidebar = function () {
@@ -6996,32 +5317,7 @@ textarea:focus-visible,
       };
 
       document.getElementById("mobileToggle").addEventListener("click", () => {
-        const menu = document.getElementById("mobileMenu");
-        const open = menu.classList.toggle("open");
-        document
-          .getElementById("mobileToggle")
-          .setAttribute("aria-expanded", open ? "true" : "false");
-      });
-
-      // بستن مودال‌ها با Esc و کلیک روی پس‌زمینه
-      document.addEventListener("keydown", (e) => {
-        if (e.key !== "Escape") return;
-        const open = [...document.querySelectorAll(".modal-overlay.open")].pop();
-        if (open) {
-          if (open.id) closeModal(open.id);
-          else open.remove();
-          if (!document.querySelector(".modal-overlay.open"))
-            document.body.classList.remove("modal-open");
-        }
-      });
-
-      document.addEventListener("click", (e) => {
-        const overlay = e.target.closest(".modal-overlay");
-        if (!overlay || e.target !== overlay) return;
-        if (overlay.id) closeModal(overlay.id);
-        else overlay.remove();
-        if (!document.querySelector(".modal-overlay.open"))
-          document.body.classList.remove("modal-open");
+        document.getElementById("mobileMenu").classList.toggle("open");
       });
 
       window.addEventListener("scroll", () => {
@@ -7070,17 +5366,6 @@ textarea:focus-visible,
 
       // ==================== RENDER ====================
       function render() {
-        try {
-          if (typeof checkBlockedUser === "function" && checkBlockedUser()) return;
-        } catch (e) {}
-        try {
-          const hash = window.location.hash.slice(1) || "home";
-          const page = hash.split("/")[0];
-          if (typeof trackVisit === "function") trackVisit(page);
-        } catch (e) {}
-        try { updateNotifBadge(); } catch (e) {}
-        try { updateBottomBar(); } catch (e) {}
-
         const hash = window.location.hash.slice(1) || "home";
         const [page, param] = hash.split("/");
         const app = document.getElementById("app");
@@ -7096,7 +5381,6 @@ textarea:focus-visible,
           header.style.display = "none";
           footer.style.display = "none";
           updateSupportFabVisibility();
-        try { updateCartBadge(); } catch (e) {}
           renderAdmin(page, param);
           return;
         }
@@ -7115,19 +5399,7 @@ textarea:focus-visible,
           case "home":
             renderHome();
             break;
-          case "cart":
-            renderCart();
-            break;
           case "products":
-            if (param) {
-              try {
-                window._productsCategoryFilter = decodeURIComponent(param);
-              } catch (e) {
-                window._productsCategoryFilter = param;
-              }
-            } else {
-              window._productsCategoryFilter = null;
-            }
             renderProducts();
             break;
           case "product":
@@ -7156,118 +5428,6 @@ textarea:focus-visible,
           bindInlineEditableElements();
         }
         initRevealAnimations();
-      }
-
-
-
-/* ===== modules/pages-public.js ===== */
-
-      window.onHeaderSearchInput = function () {
-        const q = (document.getElementById("headerSearch")?.value || "").trim().toLowerCase();
-        const box = document.getElementById("headerSearchResults");
-        if (!box) return;
-        if (q.length < 1) {
-          box.classList.remove("open");
-          box.innerHTML = "";
-          return;
-        }
-        const hits = (DB.products || [])
-          .filter((p) => p.status === "active")
-          .filter(
-            (p) =>
-              (p.name || "").toLowerCase().includes(q) ||
-              (p.category || "").toLowerCase().includes(q) ||
-              (p.shortDesc || "").toLowerCase().includes(q) ||
-              (p.type || "").toLowerCase().includes(q) ||
-              (p.usageShort || "").toLowerCase().includes(q),
-          )
-          .slice(0, 8);
-        if (!hits.length) {
-          box.innerHTML = '<div class="hsr-item"><small>نتیجه‌ای یافت نشد</small></div>';
-          box.classList.add("open");
-          return;
-        }
-        box.innerHTML = hits
-          .map(
-            (p) =>
-              `<button type="button" class="hsr-item" onclick="goSearchProduct(${p.id})"><strong>${escapeHtml(p.name)}</strong><small>${escapeHtml(p.category || "")}</small></button>`,
-          )
-          .join("");
-        box.classList.add("open");
-      };
-
-      window.submitHeaderSearch = function () {
-        const q = (document.getElementById("headerSearch")?.value || "").trim();
-        window._productsCategoryFilter = null;
-        window._productSearchQuery = q;
-        const box = document.getElementById("headerSearchResults");
-        if (box) box.classList.remove("open");
-        navigate("products");
-        setTimeout(() => {
-          const inp = document.getElementById("productSearch");
-          if (inp) {
-            inp.value = q;
-            filterProductShelves();
-          }
-        }, 50);
-      };
-
-      window.goSearchProduct = function (id) {
-        const box = document.getElementById("headerSearchResults");
-        if (box) box.classList.remove("open");
-        const hs = document.getElementById("headerSearch");
-        if (hs) hs.value = "";
-        navigate("product", id);
-      };
-
-      document.addEventListener("click", (e) => {
-        const wrap = document.querySelector(".header-search-wrap");
-        const box = document.getElementById("headerSearchResults");
-        if (box && wrap && !wrap.contains(e.target)) box.classList.remove("open");
-      });
-
-      function renderCart() {
-        const cart = getCart();
-        const items = cart.items || [];
-        document.getElementById("app").innerHTML = `
-        <section class="section" style="padding-top:calc(var(--header-h) + 40px);">
-          <div class="container">
-            <div class="section-header">
-              <h2>سبد درخواست</h2>
-              <p>قیمت ندارد — برای پیگیری و مشاوره ثبت می‌شود. مدیر سبد شما را در پنل می‌بیند.</p>
-            </div>
-            ${
-              !items.length
-                ? `<div class="empty-state"><p>سبد خالی است.</p><button class="btn btn-primary" onclick="navigate('products')">مشاهده محصولات</button></div>`
-                : items
-                    .map((it) => {
-                      const img = it.image
-                        ? `<img src="${it.image}" alt="" />`
-                        : `<div style="width:64px;height:64px;border-radius:8px;background:var(--border);display:flex;align-items:center;justify-content:center;">❧</div>`;
-                      return `
-                    <div class="cart-page-item">
-                      ${img}
-                      <div style="flex:1;min-width:0;">
-                        <strong style="cursor:pointer" onclick="navigate('product',${it.productId})">${escapeHtml(it.name)}</strong>
-                        <div style="font-size:0.8rem;color:var(--text-muted);">${escapeHtml(it.category || "")}</div>
-                        <div style="margin-top:8px;display:flex;gap:8px;align-items:center;">
-                          <button type="button" class="btn btn-sm btn-outline" onclick="changeCartQty(${it.productId},-1)">−</button>
-                          <span>${it.qty || 1}</span>
-                          <button type="button" class="btn btn-sm btn-outline" onclick="changeCartQty(${it.productId},1)">+</button>
-                          <button type="button" class="btn btn-sm qa-danger" style="margin-right:auto" onclick="removeFromCart(${it.productId})">حذف</button>
-                        </div>
-                      </div>
-                    </div>`;
-                    })
-                    .join("") +
-                  `<div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;">
-                    <button class="btn btn-primary" onclick="navigate('consult')">درخواست مشاوره برای این سبد</button>
-                    <button class="btn btn-outline" onclick="navigate('products')">ادامه مشاهده</button>
-                  </div>`
-            }
-          </div>
-        </section>`;
-        updateCartBadge();
       }
 
       // ==================== PUBLIC PAGES ====================
@@ -7314,8 +5474,16 @@ textarea:focus-visible,
                 </div>
             </div>
 </section>
-</div>
-<section class="section section-cats">
+
+        <div class="trust-bar">
+          <div class="container trust-bar-inner">
+            <div class="trust-item"><span class="trust-ico">✓</span><span>محصولات ارگانیک</span></div>
+            <div class="trust-item"><span class="trust-ico">✓</span><span>مشاوره تخصصی</span></div>
+            <div class="trust-item"><span class="trust-ico">✓</span><span>ارسال سراسری</span></div>
+            <div class="trust-item"><span class="trust-ico">✓</span><span>پشتیبانی واقعی</span></div>
+          </div>
+        </div>
+        <section class="section section-cats">
           <div class="container">
             <div class="section-header">
               <h2>دسته‌بندی محصولات</h2>
@@ -7327,7 +5495,8 @@ textarea:focus-visible,
         <section class="section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="aparat-section-title" data-edit-key="homeProductsTitle">${escapeHtml(s.homeProductsTitle || "محصولات")}</h2>
+                    <h2 data-edit-key="homeProductsTitle">${escapeHtml(s.homeProductsTitle || "محصولات منتخب")}</h2>
+                    <p data-edit-key="homeProductsDesc">${escapeHtml(s.homeProductsDesc || "")}</p>
                 </div>
                 <div id="homeCategoryShelves"></div>
                 <div class="text-center mt-20">
@@ -7356,9 +5525,7 @@ textarea:focus-visible,
             .map((cat) => {
               const n = productsInCategory(cat, true).length;
               return (
-                '<button type="button" class="cat-tile reveal" data-cat="' +
-                escapeHtml(cat).replace(/"/g, "&quot;") +
-                '">' +
+                '<button type="button" class="cat-tile reveal" onclick="navigate(\'products\')">' +
                 '<span class="cat-tile-ico">▣</span>' +
                 "<strong>" +
                 escapeHtml(cat) +
@@ -7369,14 +5536,7 @@ textarea:focus-visible,
               );
             })
             .join("") || "";
-          tiles.querySelectorAll(".cat-tile").forEach((btn) => {
-            btn.addEventListener("click", function () {
-              const c = this.getAttribute("data-cat") || "";
-              if (typeof navigateToCategory === "function") navigateToCategory(c);
-            });
-          });
         }
-
         const shelves = document.getElementById("homeCategoryShelves");
         if (shelves) {
           let html = "";
@@ -7432,75 +5592,29 @@ textarea:focus-visible,
                     <span data-edit-key="product:${p.id}:suitableFor">${escapeHtml(p.suitableFor)}</span>
                 </div>
                 <div class="product-card-actions">
-                    <button type="button" class="btn btn-primary btn-sm" onclick="event.stopPropagation();addToCart(${p.id})">🛒 سبد درخواست</button>
-                    <button type="button" class="btn btn-outline btn-sm" onclick="event.stopPropagation();navigate('product', ${p.id})">مشاهده</button>
-                    <button type="button" class="btn btn-outline btn-sm" onclick="event.stopPropagation();startConsultForProduct(${p.id})">مشاوره</button>
+                    <button class="btn btn-primary btn-sm" onclick="navigate('product', ${p.id})">مشاهده محصول</button>
+                    <button class="btn btn-outline btn-sm" onclick="navigate('consult')">مشاوره</button>
                 </div>
             </div>`;
         return div;
       }
 
-
-      window.navigateToCategory = function (cat) {
-        const name = String(cat || "").trim();
-        window._productsCategoryFilter = name || null;
-        const newHash = name ? "products/" + encodeURIComponent(name) : "products";
-        closeMobile();
-        if (window.location.hash.slice(1) === newHash) {
-          renderProducts();
-        } else {
-          window.location.hash = newHash;
-        }
-        window.scrollTo(0, 0);
-      };
-
-      window.clearProductsCategoryFilter = function () {
-        window._productsCategoryFilter = null;
-        if (window.location.hash.slice(1).startsWith("products")) {
-          window.location.hash = "products";
-        } else {
-          renderProducts();
-        }
-      };
-
       function renderProducts() {
         const s = DB.settings;
-        const filterCat = window._productsCategoryFilter || null;
-        const pageTitle = filterCat
-          ? "دسته: " + filterCat
-          : s.productsPageTitle || "محصولات ما";
-        const pageDesc = filterCat
-          ? "فقط محصولات این دسته‌بندی نمایش داده می‌شوند."
-          : s.productsPageDesc || "";
         document.getElementById("app").innerHTML = `
         <section class="section" style="padding-top:calc(var(--header-h) + 40px);">
             <div class="container">
-                <nav class="breadcrumb" aria-label="مسیر">
-                  <a onclick="navigate('home')">خانه</a>
-                  <span class="sep">/</span>
-                  <a onclick="clearProductsCategoryFilter()">محصولات</a>
-                  ${
-                    filterCat
-                      ? `<span class="sep">/</span><span>${escapeHtml(filterCat)}</span>`
-                      : ""
-                  }
-                </nav>
                 <div class="section-header">
-                    <h2>${escapeHtml(pageTitle)}</h2>
-                    <p>${escapeHtml(pageDesc || "")}</p>
+                    <h2 data-edit-key="productsPageTitle">${escapeHtml(s.productsPageTitle || "محصولات ما")}</h2>
+                    <p data-edit-key="productsPageDesc">${escapeHtml(s.productsPageDesc || "")}</p>
                 </div>
-                <div class="products-toolbar" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:20px;">
-                  <input type="search" id="productSearch" placeholder="جستجوی محصول..." oninput="filterProductShelves()" style="flex:1;min-width:180px;" />
-                  ${
-                    filterCat
-                      ? `<button type="button" class="btn btn-outline btn-sm" onclick="clearProductsCategoryFilter()">همه دسته‌ها</button>`
-                      : ""
-                  }
+                <div class="products-toolbar">
+                  <input type="search" id="productSearch" placeholder="جستجوی محصول..." oninput="filterProductShelves()" />
                 </div>
                 <div id="productsShelves"></div>
                 <div class="empty-state hidden" id="noProducts">
                     <div style="font-size:3rem;">⌕</div>
-                    <p>محصولی در این دسته یافت نشد.</p>
+                    <p>محصولی یافت نشد.</p>
                 </div>
             </div>
         </section>`;
@@ -7512,11 +5626,9 @@ textarea:focus-visible,
         const box = document.getElementById("productsShelves");
         const empty = document.getElementById("noProducts");
         if (!box) return;
-        const filterCat = window._productsCategoryFilter || null;
         let html = "";
         let total = 0;
-        const cats = filterCat ? [filterCat] : getAllCategories();
-        cats.forEach((cat) => {
+        getAllCategories().forEach((cat) => {
           let list = productsInCategory(cat, true);
           if (q) {
             list = list.filter(
@@ -7537,11 +5649,7 @@ textarea:focus-visible,
           if (total === 0) empty.classList.remove("hidden");
           else empty.classList.add("hidden");
         }
-        setTimeout(function () {
-          if (typeof setupRevealAnimations === "function") {
-            setupRevealAnimations(document.getElementById("app"));
-          }
-        }, 30);
+        setTimeout(function(){ setupRevealAnimations(document.getElementById("app")); }, 30);
       };
 
       function renderProductDetail(id) {
@@ -7595,20 +5703,6 @@ textarea:focus-visible,
                     <div class="product-detail-info">
                         <div class="cat" data-edit-key="product:${p.id}:category">${escapeHtml(p.category)}</div>
                         <h1 data-edit-key="product:${p.id}:name">${escapeHtml(p.name)}</h1>
-                    <div class="product-meta-line" style="margin:10px 0;font-size:0.9rem;color:var(--text-muted);">
-                      ${p.stock ? `<span>موجودی/وضعیت: <b style="color:var(--text)">${escapeHtml(String(p.stock))}</b></span>` : ""}
-                      ${p.usageShort ? `<div style="margin-top:8px;color:var(--text)">مصرف کوتاه: ${escapeHtml(p.usageShort)}</div>` : ""}
-                    </div>
-                    <div class="product-trust-row">
-                      <span>${escapeHtml(p.trust1 || "ضمانت اصالت")}</span>
-                      <span>${escapeHtml(p.trust2 || "مشاوره تخصصی")}</span>
-                      <span>${escapeHtml(p.trust3 || "ارسال سراسری")}</span>
-                    </div>
-                    <div style="display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 8px;">
-                      <button type="button" class="btn btn-primary" onclick="addToCart(${p.id})">🛒 افزودن به سبد درخواست</button>
-                      <button type="button" class="btn btn-outline" onclick="startConsultForProduct(${p.id})">درخواست مشاوره</button>
-                      <button type="button" class="btn btn-outline" onclick="scrollToComments()">💬 نظرات کاربران</button>
-                    </div>
                         <p class="short-desc" data-edit-key="product:${p.id}:shortDesc">${escapeHtml(p.shortDesc)}</p>
                         <table class="specs-table">
                             <tr><th>نوع محصول</th><td data-edit-key="product:${p.id}:type">${escapeHtml(p.type)}</td></tr>
@@ -7623,7 +5717,8 @@ textarea:focus-visible,
                             <tr><th>برند</th><td data-edit-key="product:${p.id}:brand">${escapeHtml(p.brand || "-")}</td></tr>
                         </table>
                         <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
-                            <button type="button" class="btn btn-outline" onclick="navigate('products')">← مشاهده همه محصولات</button>
+                            <button class="btn btn-primary" onclick="navigate('consult')">درخواست مشاوره</button>
+                            <button class="btn btn-outline" onclick="navigate('contact')">تماس با شرکت</button>
                         </div>
                     </div>
                 </div>
@@ -7660,7 +5755,6 @@ textarea:focus-visible,
                 </div>`
                     : ""
                 }
-                <div class="detail-section comments-section" id="productComments"></div>
                 ${
                   related.length
                     ? `
@@ -7673,7 +5767,6 @@ textarea:focus-visible,
             </div>
         </section>`;
 
-        renderProductComments(p.id);
         if (related.length) {
           const rg = document.getElementById("relatedGrid");
           related.forEach((r) => rg.appendChild(createProductCard(r)));
@@ -7682,309 +5775,6 @@ textarea:focus-visible,
         initRevealAnimations();
         // SEO update
         document.title = `${p.name} | کود ارگانیک`;
-      }
-
-/* ===== modules/comments.js ===== */
-      // ==================== نظرات محصولات ====================
-      /** نظرات ثبت‌شده برای یک محصول (جدیدترین اول) */
-      function commentsOf(productId) {
-        return (DB.comments || [])
-          .filter((c) => String(c.productId) === String(productId))
-          .sort((a, b) => (b.id || 0) - (a.id || 0));
-      }
-
-      /** نظراتی که برای کاربر فعلی قابل مشاهده است: تأییدشده‌ها + نظرات خودش + همه برای مدیران */
-      function visibleCommentsOf(productId) {
-        const uid = DB.currentUser ? DB.currentUser.id : null;
-        return commentsOf(productId).filter(
-          (c) =>
-            c.status === "approved" ||
-            isStaff() ||
-            (uid !== null && String(c.userId) === String(uid)),
-        );
-      }
-
-      function productRating(productId) {
-        const rated = commentsOf(productId).filter(
-          (c) => c.status === "approved" && c.rating > 0,
-        );
-        if (!rated.length) return { avg: 0, count: 0 };
-        const avg = rated.reduce((s, c) => s + c.rating, 0) / rated.length;
-        return { avg: Math.round(avg * 10) / 10, count: rated.length };
-      }
-
-      function starsHtml(n) {
-        const full = Math.round(n);
-        return "★★★★★".slice(0, full) + "☆☆☆☆☆".slice(0, 5 - full);
-      }
-
-      const COMMENT_STATUS_LABEL = {
-        pending: "در انتظار تأیید",
-        approved: "تأیید شده",
-        rejected: "رد شده",
-      };
-
-      window.scrollToComments = function () {
-        const el = document.getElementById("productComments");
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-      };
-
-      window.setCommentRating = function (n) {
-        window._commentRating = n;
-        document.querySelectorAll("#commentStars button").forEach((b) => {
-          b.classList.toggle("on", Number(b.dataset.v) <= n);
-          b.setAttribute("aria-checked", Number(b.dataset.v) === n ? "true" : "false");
-        });
-      };
-
-      /** بخش نظرات در صفحه جزئیات محصول */
-      function renderProductComments(productId) {
-        const box = document.getElementById("productComments");
-        if (!box) return;
-        window._commentRating = 0;
-        const list = visibleCommentsOf(productId);
-        const rating = productRating(productId);
-        const approvedCount = commentsOf(productId).filter(
-          (c) => c.status === "approved",
-        ).length;
-        const canModerate = isStaff() && hasPermission("comments");
-
-        const form = DB.currentUser
-          ? `
-          <div class="comment-form">
-            <label for="commentText" style="display:block;font-weight:700;margin-bottom:8px;">نظر شما درباره این محصول</label>
-            <div class="star-picker" id="commentStars" role="radiogroup" aria-label="امتیاز شما">
-              ${[5, 4, 3, 2, 1]
-                .map(
-                  (v) =>
-                    `<button type="button" role="radio" aria-checked="false" data-v="${v}" title="${v} ستاره" onclick="setCommentRating(${v})">★</button>`,
-                )
-                .join("")}
-            </div>
-            <div class="form-group" style="margin-top:10px;">
-              <textarea id="commentText" maxlength="1000" placeholder="تجربه خود از این محصول را بنویسید..."></textarea>
-            </div>
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;flex-wrap:wrap;">
-              <small style="color:var(--text-muted);">نظر شما پس از تأیید مدیر نمایش داده می‌شود.</small>
-              <button type="button" class="btn btn-primary btn-sm" onclick="submitProductComment(${productId})">ثبت نظر</button>
-            </div>
-          </div>`
-          : `
-          <div class="comment-form" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
-            <span>برای ثبت نظر ابتدا وارد حساب کاربری شوید.</span>
-            <button type="button" class="btn btn-primary btn-sm" onclick="openLoginModal()">ورود / ثبت‌نام</button>
-          </div>`;
-
-        box.innerHTML = `
-          <div class="comments-head">
-            <h2 style="margin:0;">نظرات کاربران (${approvedCount})</h2>
-            ${
-              rating.count
-                ? `<div class="comments-rating"><span class="comment-stars">${starsHtml(rating.avg)}</span><span>${rating.avg} از ۵ — ${rating.count} امتیاز</span></div>`
-                : ""
-            }
-          </div>
-          ${form}
-          <div class="comment-list">
-            ${
-              list.length
-                ? list.map((c) => commentCardHtml(c, canModerate)).join("")
-                : '<div class="comment-empty">هنوز نظری ثبت نشده است. اولین نفر باشید!</div>'
-            }
-          </div>`;
-      }
-
-      function commentCardHtml(c, canModerate) {
-        const pending = c.status !== "approved";
-        return `
-          <article class="comment-card ${pending ? "pending" : ""}">
-            <div class="comment-top">
-              <span class="comment-author">${escapeHtml(c.name || "کاربر")}</span>
-              ${c.rating ? `<span class="comment-stars" title="${c.rating} از ۵">${starsHtml(c.rating)}</span>` : ""}
-              <span class="comment-date">${escapeHtml(c.createdAt || "")}</span>
-              ${pending ? `<span class="badge ${c.status === "rejected" ? "badge-red" : "badge-yellow"}">${COMMENT_STATUS_LABEL[c.status] || ""}</span>` : ""}
-            </div>
-            <div class="comment-text">${escapeHtml(c.text || "")}</div>
-            ${
-              (c.replies || []).length
-                ? `<div class="comment-replies">${c.replies
-                    .map(
-                      (r) => `<div class="comment-reply">
-                        <span class="who">${escapeHtml(r.by || "مدیریت")}${r.role === "owner" ? " (مالک)" : ""}</span>
-                        <div class="comment-text">${escapeHtml(r.text || "")}</div>
-                        <small style="color:var(--text-muted)">${escapeHtml(r.time || "")}</small>
-                      </div>`,
-                    )
-                    .join("")}</div>`
-                : ""
-            }
-            ${
-              canModerate
-                ? `<div class="comment-admin-tools">
-                    <button type="button" class="btn btn-outline btn-sm" onclick="openCommentReply(${c.id})">پاسخ</button>
-                    ${c.status !== "approved" ? `<button type="button" class="btn btn-primary btn-sm" onclick="setCommentStatus(${c.id},'approved')">تأیید</button>` : ""}
-                    ${c.status !== "rejected" ? `<button type="button" class="btn btn-outline btn-sm" onclick="setCommentStatus(${c.id},'rejected')">رد</button>` : ""}
-                    <button type="button" class="btn btn-outline btn-sm" style="color:#C62828" onclick="deleteComment(${c.id})">حذف</button>
-                  </div>`
-                : ""
-            }
-          </article>`;
-      }
-
-      window.submitProductComment = function (productId) {
-        if (!DB.currentUser) {
-          openLoginModal();
-          return;
-        }
-        const ta = document.getElementById("commentText");
-        const text = (ta?.value || "").trim();
-        if (text.length < 3) {
-          showToast("متن نظر خیلی کوتاه است", "error");
-          return;
-        }
-        if (!DB.comments) DB.comments = [];
-        const u = DB.currentUser;
-        DB.comments.unshift({
-          id: Date.now(),
-          productId: Number(productId),
-          userId: u.id,
-          name: u.name || u.email || "کاربر",
-          text,
-          rating: Number(window._commentRating || 0),
-          status: "pending",
-          createdAt: new Date().toLocaleString("fa-IR"),
-          replies: [],
-        });
-        saveDB(DB);
-        logActivity("ثبت نظر جدید", text.slice(0, 60));
-        showToast("نظر شما ثبت شد و پس از تأیید نمایش داده می‌شود");
-        renderProductComments(productId);
-        try { updateBottomBar(); } catch (e) {}
-      };
-
-      function findComment(id) {
-        return (DB.comments || []).find((c) => String(c.id) === String(id));
-      }
-
-      window.setCommentStatus = function (id, status) {
-        if (!hasPermission("comments")) {
-          showToast("دسترسی لازم را ندارید", "error");
-          return;
-        }
-        const c = findComment(id);
-        if (!c) return;
-        c.status = status;
-        saveDB(DB);
-        logActivity("تغییر وضعیت نظر", COMMENT_STATUS_LABEL[status] || status);
-        if (status === "approved" && c.userId) {
-          pushNotification({
-            title: "نظر شما تأیید شد",
-            body: "نظر شما درباره محصول منتشر شد.",
-            userId: c.userId,
-          });
-          saveDB(DB);
-        }
-        showToast("وضعیت نظر به‌روزرسانی شد");
-        refreshCommentViews(c.productId);
-      };
-
-      window.deleteComment = function (id) {
-        if (!hasPermission("comments")) {
-          showToast("دسترسی لازم را ندارید", "error");
-          return;
-        }
-        const c = findComment(id);
-        if (!c) return;
-        if (!confirm("این نظر حذف شود؟")) return;
-        DB.comments = (DB.comments || []).filter((x) => String(x.id) !== String(id));
-        saveDB(DB);
-        logActivity("حذف نظر", String(c.text || "").slice(0, 60));
-        showToast("نظر حذف شد");
-        refreshCommentViews(c.productId);
-      };
-
-      window.openCommentReply = function (id) {
-        const c = findComment(id);
-        if (!c) return;
-        const product = (DB.products || []).find((p) => p.id == c.productId);
-        const old = document.getElementById("commentReplyModal");
-        if (old) old.remove();
-        const overlay = document.createElement("div");
-        overlay.className = "modal-overlay open";
-        overlay.id = "commentReplyModal";
-        overlay.innerHTML = `
-          <div class="modal" role="dialog" aria-modal="true" aria-label="پاسخ به نظر">
-            <div class="modal-header">
-              <h3>پاسخ به نظر ${escapeHtml(c.name || "کاربر")}</h3>
-              <button type="button" class="modal-close" onclick="closeCommentReply()" aria-label="بستن">×</button>
-            </div>
-            <div class="modal-body">
-              <p style="color:var(--text-muted);font-size:0.9rem;">${escapeHtml(product ? product.name : "")}</p>
-              <div class="comment-card" style="margin-bottom:14px;">
-                <div class="comment-text">${escapeHtml(c.text || "")}</div>
-              </div>
-              <div class="form-group">
-                <label for="commentReplyText">پاسخ شما</label>
-                <textarea id="commentReplyText" style="min-height:100px;" placeholder="پاسخ شما..."></textarea>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-outline" onclick="closeCommentReply()">انصراف</button>
-              <button type="button" class="btn btn-primary" onclick="sendCommentReply(${c.id})">ارسال پاسخ</button>
-            </div>
-          </div>`;
-        document.body.appendChild(overlay);
-        document.body.classList.add("modal-open");
-        setTimeout(() => document.getElementById("commentReplyText")?.focus(), 50);
-      };
-
-      window.closeCommentReply = function () {
-        document.getElementById("commentReplyModal")?.remove();
-        if (!document.querySelector(".modal-overlay.open"))
-          document.body.classList.remove("modal-open");
-      };
-
-      window.sendCommentReply = function (id) {
-        if (!hasPermission("comments")) {
-          showToast("دسترسی لازم را ندارید", "error");
-          return;
-        }
-        const c = findComment(id);
-        if (!c) return;
-        const text = (document.getElementById("commentReplyText")?.value || "").trim();
-        if (!text) {
-          showToast("متن پاسخ را بنویسید", "error");
-          return;
-        }
-        if (!c.replies) c.replies = [];
-        c.replies.push({
-          id: Date.now(),
-          text,
-          by: DB.currentUser?.name || "مدیریت",
-          role: DB.currentUser?.role || "admin",
-          time: new Date().toLocaleString("fa-IR"),
-        });
-        if (c.status === "pending") c.status = "approved";
-        if (c.userId) {
-          pushNotification({
-            title: "پاسخ به نظر شما",
-            body: text.slice(0, 120),
-            userId: c.userId,
-          });
-        }
-        saveDB(DB);
-        logActivity("پاسخ به نظر", text.slice(0, 60));
-        closeCommentReply();
-        showToast("پاسخ ثبت شد");
-        refreshCommentViews(c.productId);
-      };
-
-      /** به‌روزرسانی هم‌زمان نمای عمومی و پنل مدیریت پس از تغییر نظرات */
-      function refreshCommentViews(productId) {
-        try { updateBottomBar(); } catch (e) {}
-        const hash = window.location.hash.slice(1) || "";
-        if (hash.startsWith("product/")) renderProductComments(productId);
-        else if (hash.startsWith("admin")) renderAdminSection("comments");
       }
 
       function renderAbout() {
@@ -8191,7 +5981,7 @@ textarea:focus-visible,
               <div class="form-group"><label>موبایل</label><input id="cMobile" value="${escapeHtml(k.mobile || "")}" /></div>
               <div class="form-group"><label>ایمیل</label><input id="cEmail" value="${escapeHtml(k.email || "")}" /></div>
               <div class="form-group"><label>محصول</label>
-                <select id="cProduct"><option value="">عمومی</option>${products.map((p) => `<option value="${p.id}" ${String(window._consultProductId)===String(p.id)?"selected":""}>${escapeHtml(p.name)}</option>`).join("")}</select>
+                <select id="cProduct"><option value="">عمومی</option>${products.map((p) => `<option value="${p.id}">${escapeHtml(p.name)}</option>`).join("")}</select>
               </div>
               <div class="form-group"><label>نوع کشت</label>
                 <select id="cCrop"><option>زراعت</option><option>باغ</option><option>گلخانه</option><option>فضای سبز</option><option>سایر</option></select>
@@ -8376,9 +6166,6 @@ textarea:focus-visible,
 
 
 
-
-
-/* ===== modules/support-ui.js ===== */
       // ==================== SCROLL REVEAL ANIMATIONS ====================
       function initRevealAnimations() {
         try {
@@ -8959,9 +6746,6 @@ textarea:focus-visible,
         }
       }
 
-
-
-/* ===== modules/auth.js ===== */
       // ==================== AUTH ====================
 
       // ==================== HEADER AUTH / USER PANEL ====================
@@ -8969,7 +6753,7 @@ textarea:focus-visible,
 
       function avatarUrl(key) {
         const k = PROFILE_AVATARS.includes(key) ? key : "profile1";
-        return "assets/images/" + k + ".png";
+        return "images/" + k + ".png";
       }
 
       function updateAuthUI() {
@@ -8978,14 +6762,12 @@ textarea:focus-visible,
         const u = DB.currentUser;
         if (!u) {
           area.innerHTML = `<button class="btn btn-outline btn-sm" id="loginBtn" onclick="openLoginModal()">ورود</button>`;
-          try { updateBottomBar(); } catch (e) {}
           return;
         }
         // load full user for avatar
         const full = DB.users.find((x) => x.id === u.id) || u;
         const av = avatarUrl(full.avatar || "profile1");
         const staff = full.role === "owner" || full.role === "admin";
-        try { updateBottomBar(); } catch (e) {}
         area.innerHTML = `
           <div class="user-menu">
             ${staff ? `<button class="btn btn-primary btn-sm" onclick="navigate('admin')">پنل مدیریت</button>` : ""}
@@ -9057,7 +6839,6 @@ textarea:focus-visible,
           avatar: full.avatar,
         };
         saveDB(DB);
-        try{mergeGuestCartToUser();}catch(e){}
         updateAuthUI();
         closeModal("userProfileModal");
         showToast("پروفایل ذخیره شد");
@@ -9067,239 +6848,64 @@ textarea:focus-visible,
 
 
       // ==================== OTP (نسخه آزمایشی — آماده اتصال پیامک) ====================
-
       window._loginOtp = null;
 
-
-      window.sendLoginOtp = async function () {
+      window.sendLoginOtp = function () {
         const btn = document.getElementById("btnSendOtp");
         if (btn && btn.disabled) return;
         const mobileRaw = document.getElementById("loginMobile")?.value || "";
         const mobile = normalizeMobile(mobileRaw);
         if (!mobile || mobile.length < 10) {
-          showToast("شماره موبایل معتبر وارد کنید (مثال: 09120000000)", "error");
+          showToast("شماره موبایل معتبر وارد کنید (مثال: 09123456789)", "error");
           return;
         }
-
-        const startCooldown = function () {
-          let left = 100; // ۱۰۰ ثانیه تا ارسال مجدد
-          if (!btn) return;
+        if (mobile.length > 12) {
+          showToast("شماره موبایل بیش از حد طولانی است", "error");
+          return;
+        }
+        const code = String(Math.floor(10000 + Math.random() * 90000));
+        window._loginOtp = {
+          mobile,
+          code,
+          expires: Date.now() + 5 * 60 * 1000,
+        };
+        const hint = document.getElementById("otpHint");
+        if (hint) {
+          hint.innerHTML =
+            'کد برای <b dir="ltr">' +
+            mobile +
+            '</b> ارسال شد. <span style="color:var(--primary)">کد دمو: <b dir="ltr">' +
+            code +
+            "</b></span> — تا اتصال پیامک واقعی، کد همین‌جا دیده می‌شود.";
+        }
+        showToast("کد تأیید ارسال شد");
+        const otpInput = document.getElementById("loginOtp");
+        if (otpInput) {
+          otpInput.value = "";
+          otpInput.focus();
+        }
+        // شمارش معکوس ارسال مجدد
+        let left = 60;
+        if (btn) {
           btn.disabled = true;
-          const tick = function () {
+          const tick = () => {
             if (!document.getElementById("btnSendOtp")) return;
             if (left <= 0) {
               btn.disabled = false;
               btn.textContent = "ارسال کد";
               return;
             }
-            btn.textContent = "ارسال مجدد (" + left + " ثانیه)";
+            btn.textContent = "ارسال مجدد (" + left + ")";
             left--;
             window._otpTimer = setTimeout(tick, 1000);
           };
           clearTimeout(window._otpTimer);
           tick();
-        };
-
-        // فعلاً فرانت‌اند: کد تست + تلاش برای PHP اگر موجود باشد
-        let code = null;
-        let fromServer = false;
-        try {
-          const res = await apiFetch("auth.php", {
-            method: "POST",
-            body: JSON.stringify({ action: "send_otp", mobile }),
-          });
-          if (res && res.ok) {
-            fromServer = true;
-            code = res.dev_code || null;
-          }
-        } catch (e) {}
-
-        if (!code) {
-          code = String(Math.floor(10000 + Math.random() * 90000));
         }
-
-        window._loginOtp = {
-          mobile,
-          code: String(code),
-          expires: Date.now() + 100 * 1000, // اعتبار کد ۱۰۰ ثانیه
-          local: !fromServer,
-        };
-
-        const hint = document.getElementById("otpHint");
-        if (hint) {
-          hint.innerHTML =
-            'کد برای <b dir="ltr">' +
-            mobile +
-            '</b> ارسال شد. <span style="color:var(--primary)">کد: <b dir="ltr">' +
-            code +
-            "</b></span> — معتبر به مدت <b>۱۰۰ ثانیه</b>";
-        }
-        const otpInput = document.getElementById("loginOtp");
-        if (otpInput) {
-          otpInput.value = code;
-          otpInput.focus();
-        }
-        showToast("کد تأیید ارسال شد (۱۰۰ ثانیه اعتبار)");
-        startCooldown();
+        // نقطه اتصال پیامک واقعی بعداً:
+        // fetch('/api/sms.php', { method:'POST', body: JSON.stringify({ mobile, code }) })
       };
 
-      window.handleLogin = async function () {
-        const email = document.getElementById("loginEmail")?.value.trim().toLowerCase() || "";
-        const mobileRaw = document.getElementById("loginMobile")?.value.trim() || "";
-        const mobile = normalizeMobile(mobileRaw);
-        const password = document.getElementById("loginPassword")?.value || "";
-        const otpEntered = (document.getElementById("loginOtp")?.value || "").trim();
-
-        if (!mobile) {
-          showToast("شماره موبایل الزامی است", "error");
-          return;
-        }
-        if (!otpEntered) {
-          showToast("ابتدا «ارسال کد» را بزنید و کد را وارد کنید", "error");
-          return;
-        }
-        if (!email || !password) {
-          showToast("ایمیل و رمز عبور الزامی است", "error");
-          return;
-        }
-        if (password.length < 6) {
-          showToast("رمز عبور حداقل ۶ کاراکتر باشد", "error");
-          return;
-        }
-
-        try {
-          const res = await apiFetch("auth.php", {
-            method: "POST",
-            body: JSON.stringify({
-              action: "login",
-              email,
-              mobile,
-              password,
-              otp: otpEntered,
-            }),
-          });
-          if (!res || !res.ok) {
-            // فرانت‌اند: ورود با کد محلی
-            if (window._loginOtp && window._loginOtp.mobile === mobile) {
-              if (Date.now() > (window._loginOtp.expires || 0)) {
-                showToast("کد منقضی شده — دوباره ارسال کنید", "error");
-                return;
-              }
-              if (String(otpEntered) !== String(window._loginOtp.code)) {
-                showToast("کد تأیید اشتباه است", "error");
-                return;
-              }
-              // ادامه با کاربر محلی
-              if (!DB.users) DB.users = [];
-              let user = DB.users.find(
-                (u) =>
-                  (u.email || "").toLowerCase() === email ||
-                  normalizeMobile(u.mobile) === mobile,
-              );
-              if (!user && email === "admin@natural.ir" && password === "admin123") {
-                user = {
-                  id: 1,
-                  name: "مدیر اصلی",
-                  email,
-                  mobile,
-                  password,
-                  role: "owner",
-                  status: "active",
-                  avatar: "profile1",
-                  permissions: [],
-                };
-                DB.users.push(user);
-              } else if (!user) {
-                user = {
-                  id: Date.now(),
-                  name: email.split("@")[0],
-                  email,
-                  mobile,
-                  password,
-                  role: "user",
-                  status: "active",
-                  avatar: "profile1",
-                  permissions: [],
-                };
-                DB.users.push(user);
-              } else if (user.password && user.password !== password) {
-                showToast("رمز عبور اشتباه است", "error");
-                return;
-              }
-              if (user.status === "blocked") {
-                showToast("حساب مسدود است", "error");
-                return;
-              }
-              DB.currentUser = {
-                id: user.id,
-                name: user.name,
-                email: user.email,
-                role: user.role,
-                permissions: user.permissions || [],
-                avatar: user.avatar || "profile1",
-              };
-              saveDB(DB);
-              window._loginOtp = null;
-              closeModal("loginModal");
-              try { mergeGuestCartToUser(); } catch (e) {}
-              updateAuthUI();
-              showToast("ورود موفق بود");
-              if (user.role === "admin" || user.role === "owner") {
-                showQuickAdminBar();
-                try { syncQuickSeasonSelect(); } catch (e) {}
-              }
-              render();
-              return;
-            }
-            showToast((res && res.error) || "ورود ناموفق بود", "error");
-            return;
-          }
-          /* LOCAL_OTP_LOGIN */
-          const user = res.user;
-          DB.currentUser = {
-            id: user.id,
-            name: user.name,
-            email: user.email,
-            role: user.role,
-            permissions: user.permissions || [],
-            avatar: user.avatar || "profile1",
-          };
-          // همگام‌سازی دوباره از سرور
-          try {
-            const full = await loadDBFromServer();
-            if (full) {
-              DB = full;
-              DB.currentUser = {
-                id: user.id,
-                name: user.name,
-                email: user.email,
-                role: user.role,
-                permissions: user.permissions || [],
-                avatar: user.avatar || "profile1",
-              };
-            }
-          } catch (e) {}
-          try {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(DB));
-          } catch (e) {}
-
-          window._loginOtp = null;
-          closeModal("loginModal");
-          try{mergeGuestCartToUser();}catch(e){}
-        updateAuthUI();
-          showToast("ورود موفقیت‌آمیز بود");
-          if (user.role === "admin" || user.role === "owner") {
-            showQuickAdminBar();
-            try { syncQuickSeasonSelect(); } catch (e) {}
-          } else {
-            hideQuickAdminBar();
-          }
-          render();
-        } catch (e) {
-          showToast("خطا در ارتباط با سرور PHP — سایت را با localhost باز کنید", "error");
-          console.error(e);
-        }
-      };
 
       function openLoginModal() {
         window._loginOtp = null;
@@ -9331,11 +6937,117 @@ textarea:focus-visible,
         return String(m).replace(/[۰-۹٠-٩]/g, (ch) => map[ch] || ch).replace(/\D/g, "");
       }
 
+      window.handleLogin = function () {
+        const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+        const mobileRaw = document.getElementById("loginMobile").value.trim();
+        const mobile = normalizeMobile(mobileRaw);
+        const password = document.getElementById("loginPassword").value;
+        const otpEntered = (document.getElementById("loginOtp")?.value || "").trim();
+        if (!mobile) {
+          showToast("شماره موبایل الزامی است", "error");
+          return;
+        }
+        if (!window._loginOtp || window._loginOtp.mobile !== mobile) {
+          showToast("ابتدا دکمه «ارسال کد» را بزنید", "error");
+          return;
+        }
+        if (Date.now() > window._loginOtp.expires) {
+          showToast("کد منقضی شده — دوباره ارسال کنید", "error");
+          window._loginOtp = null;
+          return;
+        }
+        if (otpEntered !== window._loginOtp.code) {
+          showToast("کد تأیید اشتباه است", "error");
+          return;
+        }
+        if (!email || !password) {
+          showToast("ایمیل و رمز عبور الزامی است", "error");
+          return;
+        }
+        if (password.length < 6) {
+          showToast("رمز عبور حداقل ۶ کاراکتر باشد", "error");
+          return;
+        }
+        if (!DB.users) DB.users = [];
 
+        // نرمال‌سازی موبایل کاربران قدیمی
+        DB.users.forEach((u) => {
+          if (u.mobile) u.mobile = normalizeMobile(u.mobile);
+          if (u.email) u.email = String(u.email).trim().toLowerCase();
+        });
 
+        const byEmail = DB.users.find((u) => u.email === email);
+        const byMobile = DB.users.find((u) => normalizeMobile(u.mobile) === mobile);
 
-/* ===== modules/admin.js ===== */
-            // ==================== ADMIN ====================
+        let user = null;
+        let isNew = false;
+
+        if (byEmail) {
+          // ورود با ایمیل
+          if (byEmail.password !== password) {
+            showToast("رمز عبور برای این ایمیل اشتباه است", "error");
+            return;
+          }
+          user = byEmail;
+          // به‌روزرسانی موبایل اگر خالی بود یا متفاوت
+          if (mobile) user.mobile = mobile;
+        } else if (byMobile) {
+          // ایمیل جدید است ولی موبایل قبلاً ثبت شده → ورود با موبایل
+          if (byMobile.password !== password) {
+            showToast("این شماره قبلاً ثبت شده و رمز عبور اشتباه است", "error");
+            return;
+          }
+          user = byMobile;
+          // ایمیل را به‌روز نکن مگر خالی باشد
+          if (!user.email) user.email = email;
+        } else {
+          // ثبت‌نام کاربر جدید
+          isNew = true;
+          user = {
+            id: Date.now(),
+            name: email.split("@")[0],
+            email,
+            mobile,
+            password,
+            role: "user",
+            status: "active",
+            avatar: "profile1",
+            permissions: [],
+            createdAt: new Date().toLocaleDateString("fa-IR"),
+          };
+          DB.users.push(user);
+          logActivity("ثبت‌نام کاربر جدید", email);
+        }
+
+        if (user.status === "blocked") {
+          showToast("حساب شما مسدود شده است", "error");
+          return;
+        }
+        if (!user.avatar) user.avatar = "profile1";
+        DB.currentUser = {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          role: user.role,
+          permissions: user.permissions || [],
+          avatar: user.avatar || "profile1",
+        };
+        saveDB(DB);
+        window._loginOtp = null;
+        closeModal("loginModal");
+        updateAuthUI();
+        showToast(isNew ? "ثبت‌نام و ورود موفق بود" : "ورود موفقیت‌آمیز بود");
+        if (user.role === "admin" || user.role === "owner") {
+          showQuickAdminBar();
+          syncQuickSeasonSelect();
+        } else {
+          hideQuickAdminBar();
+        }
+        render();
+        logActivity(isNew ? "ثبت‌نام کاربر" : "ورود کاربر", user.email);
+      };
+
+      // ==================== ADMIN ====================
       function renderAdmin(page, param) {
         if (!isStaff()) {
           document.getElementById("app").innerHTML = `
@@ -9349,19 +7061,25 @@ textarea:focus-visible,
         }
         const section = param || "dashboard";
         // permission gate for section
-        const need = ADMIN_SECTION_PERM[section] || "dashboard";
-        if (!hasPermission(need) || (section === "admins" && !isOwner())) {
+        const sectionPerm = {
+          dashboard: "dashboard",
+          products: "products",
+          support: "support",
+          consults: "support",
+          tickets: "support",
+          users: "users",
+          pages: "pages_edit",
+          settings: "settings",
+          activity: "activity",
+        };
+        const need = sectionPerm[section] || "dashboard";
+        if (!hasPermission(need)) {
           // fall back to first allowed section
-          const firstSection = Object.keys(ADMIN_SECTION_PERM).find(
-            (s) =>
-              s !== section &&
-              s !== "consults" &&
-              s !== "tickets" &&
-              (s !== "admins" || isOwner()) &&
-              hasPermission(ADMIN_SECTION_PERM[s]),
+          const first = ALL_PERMISSIONS.find((p) =>
+            ["dashboard","products","support","users","pages_edit","settings","activity"].includes(p.key) && hasPermission(p.key)
           );
-          if (firstSection) {
-            navigate("admin", firstSection === "dashboard" ? null : firstSection);
+          if (first && first.key !== section) {
+            navigate("admin", first.key === "dashboard" ? null : first.key);
             return;
           }
           document.getElementById("app").innerHTML = `
@@ -9391,14 +7109,10 @@ textarea:focus-visible,
                 <nav class="admin-nav">
                     ${link("dashboard", "#admin", "📊 داشبورد", "navigate('admin')")}
                     ${link("products", "#admin/products", "▣ محصولات", "navigate('admin','products')")}
-                    ${link("support", "#admin/support", `◎ پشتیبانی${supportPendingBadge()}`, "navigate('admin','support')")}
-                    ${link("comments", "#admin/comments", `💬 نظرات محصولات${commentsPendingBadge()}`, "navigate('admin','comments')")}
+                    ${link("support", "#admin/support", "◎ پشتیبانی", "navigate('admin','support')")}
                     ${link("users", "#admin/users", "◉ کاربران", "navigate('admin','users')")}
-                    ${link("carts", "#admin/carts", "▣ سبدهای درخواست", "navigate('admin','carts')")}
                     ${link("pages_edit", "#admin/pages", "▤ محتوای صفحات", "navigate('admin','pages')", "pages")}
                     ${link("settings", "#admin/settings", "⚙ تنظیمات", "navigate('admin','settings')")}
-                    ${link("notifications", "#admin/notifications", "🔔 اعلان‌ها", "navigate('admin','notifications')")}
-                    ${isOwner() ? link("admins", "#admin/admins", "◉ ادمین‌ها", "navigate('admin','admins')") : ""}
                     ${link("activity", "#admin/activity", "☰ فعالیت‌ها", "navigate('admin','activity')")}
                     <a href="#home" onclick="navigate('home')">⌂ بازگشت به سایت</a>
                     <a href="#" onclick="logout()" style="color:#C62828;">⇦ خروج</a>
@@ -9432,26 +7146,14 @@ textarea:focus-visible,
           case "tickets":
             renderAdminSupport(el);
             break;
-          case "comments":
-            renderAdminComments(el);
-            break;
           case "users":
             renderAdminUsers(el);
-            break;
-          case "carts":
-            renderAdminCarts(el);
             break;
           case "pages":
             renderAdminPages(el);
             break;
           case "settings":
             renderAdminSettings(el);
-            break;
-          case "notifications":
-            renderAdminNotifications(el);
-            break;
-          case "admins":
-            renderAdminAdmins(el);
             break;
           case "activity":
             renderAdminActivity(el);
@@ -9461,99 +7163,6 @@ textarea:focus-visible,
         }
       }
 
-      /** نشان تعداد موارد باز پشتیبانی در منوی پنل */
-      function supportPendingBadge() {
-        const n =
-          (DB.consultations || []).filter((c) => c.status === "جدید").length +
-          (DB.tickets || []).filter(
-            (t) => t.status === "باز" || t.status === "در حال بررسی",
-          ).length;
-        return n ? ` <span class="admin-nav-badge">${n}</span>` : "";
-      }
-
-      /** نشان تعداد نظرات در انتظار تأیید در منوی پنل */
-      function commentsPendingBadge() {
-        const n = (DB.comments || []).filter((c) => c.status === "pending").length;
-        return n ? ` <span class="admin-nav-badge">${n}</span>` : "";
-      }
-
-      /** بخش مدیریت نظرات محصولات در پنل */
-      function renderAdminComments(el) {
-        const filter = window._adminCommentFilter || "pending";
-        const all = (DB.comments || []).slice().sort((a, b) => (b.id || 0) - (a.id || 0));
-        const counts = {
-          pending: all.filter((c) => c.status === "pending").length,
-          approved: all.filter((c) => c.status === "approved").length,
-          rejected: all.filter((c) => c.status === "rejected").length,
-          all: all.length,
-        };
-        const list = filter === "all" ? all : all.filter((c) => c.status === filter);
-        const tab = (key, label) =>
-          `<button type="button" class="btn btn-sm ${filter === key ? "btn-primary" : "btn-outline"}" onclick="setCommentFilter('${key}')">${label} (${counts[key]})</button>`;
-
-        el.innerHTML = `
-          <div class="admin-header">
-            <h1>نظرات محصولات</h1>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;">
-              ${tab("pending", "در انتظار تأیید")}
-              ${tab("approved", "تأیید شده")}
-              ${tab("rejected", "رد شده")}
-              ${tab("all", "همه")}
-            </div>
-          </div>
-          <p class="admin-lead">نظر کاربران را تأیید، رد یا حذف کنید و مستقیماً به آن‌ها پاسخ دهید.</p>
-          <div class="comment-list">
-            ${
-              list.length
-                ? list
-                    .map((c) => {
-                      const p = (DB.products || []).find((x) => x.id == c.productId);
-                      return `
-                      <article class="comment-card">
-                        <div class="comment-top">
-                          <span class="comment-author">${escapeHtml(c.name || "کاربر")}</span>
-                          ${c.rating ? `<span class="comment-stars">${starsHtml(c.rating)}</span>` : ""}
-                          <span class="comment-date">${escapeHtml(c.createdAt || "")}</span>
-                          <span class="badge ${c.status === "approved" ? "badge-green" : c.status === "rejected" ? "badge-red" : "badge-yellow"}">${COMMENT_STATUS_LABEL[c.status] || ""}</span>
-                          ${
-                            p
-                              ? `<a href="#product/${p.id}" onclick="navigate('product',${p.id})" style="font-size:0.85rem;">${escapeHtml(p.name)} ↗</a>`
-                              : '<span class="comment-date">محصول حذف شده</span>'
-                          }
-                        </div>
-                        <div class="comment-text">${escapeHtml(c.text || "")}</div>
-                        ${
-                          (c.replies || []).length
-                            ? `<div class="comment-replies">${c.replies
-                                .map(
-                                  (r) => `<div class="comment-reply">
-                                    <span class="who">${escapeHtml(r.by || "مدیریت")}</span>
-                                    <div class="comment-text">${escapeHtml(r.text || "")}</div>
-                                    <small style="color:var(--text-muted)">${escapeHtml(r.time || "")}</small>
-                                  </div>`,
-                                )
-                                .join("")}</div>`
-                            : ""
-                        }
-                        <div class="comment-admin-tools">
-                          <button type="button" class="btn btn-outline btn-sm" onclick="openCommentReply(${c.id})">پاسخ</button>
-                          ${c.status !== "approved" ? `<button type="button" class="btn btn-primary btn-sm" onclick="setCommentStatus(${c.id},'approved')">تأیید</button>` : ""}
-                          ${c.status !== "rejected" ? `<button type="button" class="btn btn-outline btn-sm" onclick="setCommentStatus(${c.id},'rejected')">رد</button>` : ""}
-                          <button type="button" class="btn btn-outline btn-sm" style="color:#C62828" onclick="deleteComment(${c.id})">حذف</button>
-                        </div>
-                      </article>`;
-                    })
-                    .join("")
-                : '<div class="admin-empty">نظری در این بخش نیست</div>'
-            }
-          </div>`;
-      }
-
-      window.setCommentFilter = function (key) {
-        window._adminCommentFilter = key;
-        renderAdminSection("comments");
-      };
-
       function renderAdminDashboard(el) {
         const newConsults = DB.consultations.filter(
           (c) => c.status === "جدید",
@@ -9562,9 +7171,6 @@ textarea:focus-visible,
           (t) => t.status === "باز" || t.status === "در حال بررسی",
         ).length;
         const supportOpen = newConsults + openTickets;
-        const pendingComments = (DB.comments || []).filter(
-          (c) => c.status === "pending",
-        ).length;
         const activeProducts = DB.products.filter(
           (p) => p.status === "active",
         ).length;
@@ -9574,15 +7180,7 @@ textarea:focus-visible,
                 <div style="display:flex;gap:10px;flex-wrap:wrap;">
                     ${newConsults ? `<span class="badge badge-red">${newConsults} مشاوره جدید</span>` : ""}
                     ${openTickets ? `<span class="badge badge-yellow">${openTickets} تیکت باز</span>` : ""}
-                    ${pendingComments ? `<span class="badge badge-blue">${pendingComments} نظر در انتظار</span>` : ""}
                 </div>
-            </div>
-            <div class="admin-quick-actions">
-                ${hasPermission("products") ? `<button type="button" class="btn btn-primary btn-sm" onclick="navigate('admin','products')">▣ مدیریت محصولات</button>` : ""}
-                ${hasPermission("support") ? `<button type="button" class="btn btn-outline btn-sm" onclick="navigate('admin','support')">◎ پشتیبانی (${supportOpen})</button>` : ""}
-                ${hasPermission("comments") ? `<button type="button" class="btn btn-outline btn-sm" onclick="navigate('admin','comments')">💬 نظرات (${pendingComments})</button>` : ""}
-                ${hasPermission("settings") ? `<button type="button" class="btn btn-outline btn-sm" onclick="navigate('admin','settings')">⚙ تنظیمات</button>` : ""}
-                <button type="button" class="btn btn-outline btn-sm" onclick="navigate('home')">⌂ مشاهده سایت</button>
             </div>
             <div class="dashboard-cards">
                 <div class="dash-card"><div class="label">محصولات</div><div class="value">${DB.products.length}</div></div>
@@ -9590,7 +7188,6 @@ textarea:focus-visible,
                 <div class="dash-card"><div class="label">کاربران</div><div class="value">${DB.users.length}</div></div>
                 <div class="dash-card"><div class="label">درخواست‌های مشاوره</div><div class="value">${DB.consultations.length}</div></div>
                 <div class="dash-card"><div class="label">تیکت‌های باز</div><div class="value">${openTickets}</div></div>
-                <div class="dash-card"><div class="label">نظرات در انتظار</div><div class="value">${pendingComments}</div></div>
                 <div class="dash-card"><div class="label">فعالیت‌های اخیر</div><div class="value">${DB.activityLog.length}</div></div>
             </div>
             <h3 class="admin-section-title">فعالیت‌های اخیر</h3>
@@ -9645,7 +7242,7 @@ textarea:focus-visible,
                   const count = productsInCategory(c, false).length;
                   return `
                   <div class="admin-folder-card-wrap">
-                    <button type="button" class="admin-folder-card" onclick="openAdminProductFolder('${jsArg(c)}')">
+                    <button type="button" class="admin-folder-card" onclick="openAdminProductFolder('${String(c).replace(/'/g, "\'")}')">
                       <div class="afc-icon">▣</div>
                       <div class="afc-body">
                         <strong>${escapeHtml(c)}</strong>
@@ -9653,7 +7250,7 @@ textarea:focus-visible,
                       </div>
                       <span class="afc-arrow">‹</span>
                     </button>
-                    <button type="button" class="btn btn-sm admin-folder-del" onclick="deleteCategory('${jsArg(c)}', event)">حذف</button>
+                    <button type="button" class="btn btn-sm admin-folder-del" onclick="deleteCategory('${String(c).replace(/'/g, "\'")}', event)">حذف</button>
                   </div>`;
                 })
                 .join("") || '<div class="admin-empty">دسته‌بندی‌ای نیست. یکی اضافه کنید.</div>'}
@@ -9700,7 +7297,7 @@ textarea:focus-visible,
               <button type="button" class="btn btn-sm btn-outline" onclick="closeAdminProductFolder()" style="margin-left:8px;">→ بازگشت</button>
               ${escapeHtml(folder)}
             </h1>
-            <button class="btn btn-primary" onclick="openProductModal(null, '${jsArg(folder)}')">+ محصول در این دسته</button>
+            <button class="btn btn-primary" onclick="openProductModal(null, '${String(folder).replace(/'/g, "\\'")}')">+ محصول در این دسته</button>
           </div>
           <div class="admin-search-bar">
             <input type="search" id="adminProductSearch" placeholder="جستجو در این دسته..." value="${escapeHtml(window._adminProductQuery || "")}" oninput="filterAdminProducts(this.value)" />
@@ -9863,11 +7460,6 @@ textarea:focus-visible,
             <div class="form-group"><label>توضیح کوتاه</label><textarea id="pShort">${p ? escapeHtml(p.shortDesc) : ""}</textarea></div>
             <div class="form-group"><label>توضیحات کامل (متن طولانی)</label><textarea id="pFull" style="min-height:150px;">${p ? escapeHtml(p.fullDesc) : ""}</textarea></div>
             <div class="form-row">
-                <div class="form-group"><label>موجودی / وضعیت</label><input id="pStock" placeholder="مثلاً موجود / محدود" value="${p ? escapeHtml(p.stock || "") : ""}"></div>
-                <div class="form-group"><label>مصرف کوتاه</label><input id="pUsageShort" placeholder="یک خط نحوه مصرف" value="${p ? escapeHtml(p.usageShort || "") : ""}"></div>
-                <div class="form-group"><label>اعتماد ۱</label><input id="pTrust1" value="${p ? escapeHtml(p.trust1 || "ضمانت اصالت") : "ضمانت اصالت"}"></div>
-                <div class="form-group"><label>اعتماد ۲</label><input id="pTrust2" value="${p ? escapeHtml(p.trust2 || "مشاوره تخصصی") : "مشاوره تخصصی"}"></div>
-                <div class="form-group"><label>اعتماد ۳</label><input id="pTrust3" value="${p ? escapeHtml(p.trust3 || "ارسال سراسری") : "ارسال سراسری"}"></div>
                 <div class="form-group"><label>بسته‌بندی</label><input id="pPack" value="${p ? escapeHtml(p.packaging) : ""}"></div>
                 <div class="form-group"><label>مناسب برای</label><input id="pSuitable" value="${p ? escapeHtml(p.suitableFor) : ""}"></div>
             </div>
@@ -9978,50 +7570,6 @@ textarea:focus-visible,
         });
       }
 
-      /** انتخاب عکس اختصاصی کارت ویژه صفحه اصلی */
-      window.quickSetFeaturedImage = async function (input) {
-        if (!hasPermission("hero_feature")) {
-          showToast("دسترسی لازم را ندارید", "error");
-          input.value = "";
-          return;
-        }
-        const f = input.files && input.files[0];
-        if (!f) return;
-        if (!f.type.startsWith("image/")) {
-          showToast("فقط فایل تصویری مجاز است", "error");
-          input.value = "";
-          return;
-        }
-        if (f.size > 2 * 1024 * 1024) {
-          showToast("حجم تصویر باید کمتر از ۲ مگابایت باشد", "error");
-          input.value = "";
-          return;
-        }
-        DB.settings.heroFeaturedImage = await readFileAsDataURL(f);
-        saveDB(DB);
-        input.value = "";
-        logActivity("تغییر عکس کارت ویژه");
-        showToast("عکس کارت ویژه ذخیره شد");
-        renderAdminSection("settings");
-      };
-
-      window.clearFeaturedImage = function () {
-        if (!hasPermission("hero_feature")) {
-          showToast("دسترسی لازم را ندارید", "error");
-          return;
-        }
-        DB.settings.heroFeaturedImage = "";
-        saveDB(DB);
-        logActivity("حذف عکس کارت ویژه");
-        showToast("عکس اختصاصی حذف شد");
-        renderAdminSection("settings");
-      };
-
-      window.startConsultForProduct = function (productId) {
-        window._consultProductId = productId;
-        navigate("consult");
-      };
-
       window.removeProductImage = function (i) {
         window._editingImages.splice(i, 1);
         renderProductMediaPreview();
@@ -10057,11 +7605,6 @@ textarea:focus-visible,
           fullDesc: document.getElementById("pFull").value.trim(),
           type: document.getElementById("pType").value.trim(),
           packaging: document.getElementById("pPack").value.trim(),
-          stock: document.getElementById("pStock")?.value.trim() || "",
-          usageShort: document.getElementById("pUsageShort")?.value.trim() || "",
-          trust1: document.getElementById("pTrust1")?.value.trim() || "",
-          trust2: document.getElementById("pTrust2")?.value.trim() || "",
-          trust3: document.getElementById("pTrust3")?.value.trim() || "",
           suitableFor: document.getElementById("pSuitable").value.trim(),
           weight: document.getElementById("pWeight").value.trim(),
           form: document.getElementById("pForm").value.trim(),
@@ -10177,53 +7720,7 @@ textarea:focus-visible,
         });
       }
 
-      
-      
-      function renderAdminCarts(el) {
-        if (!DB.carts) DB.carts = {};
-        const list = Object.values(DB.carts)
-          .filter((c) => c && Array.isArray(c.items) && c.items.length)
-          .sort((a, b) => String(b.updatedAt || "").localeCompare(String(a.updatedAt || "")));
-        el.innerHTML = `
-          <div class="admin-section-head">
-            <h2>سبد درخواست کاربران</h2>
-            <p style="color:var(--text-muted);font-size:0.9rem;">بدون قیمت — برای پیگیری علاقه مشتری و مشاوره</p>
-          </div>
-          <div class="admin-card-list">
-            ${
-              list.length
-                ? list
-                    .map((c) => {
-                      let label = c.userLabel || "مهمان";
-                      let extra = "";
-                      if (c.userId) {
-                        const u = (DB.users || []).find((x) => x.id == c.userId);
-                        if (u) {
-                          label = u.name || u.email || label;
-                          extra = [u.mobile, u.email].filter(Boolean).join(" · ");
-                        }
-                      }
-                      const items = (c.items || [])
-                        .map((it) => escapeHtml(it.name) + " × " + (it.qty || 1))
-                        .join("، ");
-                      return `
-                      <article class="admin-ticket-card">
-                        <div class="atc-top">
-                          <h3 class="atc-title">${escapeHtml(label)}</h3>
-                          <span class="badge badge-blue">${(c.items || []).reduce((s, it) => s + (it.qty || 1), 0)} عدد</span>
-                        </div>
-                        ${extra ? `<p style="font-size:0.8rem;color:var(--text-muted);margin:4px 0">${escapeHtml(extra)}</p>` : ""}
-                        <p class="atc-preview">${items}</p>
-                        <small style="color:var(--text-muted)">${escapeHtml(c.updatedAt || "")}</small>
-                      </article>`;
-                    })
-                    .join("")
-                : '<div class="admin-empty">هنوز هیچ سبد درخواستی ثبت نشده. وقتی کاربر «افزودن به سبد» بزند اینجا دیده می‌شود.</div>'
-            }
-          </div>`;
-      }
-
-function renderAdminSupport(el) {
+      function renderAdminSupport(el) {
         const folderKey = window._supportFolderKey || null;
         const folders = supportUserFolders();
 
@@ -10252,7 +7749,7 @@ function renderAdminSupport(el) {
                       (i) => i.status === "جدید" || i.status === "باز",
                     ).length;
                     return `
-                    <button type="button" class="admin-folder-card" onclick="openSupportUserFolder('${jsArg(f.key)}')">
+                    <button type="button" class="admin-folder-card" onclick="openSupportUserFolder('${f.key.replace(/'/g, "\\'")}')">
                       <div class="afc-icon">◉</div>
                       <div class="afc-body">
                         <strong>${escapeHtml(f.name)}</strong>
@@ -10497,7 +7994,7 @@ window.updateTicketStatus = function (id, status) {
                   <div class="auc-body">
                     <div class="auc-top">
                       <div>
-                        <h3 class="auc-name" style="cursor:pointer" onclick="openUserFolder(${u.id})">${escapeHtml(u.name || "بدون نام")}</h3>
+                        <h3 class="auc-name">${escapeHtml(u.name || "بدون نام")}</h3>
                         <div class="auc-meta">
                           <span>${escapeHtml(u.email || "—")}</span>
                           <span class="dot">·</span>
@@ -10514,7 +8011,7 @@ window.updateTicketStatus = function (id, status) {
                       ${
                         canManage && u.role !== "owner"
                           ? `
-                        ${u.role === "admin" ? `<button class="btn btn-sm btn-outline" onclick="openPermModal(${u.id})">دسترسی‌ها</button>` : ""}
+                        ${u.role === "admin" || u.role === "user" ? `<button class="btn btn-sm btn-outline" onclick="openPermModal(${u.id})">دسترسی‌ها</button>` : ""}
                         <button class="btn btn-sm btn-secondary" onclick="toggleUser(${u.id})">${u.status === "active" ? "مسدود کردن" : "رفع مسدودی"}</button>
                         ${u.role === "user" ? `<button class="btn btn-sm btn-primary" onclick="promoteToAdmin(${u.id})">ارتقا به مدیر</button>` : ""}
                         ${u.role === "admin" && isOwner() ? `<button class="btn btn-sm btn-muted" onclick="demoteAdmin(${u.id})">تبدیل به کاربر</button>` : ""}
@@ -10608,38 +8105,21 @@ window.updateTicketStatus = function (id, status) {
         renderAdminSection("users");
       };
 
-      /** مسدود/رفع مسدودی کاربر */
-      window.toggleUser = function (id) {
-        if (!hasPermission("users")) {
-          showToast("دسترسی لازم را ندارید", "error");
+      window.promoteToAdmin = function (id) {
+        if (!isOwner()) {
+          showToast("فقط مالک می‌تواند ارتقا دهد", "error");
           return;
         }
         const u = DB.users.find((x) => x.id === id);
         if (!u) return;
-        if (u.role === "owner") {
-          showToast("حساب مالک قابل تغییر نیست", "error");
-          return;
-        }
-        u.status = u.status === "blocked" ? "active" : "blocked";
-        saveDB(DB);
-        logActivity(
-          u.status === "blocked" ? "مسدود کردن کاربر" : "رفع مسدودی کاربر",
-          u.email || u.name || "",
-        );
-        showToast(u.status === "blocked" ? "کاربر مسدود شد" : "مسدودی کاربر برداشته شد");
-        renderAdminSection("users");
-      };
-
-      window.promoteToAdmin = function (id) {
-        const u = DB.users.find((x) => x.id === id);
-        if (!u || !isOwner()) return;
         u.role = "admin";
-        u.permissions = u.permissions || [];
+        u.permissions = u.permissions && u.permissions.length
+          ? u.permissions
+          : ["dashboard", "products", "tickets"];
         saveDB(DB);
-        showToast("کاربر به مدیر ارتقا یافت — حالا دسترسی‌ها را تنظیم کنید");
-        logActivity("ارتقا به مدیر", u.email || u.name);
+        logActivity("ارتقا به مدیر", u.email);
+        showToast("کاربر به مدیر ارتقا یافت");
         renderAdminSection("users");
-        setTimeout(() => openPermModal(id), 300);
       };
 
       window.demoteAdmin = function (id) {
@@ -10748,10 +8228,10 @@ window.updateTicketStatus = function (id, status) {
                     </div>
                     <div class="form-group"><label>فصل انتخابی</label>
                         <select id="sSeason" ${s.seasonalMode !== "manual" ? "disabled" : ""}>
-                          <option value="spring">بهار</option>
+                          <option value="spring">🌸 بهار</option>
                           <option value="summer">☼ تابستان</option>
-                          <option value="autumn">پاییز</option>
-                          <option value="winter">زمستان</option>
+                          <option value="autumn">🍂 پاییز</option>
+                          <option value="winter">❄️ زمستان</option>
                         </select>
                     </div>
                 </div>
@@ -10848,179 +8328,18 @@ window.updateTicketStatus = function (id, status) {
       }
 
       window.logout = function () {
-        try {
-          DB.currentUser = null;
-          saveDB(DB);
-        } catch (e) {}
-        try {
-          inlineEditActive = false;
-          clearInlineEditableElements();
-        } catch (e) {}
-        try { hideQuickAdminBar(); } catch (e) {}
-        try { updateAuthUI(); } catch (e) {}
-        try { updateCartBadge(); } catch (e) {}
-        try { updateNotifBadge(); } catch (e) {}
-        try { updateBottomBar(); } catch (e) {}
-        showToast("از حساب خارج شدید");
+        DB.currentUser = null;
+        saveDB(DB);
+        inlineEditActive = false;
+        clearInlineEditableElements();
+        hideQuickAdminBar();
+        updateAuthUI();
+        showToast("خروج انجام شد");
         navigate("home");
-        try { render(); } catch (e) {}
-      };
-
-
-      // Bootstrap from PHP brain
-      (async function bootstrapPhpBrain() {
-        try {
-          const remote = await loadDBFromServer();
-          if (remote) {
-            DB = remote;
-            try { updateAuthUI(); } catch (e) {}
-            try { render(); } catch (e) {}
-            try {
-              if (DB.currentUser && (DB.currentUser.role === "admin" || DB.currentUser.role === "owner")) {
-                showQuickAdminBar();
-                syncQuickSeasonSelect();
-              }
-            } catch (e) {}
-          }
-        } catch (e) {}
-      })();
-
-
-      window.openUserFolder = function (userId) {
-        const u = DB.users.find((x) => x.id == userId);
-        if (!u) return;
-        const visits = (DB.userVisits && DB.userVisits["u_" + u.id]) || [];
-        const cart = DB.carts && DB.carts["u_" + u.id];
-        const acts = (DB.activityLog || []).filter(
-          (a) => a.user === u.name || String(a.detail || "").includes(u.email || ""),
-        ).slice(0, 15);
-        const tickets = (DB.tickets || []).filter((t) => t.userId == u.id || t.email === u.email);
-        const consults = (DB.consultations || []).filter((c) => c.userId == u.id || c.email === u.email);
-        const html = `
-          <div class="modal-overlay open" id="userFolderModal">
-            <div class="modal" style="max-width:640px;max-height:90vh;">
-              <div class="modal-header">
-                <h3>پوشه کاربر: ${escapeHtml(u.name || "")}</h3>
-                <button class="modal-close" onclick="document.getElementById('userFolderModal').remove()">×</button>
-              </div>
-              <div class="modal-body" style="overflow:auto;">
-                <p><b>ایمیل:</b> ${escapeHtml(u.email || "—")} · <b>موبایل:</b> ${escapeHtml(u.mobile || "—")}</p>
-                <p><b>نقش:</b> ${escapeHtml(u.role)} · <b>وضعیت:</b> ${escapeHtml(u.status)}</p>
-                <h4 style="margin-top:16px;">سبد درخواست</h4>
-                <p style="font-size:0.9rem;color:var(--text-muted)">${
-                  cart && cart.items && cart.items.length
-                    ? cart.items.map((it) => escapeHtml(it.name) + " × " + (it.qty || 1)).join("، ")
-                    : "خالی"
-                }</p>
-                <h4 style="margin-top:16px;">بازدیدها</h4>
-                <ul style="font-size:0.85rem;padding-right:18px;">${
-                  visits.length
-                    ? visits.slice(0, 12).map((v) => `<li>${escapeHtml(v.page)} — ${escapeHtml(v.at)}</li>`).join("")
-                    : "<li>ثبت نشده</li>"
-                }</ul>
-                <h4 style="margin-top:16px;">تیکت / مشاوره</h4>
-                <p style="font-size:0.85rem;">تیکت: ${tickets.length} · مشاوره: ${consults.length}</p>
-                <h4 style="margin-top:16px;">فعالیت‌های مرتبط</h4>
-                <ul style="font-size:0.85rem;padding-right:18px;">${
-                  acts.length
-                    ? acts.map((a) => `<li>${escapeHtml(a.action)} — ${escapeHtml(a.detail || "")} · ${escapeHtml(a.time || "")}</li>`).join("")
-                    : "<li>موردی نیست</li>"
-                }</ul>
-              </div>
-            </div>
-          </div>`;
-        document.body.insertAdjacentHTML("beforeend", html);
-      };
-
-
-      function renderAdminNotifications(el) {
-        const list = (DB.notifications || []).slice().sort((a, b) => (b.id || 0) - (a.id || 0));
-        el.innerHTML = `
-          <div class="admin-header"><h1>اعلان‌ها / اخبار</h1></div>
-          <div class="form-card" style="margin-bottom:20px;">
-            <div class="form-group"><label>عنوان</label><input id="nTitle" placeholder="عنوان خبر" /></div>
-            <div class="form-group"><label>متن</label><textarea id="nBody" placeholder="متن اعلان برای کاربران"></textarea></div>
-            <button class="btn btn-primary" onclick="publishNotification()">انتشار اعلان</button>
-          </div>
-          <div class="admin-card-list">
-            ${
-              list.length
-                ? list.map((n) => `
-                  <article class="admin-ticket-card">
-                    <div class="atc-top">
-                      <h3 class="atc-title">${escapeHtml(n.title)}</h3>
-                      <button class="btn btn-sm btn-outline" onclick="deleteNotification(${n.id})">حذف</button>
-                    </div>
-                    <p class="atc-preview">${escapeHtml(n.body || "")}</p>
-                    <small style="color:var(--text-muted)">${escapeHtml(n.createdAt || "")}</small>
-                  </article>`).join("")
-                : '<div class="admin-empty">اعلانی ثبت نشده</div>'
-            }
-          </div>`;
-      }
-
-      window.publishNotification = function () {
-        const title = document.getElementById("nTitle")?.value.trim();
-        const body = document.getElementById("nBody")?.value.trim();
-        if (!title || !body) {
-          showToast("عنوان و متن الزامی است", "error");
-          return;
-        }
-        if (!DB.notifications) DB.notifications = [];
-        DB.notifications.unshift({
-          id: Date.now(),
-          title,
-          body,
-          createdAt: new Date().toLocaleString("fa-IR"),
-          readBy: [],
-          author: DB.currentUser ? DB.currentUser.name : "مدیر",
-        });
-        saveDB(DB);
-        logActivity("انتشار اعلان", title);
-        showToast("اعلان منتشر شد");
-        renderAdminSection("notifications");
-        try { updateNotifBadge(); } catch (e) {}
-      };
-
-      window.deleteNotification = function (id) {
-        DB.notifications = (DB.notifications || []).filter((n) => n.id != id);
-        saveDB(DB);
-        renderAdminSection("notifications");
-      };
-
-      function renderAdminAdmins(el) {
-        if (!isOwner()) {
-          el.innerHTML = '<div class="admin-empty">فقط مالک به این بخش دسترسی دارد</div>';
-          return;
-        }
-        const admins = (DB.users || []).filter((u) => u.role === "admin" || u.role === "owner");
-        el.innerHTML = `
-          <div class="admin-header"><h1>ادمین‌ها</h1></div>
-          <p class="admin-lead">برای دیدن فعالیت‌ها روی نام ادمین بزنید. دسترسی‌ها فقط برای نقش مدیر تنظیم می‌شود.</p>
-          <div class="admin-card-list">
-            ${admins
-              .map((u) => {
-                const acts = (DB.activityLog || [])
-                  .filter((a) => a.user === u.name)
-                  .slice(0, 8);
-                return `
-                <article class="admin-ticket-card" style="cursor:pointer" onclick="openUserFolder(${u.id})">
-                  <div class="atc-top">
-                    <h3 class="atc-title">${escapeHtml(u.name)} ${u.role === "owner" ? "(مالک)" : ""}</h3>
-                    <span class="badge badge-blue">${u.role}</span>
-                  </div>
-                  <p class="atc-preview">${escapeHtml(u.email || "")} · ${escapeHtml(u.mobile || "")}</p>
-                  <small style="color:var(--text-muted)">آخرین فعالیت‌ها: ${
-                    acts.length
-                      ? acts.map((a) => escapeHtml(a.action)).join("، ")
-                      : "—"
-                  }</small>
-                </article>`;
-              })
-              .join("")}
-          </div>`;
       };
 
 </script>
-</body>
+
+<img href = "/organic-site/assets/images/">
+  </body>
 </html>
