@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>همه محصولات | فروشگاه کود ارگانیک</title>
+<meta name="description" content="فهرست محصولات کود با جست‌وجو، فیلتر و مشخصات کامل.">
+<link rel="canonical" href="https://abdorrezamovahedi.github.io/kood/pages/products.html">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+<header class="site-header"><div class="wrap headrow">
+<button class="iconbtn menu-toggle" id="menuToggle" aria-expanded="false"><span class="burger"><i></i><i></i><i></i></span></button>
+<a class="brand" href="../index.html"><span class="logo">❧</span><span><strong>کود ارگانیک</strong><small>فروشگاه کود</small></span></a>
+<nav class="site-nav" id="mainNav"><a href="../index.html">خانه</a><a href="products.html" class="active">فروشگاه</a><a href="guide.html">راهنما</a><a href="contact.html">تماس</a></nav>
+<div class="search-wrap"><form class="search" id="headerSearch"><input id="searchInput" placeholder="جست‌وجو..." autocomplete="off"><button type="submit">⌕</button></form><div class="search-suggest" id="searchSuggest" hidden></div></div>
+<div class="head-actions"><button class="iconbtn" id="cartOpen">🛒 <span class="count" id="cartCount">0</span></button></div>
+</div></header>
+<main>
+<section class="page-hero"><div class="wrap"><nav class="breadcrumb"><a href="../index.html">خانه</a> / فروشگاه</nav><h1>همه محصولات</h1><p>جست‌وجو و فیلتر محصولات</p></div></section>
+<section class="section"><div class="wrap">
+<div class="catalog-tools">
+<input id="catalogSearch" placeholder="نام محصول...">
+<select id="categoryFilter"></select>
+<select id="sortFilter"><option value="featured">منتخب</option><option value="name">نام</option><option value="low">ارزان‌تر</option><option value="high">گران‌تر</option></select>
+<button class="btn soft small" id="clearFilters">پاک‌کردن</button>
+</div>
+<p id="resultCount" style="font-size:13px;color:var(--muted)"></p>
+<div class="grid-4" id="catalogProducts"></div>
+</div></section>
+</main>
+<footer class="site-footer"><div class="wrap foot-bottom"><span>© <span id="year"></span> کود ارگانیک</span></div></footer>
+<div class="overlay" id="cartOverlay"><div class="drawer"><div class="drawer-head"><h2 style="margin:0;color:var(--green)">سبد</h2><button class="close" id="cartClose">بستن</button></div><div id="cartItems"></div><div id="cartSummary"></div></div></div>
+<div class="toast" id="toast"></div>
+<script src="../js/main.js"></script><script src="../js/products.js"></script><script src="../js/cart.js"></script><script src="../js/search.js"></script>
+<script>
+(async function(){
+ const [products, categories] = await Promise.all([loadJSON(dataPath('products.json')), loadJSON(dataPath('categories.json'))]);
+ const params = new URLSearchParams(location.search);
+ $('#categoryFilter').innerHTML = '<option value="">همه دسته‌ها</option>' + categories.map(c=>`<option value="${c.id}">${c.name}</option>`).join('');
+ if(params.get('cat')) $('#categoryFilter').value = params.get('cat');
+ if(params.get('q')) { $('#catalogSearch').value = params.get('q'); $('#searchInput').value = params.get('q'); }
+ function paint(){
+  let list = filterProducts(products, categories, $('#catalogSearch').value, $('#categoryFilter').value);
+  const sort = $('#sortFilter').value;
+  if(sort==='name') list.sort((a,b)=>a.name.localeCompare(b.name,'fa'));
+  if(sort==='low') list.sort((a,b)=>a.price-b.price);
+  if(sort==='high') list.sort((a,b)=>b.price-a.price);
+  const q = $('#catalogSearch').value.trim();
+  $('#resultCount').textContent = q ? `${list.length} نتیجه برای «${q}»` : `${list.length} محصول`;
+  renderProductGrid(list, categories, $('#catalogProducts'), '../');
+ }
+ $('#catalogSearch').addEventListener('input', paint);
+ $('#categoryFilter').addEventListener('change', paint);
+ $('#sortFilter').addEventListener('change', paint);
+ $('#clearFilters').addEventListener('click', ()=>{ $('#catalogSearch').value=''; $('#categoryFilter').value=''; $('#sortFilter').value='featured'; paint(); });
+ paint(); bindCartUI(products); renderCart(products); initSearch(products, categories);
+})();
+</script>
+</body></html>

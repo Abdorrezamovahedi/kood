@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تماس با ما | کود ارگانیک</title>
+<meta name="description" content="ارتباط با فروشگاه کود ارگانیک">
+<link rel="canonical" href="https://abdorrezamovahedi.github.io/kood/pages/contact.html">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+<header class="site-header"><div class="wrap headrow">
+<a class="brand" href="../index.html"><span class="logo">❧</span><span><strong>کود ارگانیک</strong><small>فروشگاه</small></span></a>
+<nav class="site-nav" id="mainNav"><a href="../index.html">خانه</a><a href="products.html">فروشگاه</a><a href="contact.html" class="active">تماس</a></nav>
+<button class="iconbtn menu-toggle" id="menuToggle" aria-expanded="false"><span class="burger"><i></i><i></i><i></i></span></button>
+</div></header>
+<main>
+<section class="page-hero"><div class="wrap"><nav class="breadcrumb"><a href="../index.html">خانه</a> / تماس</nav><h1>تماس با ما</h1><p>فرم آماده‌سازی پیام</p></div></section>
+<section class="section"><div class="wrap" style="max-width:640px">
+<form class="content-panel" id="contactForm">
+<div class="field"><label for="name">نام</label><input id="name" required></div>
+<div class="field"><label for="phone">شماره تماس</label><input id="phone" required inputmode="tel"></div>
+<div class="field"><label for="message">پیام</label><textarea id="message" required></textarea></div>
+<button class="btn" type="submit">آماده‌سازی پیام</button>
+<div class="notice">ارسال واقعی نیاز به اتصال سرویس دارد.</div>
+</form></div></section>
+</main>
+<footer class="site-footer"><div class="wrap foot-bottom"><span>© <span id="year"></span> کود ارگانیک</span></div></footer>
+<div class="toast" id="toast"></div>
+<script src="../js/main.js"></script>
+<script>
+$('#contactForm').addEventListener('submit', (e) => {
+ e.preventDefault();
+ const text = `پیام تماس\nنام: ${$('#name').value}\nتلفن: ${$('#phone').value}\nپیام: ${$('#message').value}`;
+ if (navigator.clipboard?.writeText) navigator.clipboard.writeText(text).then(() => toast('متن پیام کپی شد.'));
+ else prompt('متن را کپی کنید:', text);
+});
+</script>
+</body></html>

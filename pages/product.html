@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>جزئیات محصول | کود ارگانیک</title>
+<meta name="description" content="مشخصات کامل محصول کشاورزی">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+<header class="site-header"><div class="wrap headrow">
+<button class="iconbtn menu-toggle" id="menuToggle" aria-expanded="false"><span class="burger"><i></i><i></i><i></i></span></button>
+<a class="brand" href="../index.html"><span class="logo">❧</span><span><strong>کود ارگانیک</strong><small>فروشگاه</small></span></a>
+<nav class="site-nav" id="mainNav"><a href="../index.html">خانه</a><a href="products.html" class="active">فروشگاه</a><a href="contact.html">تماس</a></nav>
+<div class="search-wrap"><form class="search" id="headerSearch"><input id="searchInput" placeholder="جست‌وجو..." autocomplete="off"><button type="submit">⌕</button></form><div class="search-suggest" id="searchSuggest" hidden></div></div>
+<div class="head-actions"><button class="iconbtn" id="cartOpen">🛒 <span class="count" id="cartCount">0</span></button></div>
+</div></header>
+<main><section class="section"><div class="wrap" id="detailRoot"><div class="empty">در حال بارگذاری...</div></div></section></main>
+<footer class="site-footer"><div class="wrap foot-bottom"><span>© <span id="year"></span> کود ارگانیک</span></div></footer>
+<div class="overlay" id="cartOverlay"><div class="drawer"><div class="drawer-head"><h2 style="margin:0;color:var(--green)">سبد</h2><button class="close" id="cartClose">بستن</button></div><div id="cartItems"></div><div id="cartSummary"></div></div></div>
+<div class="toast" id="toast"></div>
+<script src="../js/main.js"></script><script src="../js/products.js"></script><script src="../js/cart.js"></script><script src="../js/search.js"></script>
+<script>
+(async function(){
+ const [products, categories] = await Promise.all([loadJSON(dataPath('products.json')), loadJSON(dataPath('categories.json'))]);
+ const id = Number(new URLSearchParams(location.search).get('id'));
+ const p = products.find(x => x.id === id);
+ const root = $('#detailRoot');
+ if(!p){ root.innerHTML = '<div class="empty">محصول پیدا نشد. <a href="products.html">بازگشت</a></div>'; return; }
+ document.title = p.name + ' | کود ارگانیک';
+ const rows = [['دسته‌بندی', catName(categories, p.cat)],['وزن', p.weight],['ترکیبات', p.composition||'—'],['مناسب برای', p.suitable||'—'],['نحوه مصرف', p.usage||'—']].map(([k,v])=>`<div class="spec-row"><span>${escapeHTML(k)}</span><strong>${escapeHTML(v)}</strong></div>`).join('');
+ root.innerHTML = `<nav class="breadcrumb"><a href="../index.html">خانه</a> / <a href="products.html">فروشگاه</a> / ${escapeHTML(p.name)}</nav>
+ <div class="detail-layout"><div class="detail-image"><div style="font-size:64px">${p.emoji||'🌱'}</div></div>
+ <div class="detail-copy"><span class="eyebrow">${escapeHTML(catName(categories, p.cat))}</span><h1>${escapeHTML(p.name)}</h1><p>${escapeHTML(p.desc)}</p>
+ <div class="price">${money(p.price)} <small>قیمت اعلامی</small></div><div class="spec-table">${rows}</div>
+ <div class="notice">${escapeHTML(p.notes||'')}</div>
+ <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><button class="btn" data-add="${p.id}">افزودن به سبد</button><a class="btn outline" href="contact.html">سوال</a><a class="btn soft" href="products.html">بازگشت</a></div></div></div>`;
+ bindCartUI(products); renderCart(products); initSearch(products, categories);
+})();
+</script>
+</body></html>
