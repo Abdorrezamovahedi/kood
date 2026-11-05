@@ -1,23 +1,19 @@
 # کود ارگانیک (kood)
 
-فروشگاه تخصصی کود و محصولات کشاورزی
+فروشگاه تخصصی کود و محصولات کشاورزی — معماری چندفایلی و سئو‌شده
 
-## ساختار فایل‌ها
+## ساختار
 
 ```
 kood/
-├── index.html                 # صفحه اصلی (به‌زودی)
+├── index.html
+├── robots.txt
+├── sitemap.xml
 ├── css/
-│   └── style.css              # استایل مشترک
-├── js/                        # اسکریپت‌ها
+├── js/
 ├── pages/
-│   └── bimari-haye-giahi.html # راهنمای بیماری‌های گیاهی (سئو‌شده)
-└── images/                    # تصاویر محصولات و مقالات
+└── assets/
 ```
 
-## صفحه آماده
-
-- [بیماری‌های رایج گیاهان زراعی و باغی](pages/bimari-haye-giahi.html)
-  - عنوان و متا سئو
-  - Schema: Article + FAQ + Breadcrumb
-  - ساختار خوانا و بخش‌بندی‌شده
+## ریپو
+https://github.com/Abdorrezamovahedi/kood
