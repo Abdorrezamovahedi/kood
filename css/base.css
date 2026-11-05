@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+  --green:#1f3a24;
+  --forest:#2d4a30;
+  --mid:#3d6340;
+  --soft:#5a7a55;
+  --pale:#eef2ea;
+  --pale2:#f5f7f3;
+  --brown:#6b4a2b;
+  --ink:#1f2a22;
+  --muted:#5e6b62;
+  --line:#e3e0d7;
+  --bg:#f3f2ed;
+  --white:#fff;
+  --danger:#b33a2b;
+  --radius:8px;
+  --shadow:0 1px 4px rgba(31,58,36,.06);
+  --shadow-md:0 4px 14px rgba(31,58,36,.08);
+  --shadow-lg:0 8px 24px rgba(31,58,36,.1);
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Vazirmatn',Tahoma,Arial,sans-serif;
+  line-height:1.75;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer;border:0;background:none}
+.wrap{width:min(1100px,calc(100% - 32px));margin:auto}
+
+.skip-link{
+  position:absolute;right:-999px;top:0;z-index:100;
+  background:#fff;color:var(--green);padding:8px 12px;border-radius:8px;
+}
+.skip-link:focus{right:8px;top:8px}
+
+h1,h2,h3{line-height:1.4}
+p{margin:0 0 12px}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+}
